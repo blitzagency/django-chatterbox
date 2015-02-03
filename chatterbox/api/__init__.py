@@ -1,6 +1,6 @@
 import pytz
 from datetime import (datetime, timedelta)
-from requests_oauthlib import OAuth2Session
+from requests_oauthlib import OAuth2Session, OAuth1Session
 
 
 class SimpleProfile(object):
@@ -63,31 +63,12 @@ class OAuth1Api(Api):
         self.key = key
         self.client = client
 
-        refresh_extras = {
-            "client_id": client.client_id,
-            "client_secret": client.client_secret,
-        }
-
-        token = {
-            'access_token': key.access_token,
-            'token_type': client.driver.token_type,
-            'refresh_token': key.refresh_token,
-        }
-
-        self._session = OAuth2Session(
-            client.client_id,
-            token=token,
-            auto_refresh_url=client.driver.refresh_url,
-            auto_refresh_kwargs=refresh_extras,
-            token_updater=self.token_updater
+        self._session = OAuth1Session(
+            client_key=client.client_id,
+            client_secret=client.client_secret,
+            resource_owner_key=key.access_token,
+            resource_owner_secret=key.secret,
         )
-
-        # allowed values:
-        # AUTH_HEADER = 'auth_header'
-        # URI_QUERY = 'query'
-        # BODY = 'body'
-        # https://github.com/idan/oauthlib/blob/master/oauthlib/oauth2/rfc6749/clients/base.py#L23-L25
-        self._session._client.default_token_placement = client.driver.bearer_type
 
 
 class OAuth2Api(Api):
