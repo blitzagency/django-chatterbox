@@ -32,6 +32,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('access_token', models.CharField(max_length=200)),
+                ('secret', models.CharField(max_length=200, null=True, blank=True)),
                 ('expires', models.DateTimeField(null=True, blank=True)),
                 ('refresh_token', models.CharField(max_length=200, null=True, blank=True)),
                 ('service_username', models.CharField(max_length=200)),

@@ -2,7 +2,7 @@ import time
 import calendar
 import pytz
 from datetime import (datetime, timedelta)
-from requests_oauthlib import OAuth2Session
+from requests_oauthlib import OAuth2Session, OAuth1Session
 
 
 class SimpleProfile(object):
@@ -58,11 +58,21 @@ class Api(object):
         raise NotImplementedError("whoami() must be defined in a subclass")
 
 
-class Oauth1Api(Api):
-    pass
+class OAuth1Api(Api):
+    def __init__(self, key, client):
+
+        self.key = key
+        self.client = client
+
+        self._session = OAuth1Session(
+            client_key=client.client_id,
+            client_secret=client.client_secret,
+            resource_owner_key=key.access_token,
+            resource_owner_secret=key.secret,
+        )
 
 
-class Oauth2Api(Api):
+class OAuth2Api(Api):
     def __init__(self, key, client):
 
         self.key = key
