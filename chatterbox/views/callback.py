@@ -48,6 +48,7 @@ def callback(request):
 
     key = Key.objects.create(
         access_token=data["access_token"],
+        secret=data.get("secret", None),
         expires=data.get("expires_at", None),
         refresh_token=data.get("refresh_token", None),
         client=client,

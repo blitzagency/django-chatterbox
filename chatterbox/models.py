@@ -69,6 +69,10 @@ class Client(models.Model):
 
 class Key(models.Model):
     access_token = models.CharField(max_length=200)
+
+    # Used in OAuth1
+    secret = models.CharField(max_length=200, blank=True, null=True)
+
     expires = models.DateTimeField(blank=True, null=True)
     refresh_token = models.CharField(max_length=200, blank=True, null=True)
     client = models.ForeignKey('Client', related_name='client_keys')
