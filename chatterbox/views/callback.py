@@ -43,11 +43,10 @@ def callback(request):
     driver = client.driver
     driver.request = request
 
-    #TODO try/except this...
+    # TODO try/except this...
     data = driver.callback(request.GET, client.redirect_url)
 
-
-    Key.objects.create(
+    key = Key.objects.create(
         access_token=data["access_token"],
         expires=data.get("expires_at", None),
         refresh_token=data.get("refresh_token", None),
@@ -55,3 +54,10 @@ def callback(request):
         service=client.service,
         user=request.user
     )
+
+    api = key.api
+    profile = api.simple_profile()
+
+    key.service_username = profile.name
+    key.service_user_id = profile.id
+    key.save()
