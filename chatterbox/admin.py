@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import (Service, Client, Key)
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 
 
 @admin.register(Client)
@@ -37,5 +39,29 @@ class KeyAdmin(admin.ModelAdmin):
     get_service_user_id.admin_order_field = 'service_user_id'
 
 
-admin.site.register(Service)
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    readonly_fields = ("provider_url", "docs_url")
+
+    def provider_url(self, instance):
+        Driver = instance.load_driver()
+
+        if Driver:
+            return format_html("!!!!<a href=\"{0}\">{0}</a>", Driver.provider_url)
+
+        return "Unknown"
+
+    def docs_url(self, instance):
+        Driver = instance.load_driver()
+
+        if Driver:
+            return format_html("<a href=\"{0}\">{0}</a>", Driver.docs_url)
+
+        return "Unknown"
+
+    provider_url.short_description = "Provider Url"
+    provider_url.allow_tags = True
+
+    docs_url.short_description = "Docs Url"
+    docs_url.allow_tags = True
 
