@@ -86,6 +86,13 @@ class Oauth2Api(Api):
             token_updater=self.token_updater
         )
 
+        # allowed values:
+        # AUTH_HEADER = 'auth_header'
+        # URI_QUERY = 'query'
+        # BODY = 'body'
+        # https://github.com/idan/oauthlib/blob/master/oauthlib/oauth2/rfc6749/clients/base.py#L23-L25
+        self._session._client.default_token_placement = client.driver.bearer_type
+
     def token_updater(self, token):
 
         # save access_token
