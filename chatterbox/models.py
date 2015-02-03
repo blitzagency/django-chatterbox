@@ -81,6 +81,28 @@ class Key(models.Model):
     service_username = models.CharField(max_length=200)
     service_user_id = models.CharField(max_length=200)
 
+    @property
+    def api(self):
+        try:
+            return self.__api
+        except AttributeError:
+            obj = self.service.load_driver()
+            Api = self.load_api(obj.api_path)
+            self.__api = Api(key=self, client=self.client)
+
+        return self.__api
+
+    def load_api(self, path):
+        parts = path.split('.')
+
+        module = '.'.join(parts[0:-1])
+        kls = parts[-1]
+
+        try:
+            return getattr(importlib.import_module(module), kls)
+        except:
+            return None
+
     # id = db.Column(db.Integer, primary_key=True)
     # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # service_alias = db.Column(db.String)
