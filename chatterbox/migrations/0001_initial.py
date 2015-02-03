@@ -34,6 +34,8 @@ class Migration(migrations.Migration):
                 ('access_token', models.CharField(max_length=200)),
                 ('expires', models.DateTimeField(null=True, blank=True)),
                 ('refresh_token', models.CharField(max_length=200, null=True, blank=True)),
+                ('service_username', models.CharField(max_length=200)),
+                ('service_user_id', models.CharField(max_length=200)),
                 ('client', models.ForeignKey(related_name='client_keys', to='chatterbox.Client')),
             ],
             options={

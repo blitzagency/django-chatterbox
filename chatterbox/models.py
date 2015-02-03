@@ -77,6 +77,10 @@ class Key(models.Model):
                              blank=True, null=True,
                              related_name="chatterbox_keys"
                              )
+
+    service_username = models.CharField(max_length=200)
+    service_user_id = models.CharField(max_length=200)
+
     # id = db.Column(db.Integer, primary_key=True)
     # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # service_alias = db.Column(db.String)
