@@ -1,20 +1,18 @@
-from . import OAuth1Api
+from . import OAuth1Api, SimpleProfile
 
 
 class Twitter(OAuth1Api):
     def whoami(self):
-        return self.get("https://api.instagram.com/v1/users/self")
+        return self.get("https://api.twitter.com/1.1/account/verify_credentials.json")
 
     def simple_profile(self):
         data = self.whoami()
 
-        data = data.get('data', {})
-
         result = {
-            "id": data.get("id", None),
-            "name": data.get("username", None),
-            "link": "http://instagram.com/{}".format(data.get("username", None)),
-            "picture": data.get("profile_picture", None)
+            "id": data.get("id_str", None),
+            "name": data.get("screen_name", None),
+            "link": "https://twitter.com/".format(data.get("screen_name", None)),
+            "picture": data.get("profile_image_url", None)
         }
 
         profile = SimpleProfile(**result)
