@@ -1,4 +1,4 @@
-import urllib
+from six.moves.urllib.parse import urlencode
 from . import OAuth2Api, SimpleProfile
 
 
@@ -32,7 +32,7 @@ class YouTube(OAuth2Api):
         url = 'https://www.googleapis.com/youtube/v3/search?part={}&q={}'\
             .format(part, query)
         if kwargs:
-            additional = urllib.urlencode(kwargs)
+            additional = urlencode(kwargs)
             url = url + '&{}'.format(additional)
         return self.get(url)
 
@@ -49,6 +49,6 @@ class YouTube(OAuth2Api):
         url = 'https://www.googleapis.com/youtube/v3/search?part={}&forMine=true&type=video'\
             .format(part)
         if kwargs:
-            additional = urllib.urlencode(kwargs)
+            additional = urlencode(kwargs)
             url = url + '&{}'.format(additional)
         return self.get(url)
