@@ -1,3 +1,4 @@
+import urllib
 from . import Oauth2Api, SimpleProfile
 
 
@@ -18,5 +19,19 @@ class YouTube(Oauth2Api):
         profile = SimpleProfile(**result)
         return profile
 
-    # def search(self, query):
-    #     return self.get('asdf?{}'.format(query))
+    def search(self, query, part='snippet', **kwargs):
+        """https://developers.google.com/youtube/v3/docs/search/list#try-it
+
+        Common kwargs to pass to youtube:
+        maxResults -- int value
+        pageToken -- ex:CAUQAA   this is returned from the previous page result
+
+        the docs link above has a full list of all
+        """
+
+        url = 'https://www.googleapis.com/youtube/v3/search?part={}&q={}'\
+            .format(part, query)
+        if kwargs:
+            additional = urllib.urlencode(kwargs)
+            url = url + '&{}'.format(additional)
+        return self.get(url)
