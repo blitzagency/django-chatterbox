@@ -1,9 +1,11 @@
 from .oauth import OAuth2
 
+
 class Instagram(OAuth2):
     # General info about the provider
     provider_url = "http://instagram.com"
     docs_url = "http://instagram.com/developer/"
+    api_path = 'chatterbox.api.instagram.Instagram'
 
     # URLs to interact with the API
     authorize_url = "https://api.instagram.com/oauth/authorize/"

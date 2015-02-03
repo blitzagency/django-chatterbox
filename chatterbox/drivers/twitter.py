@@ -6,6 +6,7 @@ class Twitter(OAuth1):
     provider_url = 'https://www.twitter.com/'
     docs_url = 'https://dev.twitter.com/docs'
     category = 'Social'
+    api_path = 'chatterbox.api.twitter.Twitter'
 
     # URLs to interact with the API
     request_token_url = 'https://api.twitter.com/oauth/request_token'
@@ -17,7 +18,6 @@ class Twitter(OAuth1):
         ('write', 'read and send tweets'),
         ('dm', 'read and send tweets, including DMs'),
     ]
-
 
     # Twitter's permissions model is subtractive, rather than additive. foauth
     # is registered with maximum permissions, which then have to be limited on

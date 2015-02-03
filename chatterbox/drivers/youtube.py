@@ -4,9 +4,9 @@ from .oauth import OAuth2
 class YouTube(OAuth2):
     authorize_url = "https://accounts.google.com/o/oauth2/auth"
     access_token_url = "https://accounts.google.com/o/oauth2/token"
-    provider_url =  "http://www.youtube.com"
+    provider_url = "http://www.youtube.com"
     docs_url = "http://www.youtube.com"
-
+    api_path = 'chatterbox.api.youtube.YouTube'
 
     available_permissions = [
         ("https://www.googleapis.com/auth/youtube", "Manage your YouTube account"),
@@ -15,7 +15,6 @@ class YouTube(OAuth2):
         ("https://www.googleapis.com/auth/youtubepartner", "View and manage your assets and associated content on YouTube"),
         ("https://www.googleapis.com/auth/youtubepartner-channel-audit", "View private information of your YouTube channel relevant during the audit process with a YouTube partner"),
     ]
-
 
     def get_authorize_params(self, redirect_url, scopes):
         params = super(YouTube, self).get_authorize_params(redirect_url, scopes)
