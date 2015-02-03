@@ -20,3 +20,6 @@ class Instagram(OAuth2Api):
 
         profile = SimpleProfile(**result)
         return profile
+
+    def user_media(self, **kwargs):
+        pass
