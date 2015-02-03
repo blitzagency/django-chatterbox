@@ -1,3 +1,4 @@
+import json
 import pytz
 from datetime import (datetime, timedelta)
 from requests_oauthlib import OAuth2Session
@@ -15,7 +16,7 @@ class Api(object):
             url=url,
             **kwargs
         )
-        return r.json()
+        return r.content
 
     def get(self, url, **kwargs):
         r = self._session.request(
@@ -23,7 +24,14 @@ class Api(object):
             url=url,
             **kwargs
         )
-        return r.json()
+        return self.parse_response(r)
+
+    def parse_response(self, response):
+        return response.json
+
+    # this must be overriden
+    def whoami(self):
+        pass
 
 
 class Oauth1Api(Api):
