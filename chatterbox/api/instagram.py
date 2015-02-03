@@ -11,10 +11,12 @@ class Instagram(OAuth2Api):
 
         data = data.get('data', {})
 
+        link = "http://instagram.com/{}".format(data.get("username", None))
+
         result = {
             "id": data.get("id", None),
             "name": data.get("username", None),
-            "link": "http://instagram.com/{}".format(data.get("username", None)),
+            "link": link,
             "picture": data.get("profile_picture", None)
         }
 
