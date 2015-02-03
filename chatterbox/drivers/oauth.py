@@ -4,7 +4,6 @@ from datetime import (datetime, timedelta)
 import pytz
 from oauthlib.oauth1.rfc5849 import SIGNATURE_HMAC, SIGNATURE_TYPE_AUTH_HEADER
 from oauthlib.common import generate_token
-from requests_oauthlib import OAuth2Session
 from requests_oauthlib import OAuth1 as OAuth1Manager
 from six.moves.urllib.parse import parse_qsl
 
@@ -17,19 +16,16 @@ class OAuthDenied(Exception):
     pass
 
 
-
 class OAuth(object):
     verify = True
     signature_method = SIGNATURE_HMAC
     signature_type = SIGNATURE_TYPE_AUTH_HEADER
-
 
     def __init__(self, client_id, client_secret):
         self.client_id = client_id
         self.client_secret = client_secret
         self.request = None
         self.alias = self.__class__.__name__.lower()
-
 
     @property
     def session(self):
@@ -41,10 +37,8 @@ class OAuth(object):
     def get_request_token_url(self):
         return self.request_token_url
 
-
     def get_access_token_url(self):
         return self.access_token_url
-
 
     def get_authorize_url(self, redirect_url, scopes):
 
@@ -56,14 +50,12 @@ class OAuth(object):
         req = requests.Request(url=self.authorize_url, params=params)
         return req.prepare().url
 
-
     def callback(self, data, redirect_uri):
         """
         Receives the full callback from the service and returns a 2-tuple
         containing the user token and user secret (if applicable).
         """
         raise NotImplementedError("callback() must be defined in a subclass")
-
 
 
 class OAuth1(OAuth):
@@ -144,10 +136,10 @@ class OAuth1(OAuth):
                                 verify=self.verify, stream=True)
 
 
-
 class OAuth2(OAuth):
     auth = None
     supports_state = True
+    token_type = "Bearer"
 
     def parse_token(self, content):
         data = json.loads(content)
@@ -192,7 +184,6 @@ class OAuth2(OAuth):
             'code': data.get('code', None),
             'redirect_uri': redirect_url
         }, verify=self.verify, auth=self.auth)
-
 
     def callback(self, data, redirect_url):
         state = self.session.pop('chatterbox_%s_state' % self.alias, None)
