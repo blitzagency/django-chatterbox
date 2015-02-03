@@ -1,0 +1,77 @@
+# System
+# ========================================================================== #
+
+.DS_Store
+Thumbs.db
+.vagrant
+.sass-cache
+composer.lock
+
+# Security
+# ========================================================================== #
+
+*rsa
+*rsa.pub
+*.pub
+
+# Compiled Source
+# ========================================================================== #
+
+*.css
+*.pyc
+*.egg
+*.egg-info
+*$py.class
+
+# Project Wiki
+# ========================================================================== #
+
+wiki/
+wiki/*.md
+
+# Binaries
+# ========================================================================== #
+
+# Ignore large binary files: video, audio, etc.
+# Add to this list as necessary.
+
+*.mp3
+*.ogv
+*.oga
+*.ogx
+*.ogg
+*.wav
+*.webm
+*.mp4
+*.avi
+*.m4v
+*.h264
+*.mkv
+
+# Directories
+# ========================================================================== #
+
+# Add directories on a per-project basis.
+
+dist/
+build/
+deploy/
+coverage/
+node_modules/
+
+# Project
+# ========================================================================== #
+
+.coverage
+nosetests.xml
+*.sublime-*
+
+tests/rig
+
+# Ignore Exceptions
+# ========================================================================== #
+
+!/tests/lib/jasmine/jasmine.css
+npm-debug.log
+
+docs

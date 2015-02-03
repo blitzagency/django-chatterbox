@@ -1,0 +1,14 @@
+fileserver_backend:
+  - roots
+  - git
+
+gitfs_remotes:
+  - git://github.com/cloudseed-project/cloudseed-formulas.git
+
+file_roots:
+  base:
+  - /srv/salt
+
+pillar_roots:
+  base:
+  - /srv/pillar

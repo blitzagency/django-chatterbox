@@ -1,0 +1,41 @@
+
+{% load require %}<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html itemscope itemtype="http://schema.org/Article" class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% block title %}default title{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta property="og:title" content="title">
+    <meta property="og:description" content="description">
+    <meta property="og:image" content="http://path.com/to/image.jpg">
+    <link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}css/styles.css"/>
+    
+    {% block headstyle %}{% endblock %} 
+    
+    {% block headscript %}
+    {% require_module 'app/main' %}
+    {% endblock %}
+
+    {% block head %}{% endblock %}
+
+  </head>
+  <body>
+
+    <div class="app">
+
+      {% block header %}{% endblock %}
+
+      {% block content %}{% endblock %}
+
+      {% block footer %}{% endblock %}
+      
+    </div>
+
+    <div id="fb-root"></div>
+  </body>
+</html>

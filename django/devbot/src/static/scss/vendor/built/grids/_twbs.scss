@@ -1,0 +1,23 @@
+@import "./twbs/config/config";
+@import "./twbs/mixins/mixins";
+@import "./twbs/helpers/helpers";
+
+$BUILT_TWBS_DEBUG: false !default;
+
+$built-twbs: get-built-twbs-config($overrides: $built-twbs);
+$susy: get-built-twbs-susy-config($config: $built-twbs);
+$breakpoint-to-ems: map-get($built-twbs, breakpoints-use-ems);
+
+@if($BUILT_TWBS_DEBUG) {
+    @debug "BUILT_TWBS_DEBUG -- Built Twbs Config";
+    @debug $built-twbs;
+    @debug "";
+
+    @debug "BUILT_TWBS_DEBUG -- Susy Config";
+    @debug $susy;
+    @debug "";
+
+    @debug "BUILT_TWBS_DEBUG -- Breakpoint breakpoint-to-ems";
+    @debug $breakpoint-to-ems;
+    @debug "";
+}

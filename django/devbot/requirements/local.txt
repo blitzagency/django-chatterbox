@@ -1,0 +1,7 @@
+-r base.txt
+
+django-debug-toolbar
+pdbpp
+pylint
+coverage
+Fabric

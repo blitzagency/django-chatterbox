@@ -1,0 +1,3 @@
+Sphinx
+docutils
+repoze.sphinx.autointerface

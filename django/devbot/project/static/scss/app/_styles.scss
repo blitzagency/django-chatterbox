@@ -1,0 +1,25 @@
+// globals ----------------------------------------------------------------- //
+
+@import "susy";
+@import "breakpoint";
+
+@import "vendor/bourbon/bourbon";
+@import "vendor/normalize/normalize";
+
+
+// ..note:
+//      order matters, this line must come before built imports
+@import "./config";
+
+@import "vendor/built/core";
+@import "vendor/built/app";
+
+// init -------------------------------------------------------------------- //
+
+@include print-normalize();
+@include print-built-app-scaffold();
+
+@include print-built-app-helpers();
+
+// project ----------------------------------------------------------------- //
+

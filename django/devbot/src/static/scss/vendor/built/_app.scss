@@ -1,0 +1,17 @@
+@import "./app/config/config";
+@import "./app/utils/scaffold";
+
+$BUILT_APP_DEBUG: false !default;
+
+$built-app: get-built-config($overrides: $built-app);
+$em-base: get($built-app, font-base);
+
+// debug ------------------------------------------------------------------ //
+
+@if($BUILT_APP_DEBUG) {
+    @debug "BUILT_APP_DEBUG -- Built App Config";
+    @debug $built-app;
+
+    @debug "BUILT_APP_DEBUG -- Bourbon Em Base";
+    @debug $em-base;
+}

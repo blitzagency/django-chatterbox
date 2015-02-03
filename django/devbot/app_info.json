@@ -1,0 +1,20 @@
+{
+	"dev": {
+		"heroku_app_name": "app-dev",
+		"heroku_remote_name": "dev",
+		"branch_name": "dev",
+		"DJANGO_SETTINGS_MODULE":"project.settings.dev"
+	},
+	"staging": {
+		"heroku_app_name": "app-staging",
+		"heroku_remote_name": "staging",
+		"branch_name": "staging",
+		"DJANGO_SETTINGS_MODULE":"project.settings.staging"
+	},
+	"prod": {
+		"heroku_app_name": "app",
+		"heroku_remote_name": "production",
+		"branch_name": "master",
+		"DJANGO_SETTINGS_MODULE":"project.settings.prod"
+	}
+}

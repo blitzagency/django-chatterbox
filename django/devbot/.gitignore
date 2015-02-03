@@ -1,0 +1,112 @@
+# Ignore other vcs ---------------------------------------------------------- #
+
+.svn
+.hg
+
+# Compiled source ----------------------------------------------------------- #
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.css
+
+# Always ignore ------------------------------------------------------------ #
+
+*.diff
+*.err
+*.orig
+*.rej
+*~
+*.psd
+*.vi
+nohup.out
+
+# Packages ------------------------------------------------------------------ #
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+
+# Logs and databases -------------------------------------------------------- #
+
+*.log
+*.sql
+*.sqlite
+pip-log.txt
+
+# OS generated files -------------------------------------------------------- #
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files -------------------------------------------------------------- #
+
+*.swp
+.cache
+.project
+.pydevproject
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+
+# SCSS pre-compiler dirs ---------------------------------------------------- #
+
+.sass-cache/
+
+# Translations -------------------------------------------------------------- #
+
+*.mo
+
+# Django -------------------------------------------------------------------- #
+
+*.log
+*.pot
+*.pyc
+local_settings.py
+*.db
+collected-static/*
+uploads/*
+!collected-static/.gitkeep
+!uploads/README
+celerybeat-schedule
+celerybeat.pid
+
+# NPM ----------------------------------------------------------------------- #
+
+node_modules
+
+# Unit test / coverage reports ---------------------------------------------- #
+
+.coverage
+.tox
+
+# Dreamweaver added files --------------------------------------------------- #
+_notes
+dwsync.xml

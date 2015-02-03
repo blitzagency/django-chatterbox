@@ -1,0 +1,15 @@
+@import "../../core/functions/maps";
+
+@function get-app-global-config($overrides: $built-app) {
+    /**
+     * returns built app global config
+     */
+
+    $box-sizing: get($overrides, box-sizing, border-box);
+    $default-z-index: get($overrides, default-z-index, 1);
+
+    @return (
+        box-sizing: $box-sizing,
+        default-z-index: $default-z-index
+    );
+}

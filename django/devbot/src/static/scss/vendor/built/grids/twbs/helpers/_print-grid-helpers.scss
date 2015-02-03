@@ -1,0 +1,109 @@
+@import "susy";
+@import "breakpoint";
+
+@import "vendor/bourbon/bourbon";
+
+// built mixins ----------------------------------------------------------- //
+
+@import "../../../core/functions/maps";
+@import "../../../core/mixins/mixins";
+
+// built grid helpers ----------------------------------------------------- //
+
+@import "../../mixins/print-helpers";
+
+// built twbs grid helpers / overrides ------------------------------------ //
+
+@import "../mixins/print-helpers";
+
+
+@mixin print-twbs-grid-helpers($config: $built-twbs) {
+    // a custom macro to automate the printing of TWBS
+    // presentational classes based on the given config
+    //
+    // ..param: $config: $built-twbs map
+
+    $columns: get($config, columns);
+
+    $breakpoint-xs: get($config, breakpoint-xs);
+    $breakpoint-sm: get($config, breakpoint-sm);
+    $breakpoint-md: get($config, breakpoint-md);
+    $breakpoint-lg: get($config, breakpoint-lg);
+
+    $container-is-fluid: get($config, container-is-fluid);
+    $container-width-xs: get($config, container-width-xs);
+    $container-width-sm: get($config, container-width-sm);
+    $container-width-md: get($config, container-width-md);
+    $container-width-lg: get($config, container-width-lg);
+
+    .container {
+        @include container($container-width-xs);
+        padding-left: gutter();
+        padding-right: gutter();
+    }
+
+    [class*=col-] {
+        position: relative; // enables .pull & .push
+        padding-left: gutter();
+        padding-right: gutter();
+    }
+
+    .row {
+        @include clearfix;
+        @include squish(-(gutter()));
+        clear: both;
+    }
+
+    .clearfix {
+        @include clearfix;
+    }
+
+
+    @include print-columns(xs, $columns);
+    @include print-columns-offset(xs, $columns);
+    @include print-columns-pull(xs, $columns);
+    @include print-columns-push(xs, $columns);
+
+    @include breakpoint($breakpoint-sm) {
+
+        @if($container-is-fluid != true) {
+            .container {
+                width: container($container-width-sm);
+            }
+        }
+
+        @include print-columns(sm, $columns);
+        @include print-columns-offset(sm, $columns);
+        @include print-columns-pull(sm, $columns);
+        @include print-columns-push(sm, $columns);
+    }
+
+    @include breakpoint($breakpoint-md) {
+
+        @if($container-is-fluid != true) {
+            .container {
+                width: container($container-width-md);
+            }
+        }
+
+        @include print-columns(md, $columns);
+        @include print-columns-offset(md, $columns);
+        @include print-columns-pull(md, $columns);
+        @include print-columns-push(md, $columns);
+    }
+
+    @include breakpoint($breakpoint-lg) {
+
+        @if($container-is-fluid != true) {
+            .container {
+                width: container($container-width-lg);
+            }
+        }
+
+        @include print-columns(lg, $columns);
+        @include print-columns-offset(lg, $columns);
+        @include print-columns-pull(lg, $columns);
+        @include print-columns-push(lg, $columns);
+    }
+
+}

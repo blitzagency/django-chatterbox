@@ -1,0 +1,71 @@
+@mixin fluid-image {
+    // a proportionally stretchy image, fills parent container
+    width: 100% !important;
+}
+
+@mixin fluid-video {
+    // a proportionally stretchy video element, fills parent container
+    width: 100% !important;
+    height: auto !important;
+}
+
+@mixin image-crop-outer {
+    // part 1 of 2, center and crop an image
+    //
+    // see:
+    //     - http://stackoverflow.com/a/18247357
+    //     - @mixin responsive-image-crop-inner
+    //
+    // note:
+    //     - this mixin goes on the image's parent container
+
+    text-align: center;
+    overflow: hidden;
+}
+
+@mixin image-crop-inner{
+    // part 2 of 2, center and crop an iamge
+    //
+    // see:
+    //     - http://stackoverflow.com/a/18247357
+    //     - @mixin responsive-image-crop-outer
+    //
+    // notes:
+    //     - this mixin goes on the image element
+
+    position: relative;
+    left: 100%;
+    margin-left: -200%;
+}
+
+@mixin center-content($orientation:both) {
+    // center content with an unknown width or height (or both)
+    // param: $orientation (scss param) the orientation you wish to set
+    //
+    // note:
+    //     - $orientation accepts:
+    //         - both (default)
+    //         - horizontal (centers width only)
+    //         - verticle (centers height only)
+    //
+    // see:
+    //     - http://css-tricks.com/centering-percentage-widthheight-elements/
+
+
+    @if $orientation == both {
+        @include transform(translate(-50%, -50%));
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+    @if $orientation == horizontal {
+        @include transform(translate(-50%, 0));
+        position: absolute;
+        left: 50%;
+    }
+    @if $orientation == vertical {
+        @include transform(translate(0, -50%));
+        position: absolute;
+        top: 50%;
+    }
+}

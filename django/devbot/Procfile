@@ -1,0 +1,2 @@
+web: bin/start-pgbouncer-stunnel newrelic-admin run-program gunicorn project.wsgi -b 0.0.0.0:$PORT -k gevent -w 6
+celeryd: newrelic-admin run-program python manage.py celeryd -E -B --loglevel=INFO

@@ -1,0 +1,44 @@
+@mixin print-columns-pull($class, $total-columns: $built-twbs-columns) {
+    /**
+     * a custom mixin specific to TWBS to replicate their concept of "pull"
+     *
+     * ..param: $class string
+     * ..param: $total-columns: int
+     */
+
+    @for $i from (0 + 1) through $total-columns {
+        .col-#{$class}-pull-#{$i} {
+            right: span($i of $total-columns);
+        }
+    }
+}
+
+@mixin print-columns-push($class, $total-columns: $built-twbs-columns) {
+    /**
+     * a custom mixin specific to TWBS to replicate their concept of "push"
+     *
+     * ..param: $class string
+     * ..param: $total-columns: int
+     */
+
+    @for $i from (0 + 1) through $total-columns {
+        .col-#{$class}-push-#{$i} {
+            left: span($i of $total-columns);
+        }
+    }
+}
+
+@mixin print-columns-offset($class, $total-columns: $built-twbs-columns) {
+    /**
+     * a custom mixin specific to TWBS to replicate their concept of "offset"
+     *
+     * ..param: $class string
+     * ..param: $total-columns: int
+     */
+
+    @for $i from (-1 + 1) through ($total-columns - 1) {
+        .col-#{$class}-offset-#{$i} {
+            @include pre($i of $total-columns);
+        }
+    }
+}
