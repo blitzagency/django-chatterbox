@@ -1,6 +1,5 @@
 from django.test import TestCase
-from .models import Service
-from pprint import pprint
+from ..models import Service
 
 
 class YouTubeApiTestCase(TestCase):
