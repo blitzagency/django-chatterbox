@@ -6,6 +6,33 @@ from oauthlib.oauth1.rfc5849 import SIGNATURE_HMAC, SIGNATURE_TYPE_AUTH_HEADER
 from oauthlib.common import generate_token
 from requests_oauthlib import OAuth1 as OAuth1Manager
 from six.moves.urllib.parse import parse_qsl
+from oauthlib.oauth2.rfc6749.clients import base as oauthlib_base
+
+"""Bearer Types
+
+Currently the built in API's use requests-oauthlib, (uses oauthlib under the
+hood).
+
+oauthlib's Client supports a property called: `default_token_placement`
+requests-oauthlib does not currently support passing this value down to the
+`oauthlib.Client`. This is bad news for Services like Instagram who only
+accept the token in the URI not in the header. requests-oauthlib will always
+send the access token in the header.
+
+`chatterbox.api.Oauth2Api`, will, during it's initialization look back to the
+`chatterbox.drivers.*` and pull `bearer_type` now. It will then reach into
+the `OAuth2Session._client` and set the `default_token_placement` property.
+
+Acceptable values are derived directly from oauthlib:
+https://github.com/idan/oauthlib/blob/master/oauthlib/oauth2/rfc6749/clients/base.py#L23-L25
+
+see this issue on requests-oauthlib:
+https://github.com/requests/requests-oauthlib/issues/170
+"""
+
+BEARER_HEADER = oauthlib_base.AUTH_HEADER
+BEARER_BODY = oauthlib_base.BODY
+BEARER_URI = oauthlib_base.URI_QUERY
 
 
 class OAuthError(Exception):
@@ -140,6 +167,7 @@ class OAuth2(OAuth):
     auth = None
     supports_state = True
     token_type = "Bearer"
+    bearer_type = BEARER_HEADER
 
     def parse_token(self, content):
         data = json.loads(content)
