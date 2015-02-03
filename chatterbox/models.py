@@ -102,17 +102,3 @@ class Key(models.Model):
             return getattr(importlib.import_module(module), kls)
         except:
             return None
-
-    # id = db.Column(db.Integer, primary_key=True)
-    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    # service_alias = db.Column(db.String)
-    # access_token = db.Column(db.String)
-    # secret = db.Column(db.String)
-    # expires = db.Column(db.DateTime)
-    # refresh_token = db.Column(db.String)
-    # service_user_id = db.Column(db.String)
-
-    # user = db.relationship('User', backref=db.backref('keys', lazy='dynamic'))
-
-
-#{u'access_token': u'ya29.CwFYP2TJGLjyscdPS85ZofQ8C88XbxH5fP-8ZOhTCT0DPYvECoAffcApXfeWJw-VupiFMDWoEerHnQ', u'token_type': u'Bearer', u'expires_in': 3600, u'refresh_token': u'1/t2GZlVdGSO1cTGqPNC-L2kvDvd1sekD7n5UZsZX6ocAMEudVrK5jSpoR30zcRFq6', u'expires_at': 1422628154.377442}
