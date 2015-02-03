@@ -1,3 +1,5 @@
+import time
+import calendar
 import pytz
 from datetime import (datetime, timedelta)
 from requests_oauthlib import OAuth2Session, OAuth1Session
@@ -52,9 +54,8 @@ class Api(object):
     def parse_response(self, response):
         return response.json()
 
-    # this must be overriden
     def whoami(self):
-        pass
+        raise NotImplementedError("whoami() must be defined in a subclass")
 
 
 class OAuth1Api(Api):
@@ -77,6 +78,8 @@ class OAuth2Api(Api):
         self.key = key
         self.client = client
 
+        expires_at = calendar.timegm(key.expires.utctimetuple())
+
         refresh_extras = {
             "client_id": client.client_id,
             "client_secret": client.client_secret,
@@ -86,6 +89,7 @@ class OAuth2Api(Api):
             'access_token': key.access_token,
             'token_type': client.driver.token_type,
             'refresh_token': key.refresh_token,
+            'expires_at': expires_at
         }
 
         self._session = OAuth2Session(

@@ -19,3 +19,7 @@ class YouTubeApiTestCase(TestCase):
     def test_complex_search(self):
         results = self.api.search('dino', maxResults=17, pageToken='CAUQAA')
         self.assertEqual(results['pageInfo']['resultsPerPage'], 17)
+
+    def test_get_user_videos(self):
+        results = self.api.user_videos()
+        self.assertLess(results['pageInfo']['resultsPerPage'], 100)
