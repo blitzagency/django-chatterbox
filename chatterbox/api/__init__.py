@@ -1,7 +1,27 @@
-import json
 import pytz
 from datetime import (datetime, timedelta)
 from requests_oauthlib import OAuth2Session
+
+
+class SimpleProfile(object):
+    """SimpleProfile is an object whose purpose is to normalize the
+    various possible responses from N services.
+
+    Api Subclasses are required to implement the method `simple_profile`
+    to return an instance of this object. Specifically, `id` and `name`
+    are required to be present.
+    """
+
+    @classmethod
+    def with_dict(cls, dict):
+        obj = cls(**dict)
+        return obj
+
+    def __init__(self, **kwargs):
+        self.id = kwargs.get('id', None)
+        self.name = kwargs.get('name', None)
+        self.link = kwargs.get('link', None)
+        self.picture = kwargs.get('picture', None)
 
 
 class Api(object):
@@ -26,8 +46,11 @@ class Api(object):
         )
         return self.parse_response(r)
 
+    def simple_profile(self):
+        raise NotImplementedError("simple_profile() must be defined in a subclass")
+
     def parse_response(self, response):
-        return response.json
+        return response.json()
 
     # this must be overriden
     def whoami(self):
