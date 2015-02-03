@@ -8,35 +8,37 @@ def make_uuid():
     return str(uuid.uuid4().hex)
 
 
+# Twitter, Instagram, Facebook, Youtube, etc
 class Service(models.Model):
     label = models.CharField(max_length=200)
     key = models.SlugField(unique=True, max_length=200, db_index=True)
-    provider_url =  models.URLField()
+    provider_url = models.URLField()
     docs_url = models.URLField()
     driver = models.CharField(max_length=200)
 
     def load_driver(self):
-        driver = self.driver
         parts = self.driver.split('.')
 
         module = '.'.join(parts[0:-1])
         kls = parts[-1]
 
         try:
-             return getattr(importlib.import_module(module), kls)
+            return getattr(importlib.import_module(module), kls)
         except:
             return None
 
-
     def __unicode__(self):
-        return  self.label
+        return self.label
 
 
+# to get anything from a service, you need this information
+# ex: FB always wants key/secret
+# (instance of a service)
 class Client(models.Model):
     label = models.CharField(max_length=200)
     uuid = models.CharField(max_length=36, db_index=True,
-        default=make_uuid, editable=False
-    )
+                            default=make_uuid, editable=False
+                            )
     client_id = models.CharField(max_length=200)
     client_secret = models.CharField(max_length=200)
     redirect_url = models.URLField()
@@ -61,9 +63,8 @@ class Client(models.Model):
         driver = self.driver
         return driver.available_permissions
 
-
     def __unicode__(self):
-        return  self.label
+        return self.label
 
 
 class Key(models.Model):
@@ -73,9 +74,9 @@ class Key(models.Model):
     client = models.ForeignKey('Client', related_name='client_keys')
     service = models.ForeignKey('Service', related_name='service_keys')
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
-        blank=True, null=True,
-        related_name="chatterbox_keys"
-    )
+                             blank=True, null=True,
+                             related_name="chatterbox_keys"
+                             )
     # id = db.Column(db.Integer, primary_key=True)
     # user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     # service_alias = db.Column(db.String)
