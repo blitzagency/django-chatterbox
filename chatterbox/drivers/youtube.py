@@ -10,6 +10,7 @@ class YouTube(OAuth2):
     api_path = 'chatterbox.api.youtube.YouTube'
 
     available_permissions = [
+        ('https://www.googleapis.com/auth/userinfo.profile', 'Read your basic profile information'),
         ("https://www.googleapis.com/auth/youtube", "Manage your YouTube account"),
         ("https://www.googleapis.com/auth/youtube.readonly", "View your YouTube account"),
         ("https://www.googleapis.com/auth/youtube.upload", "Manage your YouTube videos"),
