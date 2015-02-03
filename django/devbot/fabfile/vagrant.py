@@ -100,7 +100,7 @@ def initdb(load_images=False):
     local('yes no | python manage.py syncdb')
     local('python manage.py migrate')
     local('python manage.py createsuperuser')
-    local('python ./manage.py loaddata ./project/apps/chatterbox/fixtures.json')
+    local('python ./manage.py loaddata ./project/apps/chatterbox/fixtures/dump.json')
 
     if load_images:
         load_fixture_images()

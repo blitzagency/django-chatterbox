@@ -1,0 +1,24 @@
+[
+   {
+      "fields":{
+         "username":"admin",
+         "first_name":"",
+         "last_name":"",
+         "is_active":true,
+         "is_superuser":true,
+         "is_staff":true,
+         "last_login":"2015-02-03T19:19:02.050Z",
+         "groups":[
+
+         ],
+         "user_permissions":[
+
+         ],
+         "password":"pbkdf2_sha256$15000$6kpLUGqRwrGm$BEF8hP+hT0XeHTjMl9g+GaCDeB5cfSt5JGfNIJlh3/Q=",
+         "email":"admin@local.com",
+         "date_joined":"2015-02-03T19:19:02.050Z"
+      },
+      "model":"auth.user",
+      "pk":1
+   }
+]
