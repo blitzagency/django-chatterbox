@@ -1,8 +1,8 @@
 import urllib
-from . import Oauth2Api, SimpleProfile
+from . import OAuth2Api, SimpleProfile
 
 
-class YouTube(Oauth2Api):
+class YouTube(OAuth2Api):
     def whoami(self):
         return self.get("https://www.googleapis.com/oauth2/v2/userinfo")
 

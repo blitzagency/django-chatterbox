@@ -1,7 +1,7 @@
-from . import Oauth2Api, SimpleProfile
+from . import OAuth2Api, SimpleProfile
 
 
-class Instagram(Oauth2Api):
+class Instagram(OAuth2Api):
 
     def whoami(self):
         return self.get("https://api.instagram.com/v1/users/self")

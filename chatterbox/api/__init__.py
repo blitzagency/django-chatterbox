@@ -57,11 +57,40 @@ class Api(object):
         pass
 
 
-class Oauth1Api(Api):
-    pass
+class OAuth1Api(Api):
+    def __init__(self, key, client):
+
+        self.key = key
+        self.client = client
+
+        refresh_extras = {
+            "client_id": client.client_id,
+            "client_secret": client.client_secret,
+        }
+
+        token = {
+            'access_token': key.access_token,
+            'token_type': client.driver.token_type,
+            'refresh_token': key.refresh_token,
+        }
+
+        self._session = OAuth2Session(
+            client.client_id,
+            token=token,
+            auto_refresh_url=client.driver.refresh_url,
+            auto_refresh_kwargs=refresh_extras,
+            token_updater=self.token_updater
+        )
+
+        # allowed values:
+        # AUTH_HEADER = 'auth_header'
+        # URI_QUERY = 'query'
+        # BODY = 'body'
+        # https://github.com/idan/oauthlib/blob/master/oauthlib/oauth2/rfc6749/clients/base.py#L23-L25
+        self._session._client.default_token_placement = client.driver.bearer_type
 
 
-class Oauth2Api(Api):
+class OAuth2Api(Api):
     def __init__(self, key, client):
 
         self.key = key
