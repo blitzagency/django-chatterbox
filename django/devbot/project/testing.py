@@ -3,13 +3,11 @@ import os
 import logging
 import unittest
 import re
-from cStringIO import StringIO
 
 import coverage
 
 from django.test.simple import DjangoTestSuiteRunner
-from django.core.management.validation import get_validation_errors
-from django.conf import settings
+
 
 def is_in_packages(name, packages):
     for package in packages:
@@ -17,13 +15,14 @@ def is_in_packages(name, packages):
             return True
     return False
 
+
 def report_coverage(packages):
     test_re = re.compile('.+test[^%s.]*\..+' % os.sep)
     coverage.stop()
     files = set()
     for name in sys.modules:
         mod = sys.modules.get(name)
-        if mod == None:
+        if mod is None:
             continue
         elif not is_in_packages(name, packages):
             continue
@@ -43,6 +42,7 @@ def report_coverage(packages):
         coverage.report(list(files))
     coverage.erase()
 
+
 class TestRunner(DjangoTestSuiteRunner):
 
     def run_tests(self, test_labels, extra_tests=[], **kwargs):
@@ -59,13 +59,6 @@ class TestRunner(DjangoTestSuiteRunner):
         # If test_labels let django handle it
         if test_labels:
             return super(TestRunner, self).run_tests(test_labels, extra_tests)
-
-        # Validate models
-        s = StringIO()
-        num_errors = get_validation_errors(s)
-        if num_errors:
-            raise Exception("%s error%s found:\n%s" %
-                (num_errors, num_errors != 1 and 's' or '', s.getvalue()))
 
         # Use discover to find all the local tests
         loader = unittest.TestLoader()
