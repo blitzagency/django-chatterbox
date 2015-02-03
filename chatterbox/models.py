@@ -12,8 +12,6 @@ def make_uuid():
 class Service(models.Model):
     label = models.CharField(max_length=200)
     key = models.SlugField(unique=True, max_length=200, db_index=True)
-    provider_url = models.URLField()
-    docs_url = models.URLField()
     driver = models.CharField(max_length=200)
 
     def load_driver(self):

@@ -49,8 +49,6 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('label', models.CharField(max_length=200)),
                 ('key', models.SlugField(unique=True, max_length=200)),
-                ('provider_url', models.URLField()),
-                ('docs_url', models.URLField()),
                 ('driver', models.CharField(max_length=200)),
             ],
             options={

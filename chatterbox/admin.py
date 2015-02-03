@@ -47,7 +47,7 @@ class ServiceAdmin(admin.ModelAdmin):
         Driver = instance.load_driver()
 
         if Driver:
-            return format_html("!!!!<a href=\"{0}\">{0}</a>", Driver.provider_url)
+            return format_html("<a href=\"{0}\" target=\"_blank\">{0}</a>", Driver.provider_url)
 
         return "Unknown"
 
@@ -55,7 +55,7 @@ class ServiceAdmin(admin.ModelAdmin):
         Driver = instance.load_driver()
 
         if Driver:
-            return format_html("<a href=\"{0}\">{0}</a>", Driver.docs_url)
+            return format_html("<a href=\"{0}\" target=\"_blank\">{0}</a>", Driver.docs_url)
 
         return "Unknown"
 
