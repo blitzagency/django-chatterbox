@@ -4,6 +4,7 @@ from .oauth import OAuth2
 class YouTube(OAuth2):
     authorize_url = "https://accounts.google.com/o/oauth2/auth"
     access_token_url = "https://accounts.google.com/o/oauth2/token"
+    refresh_url = "https://www.googleapis.com/oauth2/v3/token"
     provider_url = "http://www.youtube.com"
     docs_url = "http://www.youtube.com"
     api_path = 'chatterbox.api.youtube.YouTube'
