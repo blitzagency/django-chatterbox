@@ -78,18 +78,19 @@ class OAuth2Api(Api):
         self.key = key
         self.client = client
 
-        expires_at = calendar.timegm(key.expires.utctimetuple())
-
-        refresh_extras = {
-            "client_id": client.client_id,
-            "client_secret": client.client_secret,
-        }
-
         token = {
             'access_token': key.access_token,
             'token_type': client.driver.token_type,
             'refresh_token': key.refresh_token,
-            'expires_at': expires_at
+        }
+
+        if key.expires:
+            expires_at = calendar.timegm(key.expires.utctimetuple())
+            token['expires_at'] = expires_at
+
+        refresh_extras = {
+            "client_id": client.client_id,
+            "client_secret": client.client_secret,
         }
 
         self._session = OAuth2Session(
