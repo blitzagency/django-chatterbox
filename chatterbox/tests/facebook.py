@@ -1,6 +1,6 @@
 from django.test import TestCase
 from ..models import Service
-# from pprint import pprint
+from pprint import pprint
 
 
 class FacebookApiTestCase(TestCase):

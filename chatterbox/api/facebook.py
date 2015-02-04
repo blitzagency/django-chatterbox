@@ -27,9 +27,9 @@ class Facebook(OAuth2Api):
     # there is no search ability on api v2+ (depricated at v1)
 
     def user_feed(self, user='me', **kwargs):
-        # https://developers.facebook.com/docs/graph-api/reference/v2.2/user/feed
+        """https://developers.facebook.com/docs/graph-api/reference/v2.2/user/feed
+        """
         kwargs = kwargs or {}
         url = 'https://graph.facebook.com/v{}/{}/feed?'\
             .format(API_VERSION, user)
-        # kwargs['q'] = query
         return self.get(url + urlencode(kwargs))
