@@ -2,7 +2,7 @@ from django.test import TestCase
 from ..models import Service
 
 
-class YouTubeApiTestCase(TestCase):
+class TwitterApiTestCase(TestCase):
     fixtures = ('project/apps/chatterbox/fixtures/users.json',
                 'project/apps/chatterbox/fixtures/dump.json')
 

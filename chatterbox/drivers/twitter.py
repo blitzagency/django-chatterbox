@@ -4,7 +4,7 @@ from .oauth import OAuth1
 class Twitter(OAuth1):
     # General info about the provider
     provider_url = 'https://www.twitter.com/'
-    docs_url = 'https://dev.twitter.com/docs'
+    docs_url = 'https://dev.twitter.com/rest/public'
     category = 'Social'
     api_path = 'chatterbox.api.twitter.Twitter'
 
