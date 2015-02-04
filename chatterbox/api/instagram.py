@@ -42,3 +42,22 @@ class Instagram(OAuth2Api):
             additional = urlencode(kwargs)
             url = url + '?{}'.format(additional)
         return self.get(url)
+
+    def user_media(self, **kwargs):
+        """http://instagram.com/developer/endpoints/users/#get_users_feed
+
+        PARAMETERS
+        count -- Count of media to return.
+        max_timestamp -- Return media before this UNIX timestamp.
+        access_token -- A valid access token.
+        min_timestamp -- Return media after this UNIX timestamp.
+        min_id -- Return media later than this min_id.
+        max_id -- Return media earlier than this max_id.
+
+        """
+        # need to do a check on quality of query (spaces?)
+        url = 'https://api.instagram.com/v1/users/self/media/recent'
+        if kwargs:
+            additional = urlencode(kwargs)
+            url = url + '?{}'.format(additional)
+        return self.get(url)

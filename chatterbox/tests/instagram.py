@@ -22,3 +22,7 @@ class InstagramApiTestCase(TestCase):
             count=17,
             min_tag_id='1423001539550109')
         self.assertEqual(len(results['data']), 17)
+
+    def test_user_media(self):
+        results = self.api.user_media()
+        self.assertEqual(results['meta']['code'], 200)
