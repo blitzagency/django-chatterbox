@@ -105,7 +105,7 @@ class Key(models.Model):
             return None
 
 
-class Collector(object):
+class Collector(models.Model):
     label = models.CharField(max_length=200) # Search Tweets
     service = models.ForeignKey('Service', related_name='collectors')
     action = models.CharField(max_length=200) # foo.bar.baz.func
@@ -122,7 +122,7 @@ class Collector(object):
     data_label = models.CharField(max_length=250) # e.g.: Enter Username
 
 
-class Job(object):
+class Job(models.Model):
     job_id = models.CharField(max_length=36, db_index=True,
                               default=make_uuid, editable=False)
     collector = models.ForeignKey('Collector', related_name='collector_actions')
