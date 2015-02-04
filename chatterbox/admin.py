@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import (Service, Client, Key)
+from .models import (Service, Client, Key, Collector, Job)
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 
@@ -65,3 +65,12 @@ class ServiceAdmin(admin.ModelAdmin):
     docs_url.short_description = "Docs Url"
     docs_url.allow_tags = True
 
+
+@admin.register(Collector)
+class CollectorAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Job)
+class JobAdmin(admin.ModelAdmin):
+    readonly_fields = ("job_id",)
