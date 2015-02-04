@@ -2,6 +2,9 @@ from six.moves.urllib.parse import urlencode
 from . import OAuth2Api, SimpleProfile
 
 
+API_VERSION = "2.2"
+
+
 class Facebook(OAuth2Api):
 
     def whoami(self):
@@ -9,7 +12,8 @@ class Facebook(OAuth2Api):
 
     def simple_profile(self):
         data = self.whoami()
-        picture = 'https://graph.facebook.com/{}/picture'.format(data.get('id'))
+        picture = 'https://graph.facebook.com/{}/picture'\
+            .format(data.get('id'))
         result = {
             "id": data.get("id", None),
             "name": data.get("name", None),
@@ -22,9 +26,10 @@ class Facebook(OAuth2Api):
 
     # there is no search ability on api v2+ (depricated at v1)
 
-    def user_media(self, **kwargs):
+    def user_feed(self, user='me', **kwargs):
+        # https://developers.facebook.com/docs/graph-api/reference/v2.2/user/feed
         kwargs = kwargs or {}
-        url = 'https://graph.facebook.com/search?'
-        kwargs['q'] = query
-
+        url = 'https://graph.facebook.com/v{}/{}/feed?'\
+            .format(API_VERSION, user)
+        # kwargs['q'] = query
         return self.get(url + urlencode(kwargs))

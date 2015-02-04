@@ -1,6 +1,6 @@
 from django.test import TestCase
 from ..models import Service
-from pprint import pprint
+# from pprint import pprint
 
 
 class FacebookApiTestCase(TestCase):
@@ -12,12 +12,13 @@ class FacebookApiTestCase(TestCase):
         self.key = self.service.service_keys.first()
         self.api = self.key.api
 
-    def test_simple_search(self):
-        results = self.api.search('dino')
-        pprint(results)
+    def test_user_feed(self):
+        results = self.api.user_feed()
+        data = results.get('data', None)
+        first = data[0]
+        self.assertEqual(first.get('from').get('name'), 'Dino Petrone')
 
-    # def test_complex_search(self):
-    #     pass
-
-    # def test_user_media(self):
-    #     pass
+    def test_brand_feed(self):
+        results = self.api.user_feed('11936081183')
+        data = results.get('data', None)
+        self.assertTrue(len(data) > 0)
