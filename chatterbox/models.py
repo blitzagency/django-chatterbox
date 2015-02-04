@@ -106,9 +106,9 @@ class Key(models.Model):
 
 
 class Collector(models.Model):
-    label = models.CharField(max_length=200) # Search Tweets
+    label = models.CharField(max_length=200)  # Search Tweets
     service = models.ForeignKey('Service', related_name='collectors')
-    action = models.CharField(max_length=200) # foo.bar.baz.func
+    action = models.CharField(max_length=200)  # foo.bar.baz.func
 
     # pre_save and #pre_delete are used for things like: maybe
     # you are using some kind of 3rd party provider and you need
@@ -117,9 +117,9 @@ class Collector(models.Model):
     # are execute when a job is created with this collector NOT when
     # the collector itself is saved/deleted
 
-    pre_save = models.CharField(max_length=200) # foo.bar.baz.func
-    pre_delete = models.CharField(max_length=200) # foo.bar.baz.func
-    data_label = models.CharField(max_length=250) # e.g.: Enter Username
+    pre_save = models.CharField(max_length=200)  # foo.bar.baz.func
+    pre_delete = models.CharField(max_length=200)  # foo.bar.baz.func
+    data_label = models.CharField(max_length=250)  # e.g.: Enter Username
 
 
 class Job(models.Model):
