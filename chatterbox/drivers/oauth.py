@@ -223,6 +223,5 @@ class OAuth2(OAuth):
 
         if not self.supports_state:
             redirect_url += ('?state=%s' % state)
-
         resp = self.get_access_token_response(redirect_url, data)
         return self.parse_token(resp.content)
