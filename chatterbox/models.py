@@ -35,8 +35,7 @@ class Service(models.Model):
 class Client(models.Model):
     label = models.CharField(max_length=200)
     uuid = models.CharField(max_length=36, db_index=True,
-                            default=make_uuid, editable=False
-                            )
+                            default=make_uuid, editable=False)
     client_id = models.CharField(max_length=200)
     client_secret = models.CharField(max_length=200)
     redirect_url = models.URLField()
@@ -124,6 +123,7 @@ class Collector(object):
 
 
 class Job(object):
+    job_id = models.CharField(max_length=36, db_index=True, default=make_uuid, editable=False)
     collector = models.ForeignKey('Collector', related_name='collector_actions')
     key = models.ForeignKey('Key', related_name='key_actions')
     data = models.CharField(max_length=250)
