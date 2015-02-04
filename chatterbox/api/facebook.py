@@ -5,27 +5,20 @@ from . import OAuth2Api, SimpleProfile
 class Facebook(OAuth2Api):
 
     def whoami(self):
-        pass
+        return self.get("https://graph.facebook.com/me")
 
     def simple_profile(self):
-        pass
+        data = self.whoami()
+        picture = 'https://graph.facebook.com/{}/picture'.format(data.get('id'))
+        result = {
+            "id": data.get("id", None),
+            "name": data.get("name", None),
+            "link": data.get('link'),
+            "picture": picture
+        }
 
-    # def simple_profile(self):
-    #     data = self.whoami()
-
-    #     data = data.get('data', {})
-
-    #     link = "http://instagram.com/{}".format(data.get("username", None))
-
-    #     result = {
-    #         "id": data.get("id", None),
-    #         "name": data.get("username", None),
-    #         "link": link,
-    #         "picture": data.get("profile_picture", None)
-    #     }
-
-    #     profile = SimpleProfile(**result)
-    #     return profile
+        profile = SimpleProfile(**result)
+        return profile
 
     def search(self, query, **kwargs):
         pass
