@@ -20,8 +20,11 @@ class Facebook(OAuth2Api):
         profile = SimpleProfile(**result)
         return profile
 
-    def search(self, query, **kwargs):
-        pass
+    # there is no search ability on api v2+ (depricated at v1)
 
     def user_media(self, **kwargs):
-        pass
+        kwargs = kwargs or {}
+        url = 'https://graph.facebook.com/search?'
+        kwargs['q'] = query
+
+        return self.get(url + urlencode(kwargs))
