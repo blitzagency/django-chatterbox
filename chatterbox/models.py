@@ -123,7 +123,8 @@ class Collector(object):
 
 
 class Job(object):
-    job_id = models.CharField(max_length=36, db_index=True, default=make_uuid, editable=False)
+    job_id = models.CharField(max_length=36, db_index=True,
+                              default=make_uuid, editable=False)
     collector = models.ForeignKey('Collector', related_name='collector_actions')
     key = models.ForeignKey('Key', related_name='key_actions')
     data = models.CharField(max_length=250)
