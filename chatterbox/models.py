@@ -66,7 +66,7 @@ class Client(models.Model):
 
 
 class Key(models.Model):
-    access_token = models.CharField(max_length=200)
+    access_token = models.CharField(max_length=250)
 
     # Used in OAuth1
     secret = models.CharField(max_length=200, blank=True, null=True)
