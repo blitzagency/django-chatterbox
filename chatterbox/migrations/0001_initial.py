@@ -33,9 +33,8 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('label', models.CharField(max_length=200)),
                 ('action', models.CharField(max_length=200)),
-                ('pre_save', models.CharField(max_length=200)),
-                ('pre_delete', models.CharField(max_length=200)),
-                ('data_label', models.CharField(max_length=250)),
+                ('pre_save', models.CharField(max_length=200, null=True, blank=True)),
+                ('pre_delete', models.CharField(max_length=200, null=True, blank=True)),
             ],
             options={
             },
@@ -46,7 +45,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('job_id', models.CharField(default=chatterbox.models.make_uuid, max_length=36, editable=False, db_index=True)),
-                ('data', models.CharField(max_length=250)),
+                ('data', models.CharField(max_length=250, null=True, blank=True)),
                 ('collector', models.ForeignKey(related_name='collector_actions', to='chatterbox.Collector')),
             ],
             options={

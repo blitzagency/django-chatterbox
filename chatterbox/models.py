@@ -117,9 +117,9 @@ class Collector(models.Model):
     # are execute when a job is created with this collector NOT when
     # the collector itself is saved/deleted
 
-    pre_save = models.CharField(max_length=200)  # foo.bar.baz.func
-    pre_delete = models.CharField(max_length=200)  # foo.bar.baz.func
-    data_label = models.CharField(max_length=250)  # e.g.: Enter Username
+    pre_save = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
+    pre_delete = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
+    # data_label = models.CharField(max_length=250, blank=True, null=True)  # e.g.: Enter Username
 
 
 class Job(models.Model):
@@ -127,4 +127,4 @@ class Job(models.Model):
                               default=make_uuid, editable=False)
     collector = models.ForeignKey('Collector', related_name='collector_actions')
     key = models.ForeignKey('Key', related_name='key_actions')
-    data = models.CharField(max_length=250)
+    data = models.CharField(max_length=250, blank=True, null=True)
