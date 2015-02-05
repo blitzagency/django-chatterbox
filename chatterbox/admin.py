@@ -74,3 +74,4 @@ class CollectorAdmin(admin.ModelAdmin):
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
     readonly_fields = ("job_id",)
+    change_form_template = "admin/job_change_form.html"

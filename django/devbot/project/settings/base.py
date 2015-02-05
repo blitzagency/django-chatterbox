@@ -245,7 +245,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'django_extensions',
-    'tastypie',
+    # 'tastypie',
     'require',
     # Database migration helpers:
     )
