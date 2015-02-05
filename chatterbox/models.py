@@ -121,6 +121,9 @@ class Collector(models.Model):
     pre_delete = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
     # data_label = models.CharField(max_length=250, blank=True, null=True)  # e.g.: Enter Username
 
+    def __unicode__(self):
+        return self.label
+
 
 class Job(models.Model):
     job_id = models.CharField(max_length=36, db_index=True,
