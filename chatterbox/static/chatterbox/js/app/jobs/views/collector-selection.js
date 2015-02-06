@@ -29,6 +29,10 @@ var CollectorSelectionView = marionette.CollectionView.extend({
         this.initializeCollector(options);
     },
 
+    attributes: function(){
+        return {name: "collector"};
+    },
+
     initializeCollector: function(options){
         var data = options.data;
         var service = new Service({key: options.serviceKey});

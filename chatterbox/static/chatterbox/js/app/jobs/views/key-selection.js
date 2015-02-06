@@ -29,6 +29,10 @@ var KeySelectionView = marionette.CollectionView.extend({
         this.initializeKey(options);
     },
 
+    attributes: function(){
+        return {name: "key"};
+    },
+
     initializeKey: function(options){
         var data = options.data;
         var service = new Service({key: options.serviceKey});

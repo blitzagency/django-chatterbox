@@ -18,6 +18,7 @@ var ServiceItemView = require('./service-item').ServiceItemView;
 
 var ServiceSelectionView = marionette.CollectionView.extend({
     tagName: "select",
+
     childView: ServiceItemView,
     modelEvents: {
         'change': 'modelChanged'
@@ -29,6 +30,10 @@ var ServiceSelectionView = marionette.CollectionView.extend({
         this.collection.fetch().then(this.initializeService.bind(this, options.data));
         this._model = new backbone.Model({index: -1});
         this.listenTo(this._model, "change:index", this._didChange);
+    },
+
+    attributes: function(){
+        return {name: "service"};
     },
 
     initializeService:function(service){
