@@ -10,14 +10,14 @@ define(function( require, exports, module ){
  **/
 
 var marionette = require("marionette");
-var template = require("hbs!../templates/service-item");
+var template = require("hbs!../templates/key-item");
 
 
-var ServiceItemView = marionette.ItemView.extend({
+var KeyItemView = marionette.ItemView.extend({
     template: template,
     tagName: "option",
 })
 
-exports.ServiceItemView = ServiceItemView;
+exports.KeyItemView = KeyItemView;
 
 });
