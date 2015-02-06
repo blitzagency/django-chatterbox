@@ -17,7 +17,7 @@ var JobLayoutView = marionette.LayoutView.extend({
     },
 
     onShow: function(){
-        this.services = new ServiceSelectionView();
+        this.services = new ServiceSelectionView(JOB_DATA.service);
         this.collectors = new CollectorSelectionView();
         this.keys = new KeySelectionView();
 
@@ -26,14 +26,16 @@ var JobLayoutView = marionette.LayoutView.extend({
         this.getRegion("keys").show(this.keys)
 
         this.listenTo(this.services, 'change', this.serviceDidChange)
-
-        setTimeout(function(){
-            this.services.setSelectedIndex(2)
-        }.bind(this), 3000)
     },
 
     serviceDidChange: function(){
-        console.log(this.services.getSelected().toJSON());
+        var service = this.services.getSelected();
+        this.setService(service);
+    },
+
+    setService: function(service){
+        this.collectors.setService(service);
+        this.keys.setService(service);
     }
 });
 

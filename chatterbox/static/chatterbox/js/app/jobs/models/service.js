@@ -10,11 +10,6 @@ var Service = backbone.Model.extend({
         key: null,
         label: null,
     },
-
-    // parse: function (response, options) {
-    //     // debugger;
-    //     return response
-    // }
 });
 
 exports.Service = Service;

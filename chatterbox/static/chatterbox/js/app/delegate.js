@@ -7,10 +7,6 @@ var modals = require('built/app/modals');
 var activity = require('built/app/activity');
 var keys = require('built/app/keys');
 
-
-var MySampleView = require('app/sample/views/my-sample-view').MySampleView;
-var MyModalView = require('app/sample/views/my-modal-view').MyModalView;
-var Services = require('app/jobs/collections/services').Services;
 var JobLayoutView = require('app/jobs/views/layout').JobLayoutView;
 
 var ApplicationDelegate = marionette.Controller.extend({

@@ -16,6 +16,30 @@
         require(['main']);
     });
 
+    var service = {
+        id: "{{ original.collector.service.id }}",
+        key: "{{ original.collector.service.key }}",
+        label: "{{ original.collector.service.label }}",
+    }
+
+    var collector = {
+        "id": "{{ original.collector.id }}",
+        "label": "{{ original.collector.label }}",
+    }
+
+    var key = {
+        "id": "{{ original.key.id }}",
+        "label": "{{ original.key.service_username }}",
+    }
+
+    var JOB_DATA = {
+        "add": {{ add|stringformat:"s"|lower }},
+        "change": {{ change|stringformat:"s"|lower }},
+        "service": service,
+        "collector": collector,
+        "key": key
+    }
+
 </script>
 
 {{ media }}

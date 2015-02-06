@@ -23,11 +23,22 @@ var ServiceSelectionView = marionette.CollectionView.extend({
         'change': 'modelChanged'
     },
 
-    initialize: function(){
+    initialize: function(service){
+
         this.collection = new Services();
-        this.collection.fetch();
-        this._model = new backbone.Model({index: 0});
+        this.collection.fetch().then(this.initializeService.bind(this, service));
+        this._model = new backbone.Model({index: -1});
         this.listenTo(this._model, "change:index", this._didChange);
+    },
+
+    initializeService:function(service){
+        var model = this.modelInCollection(new backbone.Model(service));
+
+        if(model){
+            this.setSelected(model);
+        } else {
+            this.setSelectedIndex(0)
+        }
     },
 
     childViewOptions: function(model, index) {
@@ -56,6 +67,15 @@ var ServiceSelectionView = marionette.CollectionView.extend({
 
     setSelected: function(service){
         var index = 0;
+        var model = this.modelInCollection(service);
+
+        if(model){
+            index = this.collection.indexOf(this.model);
+            this.setSelectedIndex(index)
+        }
+    },
+
+    modelInCollection: function(service){
         var model = null;
         var id = service.get("id");
 
@@ -63,21 +83,21 @@ var ServiceSelectionView = marionette.CollectionView.extend({
             model = this.collection.get(id)
         } else {
             id = service.get("key")
-            model = this.collection.where({ key: id });
+            candidates = this.collection.where({ key: id });
+
+            if(candidates.length){
+                model = candidates[0];
+            }
         }
 
-        if(model){
-            index = this.collection.indexOf(this.model);
-        }
-
-        this.setSelectedIndex(index)
+        return model;
     },
 
-    setSelectedIndex: function(index){
+    setSelectedIndex: function(index, options){
         // changing the selectedIndex on the $el will not
         // trigger a change event in jquery.
         this.$el[0].selectedIndex = index;
-        this._model.set("index", index);
+        this._model.set({"index": index}, options);
     },
 });
 

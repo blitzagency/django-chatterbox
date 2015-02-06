@@ -10,6 +10,7 @@ define(function( require, exports, module ){
  **/
 
 var marionette = require("marionette");
+var backbone = require("backbone");
 var Keys = require("../collections/keys").Keys;
 var KeyItemView = require('./key-item').KeyItemView;
 
@@ -17,15 +18,34 @@ var KeyItemView = require('./key-item').KeyItemView;
 var KeySelectionView = marionette.CollectionView.extend({
     tagName: "select",
     childView: KeyItemView,
+    service: null,
 
     initialize: function(){
+        this._model = new backbone.Model({index: 0});
         this.collection = new Keys();
-        this.collection.fetch();
+        this.listenTo(this._model, "change:index", this._didChange);
+    },
+
+    _didChange: function(){
+        this.trigger("change", this.getSelected());
     },
 
     childViewOptions: function(model, index) {
         return {attributes: {value: model.get("key")}}
-    }
+    },
+
+    setService: function(service){
+        this.service = service;
+        this.setSelectedIndex(0, {silent: true});
+        this.collection.forService(this.service);
+    },
+
+    setSelectedIndex: function(index, options){
+        // changing the selectedIndex on the $el will not
+        // trigger a change event in jquery.
+        this.$el[0].selectedIndex = index;
+        this._model.set({"index": index}, options);
+    },
 });
 
 

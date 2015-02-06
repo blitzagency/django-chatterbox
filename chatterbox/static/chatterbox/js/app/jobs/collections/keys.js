@@ -8,8 +8,8 @@ var Keys =  backbone.Collection.extend({
     model: Model,
 
     forService: function(service){
-        return this.fetch({data: {service: service}})
-    }
+        return this.fetch({data: {service: service.get("key")}})
+    },
 });
 
 exports.Keys = Keys;
