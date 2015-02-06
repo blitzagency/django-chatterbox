@@ -13,6 +13,7 @@ var marionette = require("marionette");
 var backbone = require("backbone");
 var Collectors = require("../collections/collectors").Collectors;
 var CollectorItemView = require('./collector-item').CollectorItemView;
+var Service = require('../models/service').Service;
 
 
 var CollectorSelectionView = marionette.CollectionView.extend({
@@ -20,10 +21,21 @@ var CollectorSelectionView = marionette.CollectionView.extend({
     childView: CollectorItemView,
     service: null,
 
-    initialize: function(){
+    initialize: function(options){
         this._model = new backbone.Model({index: 0});
         this.collection = new Collectors();
         this.listenTo(this._model, "change:index", this._didChange);
+
+        this.initializeCollector(options);
+    },
+
+    initializeCollector: function(options){
+        var data = options.data;
+        var service = new Service({key: options.serviceKey});
+
+        if(options.serviceKey){
+            this.collection.forService(service)
+        }
     },
 
     _didChange: function(){

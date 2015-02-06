@@ -13,6 +13,7 @@ var marionette = require("marionette");
 var backbone = require("backbone");
 var Keys = require("../collections/keys").Keys;
 var KeyItemView = require('./key-item').KeyItemView;
+var Service = require('../models/service').Service;
 
 
 var KeySelectionView = marionette.CollectionView.extend({
@@ -20,10 +21,21 @@ var KeySelectionView = marionette.CollectionView.extend({
     childView: KeyItemView,
     service: null,
 
-    initialize: function(){
+    initialize: function(options){
         this._model = new backbone.Model({index: 0});
         this.collection = new Keys();
         this.listenTo(this._model, "change:index", this._didChange);
+
+        this.initializeKey(options);
+    },
+
+    initializeKey: function(options){
+        var data = options.data;
+        var service = new Service({key: options.serviceKey});
+
+        if(options.serviceKey){
+            this.collection.forService(service);
+        }
     },
 
     _didChange: function(){

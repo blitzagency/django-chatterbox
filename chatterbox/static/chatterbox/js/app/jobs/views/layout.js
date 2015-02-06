@@ -17,9 +17,17 @@ var JobLayoutView = marionette.LayoutView.extend({
     },
 
     onShow: function(){
-        this.services = new ServiceSelectionView(JOB_DATA.service);
-        this.collectors = new CollectorSelectionView();
-        this.keys = new KeySelectionView();
+        this.services = new ServiceSelectionView({data: JOB_DATA.service});
+
+        this.collectors = new CollectorSelectionView({
+            data: JOB_DATA.collector,
+            serviceKey: JOB_DATA.service.key
+        });
+
+        this.keys = new KeySelectionView({
+            data: JOB_DATA.key,
+             serviceKey: JOB_DATA.service.key
+        });
 
         this.getRegion("services").show(this.services)
         this.getRegion("collectors").show(this.collectors)

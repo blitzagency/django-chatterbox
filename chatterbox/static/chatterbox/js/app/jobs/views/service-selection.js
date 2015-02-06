@@ -23,10 +23,10 @@ var ServiceSelectionView = marionette.CollectionView.extend({
         'change': 'modelChanged'
     },
 
-    initialize: function(service){
+    initialize: function(options){
 
         this.collection = new Services();
-        this.collection.fetch().then(this.initializeService.bind(this, service));
+        this.collection.fetch().then(this.initializeService.bind(this, options.data));
         this._model = new backbone.Model({index: -1});
         this.listenTo(this._model, "change:index", this._didChange);
     },
@@ -35,7 +35,8 @@ var ServiceSelectionView = marionette.CollectionView.extend({
         var model = this.modelInCollection(new backbone.Model(service));
 
         if(model){
-            this.setSelected(model);
+            var index = this.collection.indexOf(this.model);
+            this.setSelectedIndex(index, {silent: true})
         } else {
             this.setSelectedIndex(0)
         }
@@ -65,13 +66,13 @@ var ServiceSelectionView = marionette.CollectionView.extend({
         return this.collection.at(this.getSelectedIndex());
     },
 
-    setSelected: function(service){
+    setSelected: function(service, options){
         var index = 0;
         var model = this.modelInCollection(service);
 
         if(model){
             index = this.collection.indexOf(this.model);
-            this.setSelectedIndex(index)
+            this.setSelectedIndex(index, options)
         }
     },
 
