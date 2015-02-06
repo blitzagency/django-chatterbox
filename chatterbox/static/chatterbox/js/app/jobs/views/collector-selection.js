@@ -22,8 +22,11 @@ var CollectorSelectionView = marionette.CollectionView.extend({
     service: null,
 
     initialize: function(options){
-        this._model = new backbone.Model({index: 0});
+        this._model = new backbone.Model({index: -1});
         this.collection = new Collectors();
+
+        this.listenTo(this, "render:collection", this.ready);
+
         this.listenTo(this._model, "change:index", this._didChange);
 
         this.initializeCollector(options);
@@ -42,11 +45,16 @@ var CollectorSelectionView = marionette.CollectionView.extend({
         }
     },
 
+    ready: function(){
+        this.setSelectedIndex(0);
+    },
+
     onShow: function(){
         this.$el.on("change", this._selectChanged.bind(this));
     },
 
     _didChange: function(){
+        console.log("CHANGE UP!");
         this.trigger("change", this.getSelected());
     },
 
@@ -68,8 +76,8 @@ var CollectorSelectionView = marionette.CollectionView.extend({
 
     setService: function(service){
         this.service = service;
-        this.setSelectedIndex(0, {silent: true});
-        this.collection.forService(this.service);
+        this._model.set({"index": -1}, {silent: true});
+        this.collection.forService(this.service)
     },
 
     setSelectedIndex: function(index, options){
