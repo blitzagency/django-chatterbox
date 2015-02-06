@@ -1,0 +1,17 @@
+@function get-built-twbs-susy-config($config: $built-twbs) {
+    @return (
+        flow: get($config, flow),
+        math: get($config, math),
+        output: get($config, output),
+        gutter-position: get($config, gutter-position),
+        container: em(get($config, container-width-lg)),
+        container-position: get($config, container-position),
+        columns: get($config, columns),
+        gutters: get($config, gutters),
+        column-width: get($config, column-width),
+        global-box-sizing: get($config, global-box-sizing),
+        last-flow: get($config, last-flow),
+        debug: get($config, debug),
+        use-custom: get($config, use-custom)
+    );
+}

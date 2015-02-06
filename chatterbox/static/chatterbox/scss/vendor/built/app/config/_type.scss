@@ -1,0 +1,86 @@
+@import "vendor/bourbon/bourbon";
+@import "../../core/functions/maps";
+@import "../utils/type";
+
+@function get-app-type-config($overrides: $built-app) {
+    /**
+     * returns built app typography config
+     */
+
+    $font-color: get($overrides, font-color, #000);
+    $font-family: get($overrides, font-family, sans-serif);
+    $font-size: get($overrides, font-size, 112.5); // percentage
+
+    // font-base is default browser size * our desired font-size
+    // e.g., 16 * 1.125 => 18
+    // computed, cannot be overridden directly
+    $font-base: 16 * ($font-size/100);
+
+    $font-weight: get($overrides, font-weight, normal);
+
+    // specify line-height as unit-less
+    $font-line-height: get($overrides, font-line-height, 1.65);
+
+    // $font-measure amounts to the total height
+    // of a line; e.g., 18 * 1.65 = 29.7 // pixels
+    // we can use this value later on to create vertical
+    // rhythm based on the default font size
+    //
+    // computed, cannot be overridden directly
+    $font-measure: font-measure($font-base, $font-line-height);
+
+    // to use these scales:
+    //
+    // ..see:
+    //      built/app/utils/_type @ :func:font-scale
+    //
+    // ..see:
+    //      http://alistapart.com/article/more-meaningful-typography
+    //      http://webdesign.tutsplus.com/articles/how-to-establish-a-modular-typographic-scale--webdesign-14927
+    //      http://modularscale.com/scale/?px1=18&px2=&ra1=1.618&ra2=0
+
+    // preset ratios, provided | dependent by bourbon
+    //
+    // $golden:           1.618;
+    // $minor-second:     1.067;
+    // $major-second:     1.125;
+    // $minor-third:      1.2;
+    // $major-third:      1.25;
+    // $perfect-fourth:   1.333;
+    // $augmented-fourth: 1.414;
+    // $perfect-fifth:    1.5;
+    // $minor-sixth:      1.6;
+    // $major-sixth:      1.667;
+    // $minor-seventh:    1.778;
+    // $major-seventh:    1.875;
+    // $octave:           2;
+    // $major-tenth:      2.5;
+    // $major-eleventh:   2.667;
+    // $major-twelfth:    3;
+    // $double-octave:    4;
+
+    $font-scale-ratio: get($overrides, font-scale-ratio, $minor-third);
+
+    // by default the modular scale is "single" stranded,
+    // i.e., the values are based on a single root.
+    //
+    // interested in "double stranded" scales?
+    //
+    // ..see:
+    //      http://alistapart.com/article/more-meaningful-typography/#section1
+
+    // computed, cannot be overidden directly
+    $font-scale-base: $font-base;
+
+    @return (
+        font-color: $font-color,
+        font-family: $font-family,
+        font-size: $font-size,
+        font-base: $font-base,
+        font-weight: $font-weight,
+        font-line-height: $font-line-height,
+        font-measure: $font-measure,
+        font-scale-ratio: $font-scale-ratio,
+        font-scale-base: $font-scale-base
+    );
+}

@@ -1,0 +1,316 @@
+@import "../../core/functions/maps";
+@import "./type";
+
+@mixin print-built-app-scaffold($config: $built-app) {
+    /**
+     * print-app-base outputs additional scaffolding for a
+     * project based on the passed in config
+     *
+     * ..param: $config map configuration variable for this scaffolding
+     */
+
+    // config vars -------------------------------------------------------- //
+
+    $box-sizing: get($config, box-sizing);
+    $default-z-index: get($config, default-z-index);
+
+    $font-color: get($config, font-color);
+    $font-base: get($config, font-base);
+    $font-weight: get($config, font-weight);
+    $font-size: get($config, font-size);
+    $line-height: get($config, font-line-height);
+    $font-family: get($config, font-family);
+
+    // font-measure = line-heght * font-size
+    $font-measure: get($config, font-measure);
+
+    $form-border-color: get($config, form-border-color);
+    $form-bg-color: get($config, form-bg-color);
+
+    // global elments ----------------------------------------------------- //
+
+    * {
+        @include box-sizing($box-sizing);
+        z-index: $default-z-index;
+
+        &:after,
+        &:before {
+            @include box-sizing($box-sizing);
+        }
+    }
+
+    html {
+        font: $font-weight #{$font-size + "%"}/#{$line-height} $font-family;
+    }
+
+    body {
+        color: $font-color;
+        word-wrap: break-word;
+        @include hyphens(auto);
+    }
+
+    // typography --------------------------------------------------------- //
+
+    small {
+        font-size: rem(font-scale(-1));
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1;
+        margin-top: 0;
+        margin-bottom: 0.825rem;
+
+        font-weight: normal;
+        font-size: 1.65rem;
+
+        // enable ligatures and kerning
+        // ..see:
+        //      https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
+        text-rendering: optimizeLegibility;
+    }
+
+    p, ul, ol, article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary, code, pre, table {
+        & + h1,
+        & + h2,
+        & + h3,
+        & + h4,
+        & + h5,
+        & + h6 {
+            margin-top: 0.825rem;
+        }
+    }
+
+    .h-tera {
+        font-size: rem(font-scale(9));
+        // margin-bottom: 0.25385rem;
+    }
+
+    .h-giga {
+        font-size: rem(font-scale(8));
+        // margin-bottom: 0.33rem;
+    }
+
+    .h-mega {
+        font-size: rem(font-scale(7));
+        // margin-bottom: 0.4125rem;
+    }
+
+    .h-alpha {
+        font-size: rem(font-scale(6));
+        // margin-bottom: 0.495rem;
+    }
+
+    .h-beta {
+        font-size: rem(font-scale(5));
+        // margin-bottom: 0.61875rem;
+    }
+
+    .h-gamma {
+        font-size: rem(font-scale(4));
+        // margin-bottom: 0.825rem;
+    }
+
+    .h-delta {
+        font-size: rem(font-scale(3));
+        // margin-bottom: 1.2375rem;
+    }
+
+    .h-epsilon {
+        font-size: rem(font-scale(2));
+        // margin-bottom: 1.41429rem;
+    }
+
+    .h-zeta {
+        font-size: rem(font-scale(1));
+        // margin-bottom: 1.65rem;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+
+        margin-bottom: rem($font-measure / 2);
+    }
+
+    ul,
+    ol {
+        margin-bottom: rem($font-measure / 2);
+
+        &.reset {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+    }
+
+    ul {
+        padding-left: 1em;
+    }
+
+    ol {
+        padding-left: 1.5em;
+    }
+
+    dl {
+        margin-bottom: rem($font-measure / 2);
+
+        dt {
+            font-weight: bold;
+            margin-bottom: rem($font-measure / 2);
+        }
+
+        dd {
+            margin: 0;
+        }
+    }
+
+    figure {
+        margin: 0;
+        padding: 0;
+
+        margin-bottom: rem($font-measure/2);
+    }
+
+    figcaption {
+        font-size: rem(font-scale(-1));
+        line-height: 1.2;
+    }
+
+    // form elments ------------------------------------------------------- //
+
+    fieldset {
+        margin: 0;
+        background-color: $form-bg-color;
+        border: 1px solid $form-border-color;
+        padding: rem($font-measure / 2);
+    }
+
+    input,
+    label,
+    select {
+        display: block;
+        font-family: $font-family;
+        font-size: rem($font-base);
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: rem($font-measure / 4);
+    }
+
+    textarea,
+    #{$all-text-inputs},
+    select[multiple=multiple] {
+        border: 1px solid $form-border-color;
+
+        margin-bottom: rem($font-measure / 2);
+        padding: rem($font-measure / 3);
+
+        width: 100%;
+
+        &:hover {
+            // stub
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    input[type=search] {
+        @include appearance(none);
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+        display: inline;
+        margin-right: rem($font-measure / 4);
+    }
+
+    input[type=file] {
+        padding-bottom: rem($font-measure / 2);
+        width: 100%;
+    }
+
+    select {
+        margin-bottom: rem($font-measure);
+        max-width: 100%;
+        width: auto;
+    }
+
+    button,
+    input[type=submit] {
+        @include appearance(none);
+        @include user-select(none);
+        border: none;
+        cursor: pointer;
+        vertical-align: middle;
+        white-space: nowrap;
+
+        color: white;
+        padding: rem($font-measure / 3) rem($font-measure / 2);
+    }
+
+    // table elments ------------------------------------------------------ //
+
+    table {
+        border-collapse: collapse;
+        margin: rem($font-measure / 2) 0;
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    th {
+        font-weight: bold;
+        padding: rem($font-measure / 2) 0;
+        text-align: left;
+    }
+
+    td {
+        border-bottom: 1px solid lighten($font-color, 50);
+        padding: rem($font-measure / 2) 0;
+    }
+
+    tr,
+    td,
+    th {
+        vertical-align: middle;
+    }
+
+    // misc. elments ------------------------------------------------------ //
+
+    abbr,
+    acronym,
+    blockquote,
+    code,
+    kbd,
+    q,
+    samp,
+    var {
+        @include hyphens(none);
+    }
+
+    pre code {
+      word-wrap: normal;
+      white-space: -moz-pre-wrap;
+      white-space: pre-wrap;
+    }
+
+    pre {
+      white-space: pre;
+    }
+
+    code {
+      white-space: pre;
+      font-family: monospace;
+    }
+}

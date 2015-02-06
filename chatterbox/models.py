@@ -34,7 +34,7 @@ class Service(models.Model):
 # (instance of a service)
 class Client(models.Model):
     label = models.CharField(max_length=200)
-    uuid = models.CharField(max_length=36, db_index=True,
+    uuid = models.CharField(max_length=36, unique=True, db_index=True,
                             default=make_uuid, editable=False)
     client_id = models.CharField(max_length=200)
     client_secret = models.CharField(max_length=200)

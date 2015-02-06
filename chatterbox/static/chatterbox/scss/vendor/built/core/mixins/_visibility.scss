@@ -1,0 +1,35 @@
+@mixin visually-hidden() {
+     // hide something, but leave it accessible (e.g, for screen-readers)
+
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    &:active,
+    &:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}
+
+@mixin hidden {
+     // hide and remove from flow / layout
+
+    display: none !important;
+    visibility: hidden;
+}
+
+@mixin invisible {
+     // only hide something, leave flow / layout intact
+
+    visibility: hidden;
+}

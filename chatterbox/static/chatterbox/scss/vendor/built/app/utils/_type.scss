@@ -1,0 +1,56 @@
+@import "vendor/bourbon/bourbon";
+
+// ------------------------------------------------------------------------- //
+// ..important:
+//      these utils depend on a global $built variable
+// ------------------------------------------------------------------------- //
+
+@function font-scale($increment, $scale: false, $ratio: false) {
+    /**
+     * a small, easy wrapper around modular scale
+     *
+     * ..param: $increment int, the increment in the scale you'd with to return
+     * ..param: $scale int, the root on which to base the modular scale (defaults to config[font-scale-base])
+     * ..param: $ratio int, the ratio between inrements for a given scale
+     * ..param: $config map, usually the config established by built/app (required only if scale is not provided)
+     *
+     * ..see:
+     *      http://bourbon.io/docs/#modular-scale
+     */
+
+    $config: if($built-app, $built-app, ());
+
+    $scale: if($scale, $scale, get($config, font-scale-base));
+    $ratio: if($ratio, $ratio, get($config, font-scale-ratio));
+
+    @return modular-scale($scale, $increment, $ratio);
+}
+
+@function relative-spacing($font-size:false, $config: $built-app) {
+    /**
+     * this function allows us to create values
+     * relative to a certain font-size
+     *
+     * ..note:
+     *      the typical use case is to get a
+     *      relative margin for a font size
+     */
+
+    $measure: get($config, font-measure);
+    $font-base: get($config, font-base);
+
+    @return $measure/$font-size * $font-base;
+}
+
+@function font-measure($font-base, $line-height) {
+    /**
+     * this function gets the total height of a line;
+     * i.e., will give you (in pixels, though this
+     * function returns a unitless value) the height
+     * of 1 baseline grid unit
+     *
+     * you can use this value to create relative
+     * vertical spacing based on font-size and line height
+     */
+    @return $font-base * $line-height;
+}

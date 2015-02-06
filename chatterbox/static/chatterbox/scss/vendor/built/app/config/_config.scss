@@ -1,0 +1,27 @@
+@import "./global";
+@import "./type";
+@import "./forms";
+
+$built-app: () !default;
+
+@function get-built-config($overrides: $built-app) {
+    /**
+     * returns built app configuration
+     *
+     * ..param: $overrides map app configuration overrides
+     */
+
+    $global-config: get-app-global-config($overrides: $overrides);
+    $type-config: get-app-type-config($overrides: $overrides);
+    $form-config: get-app-form-config($overrides: $overrides);
+
+    // merge various config maps
+    $config: ();
+    $config: map-merge($config, $global-config);
+    $config: map-merge($config, $type-config);
+    $config: map-merge($config, $form-config);
+
+    @return $config
+}
+
+

@@ -1,0 +1,20 @@
+@import "../../../core/functions/maps";
+@import "./grid";
+@import "./susy";
+
+$built-twbs: () !default;
+
+@function get-built-twbs-config($overrides: $built-twbs) {
+
+    $grid-config: get-twbs-grid-config($overrides: $overrides);
+
+    // merge various config maps
+    $config: ();
+    $config: map-merge($config, $grid-config);
+
+    @return $config;
+}
+
+
+
+
