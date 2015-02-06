@@ -118,8 +118,8 @@ class Collector(models.Model):
     # are execute when a job is created with this collector NOT when
     # the collector itself is saved/deleted
 
-    pre_save = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
-    pre_delete = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
+    #pre_save = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
+    #pre_delete = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
     # data_label = models.CharField(max_length=250, blank=True, null=True)  # e.g.: Enter Username
 
     def load_action(self):
