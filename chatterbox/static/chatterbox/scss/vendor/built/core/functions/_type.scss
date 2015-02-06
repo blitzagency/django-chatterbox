@@ -1,0 +1,82 @@
+@function calc-v-unit($target, $context) {
+    /**
+     * returns a "viewport" number, unit-less
+     *
+     * ..param: $target the target size (usually a unit-less px value)
+     * ..param: $context the targets context (usually a unit-less px value)
+     *
+     * ..note:
+     *      This function is intended to return a number appropriate
+     *      for later casting into css units "vh" or "vw".
+     *      The reduction to 1% (* 0.01) relates to vw|h
+     *      in that 1 vw|h is 1% of the viewport.
+     *      Logically then, 100vw|h represents 100% of the viewport.
+     */
+
+    @return $target / ($context * 0.01);
+}
+
+@function vw($target, $context) {
+    /**
+     * A wrapper around calc-v-unit that returns a vw length
+     *
+     * ..see:
+     *      function calc-v-unit
+     *
+     */
+    @return calc-v-unit($target, $context) + 0vw;
+}
+
+@function vh($target, $context) {
+    /**
+     * A wrapper around calc-v-unit that returns a vh length
+     *
+     * ..see:
+     *      function calc-v-unit
+     */
+  @return calc-v-unit($target, $context) + 0vh;
+}
+
+
+@function ps-letter-spacing($ps-tracking-value) {
+    /**
+     * returns: a (unitless) letter-spacing value
+     *
+     * ..param: $ps-tracking-value int the "tracking" value from the PSD
+     * .. note:
+     *      it's recommended you combine the return value with the rem() or em() mixins.
+     *
+     * ..example:
+     *     // scss
+     *       .foo {
+     *           letter-spacing: rem(ps-letter-spacing(40))
+     *      }
+     *
+     *      // output
+     *      .foo {
+     *          letter-spacing: 0.0025rem
+     *      }
+     *
+     *  .. see:
+     *       http://graphicdesign.stackexchange.com/a/7121
+     */
+    @return $ps-tracking-value/1000;
+}
+
+@function ps-line-height($font-size, $ps-leading-value) {
+    /**
+     * convert a photoshop leading value into css line-height
+     *
+     * ..param: $ps-leading-value the leading value from the psd
+     * ..param: $base-font-size the base font-size for your project, default 16
+     * ..returns: a (unitless) css line-height value
+     *
+     * ..note
+     *      unitless line-heights are the preferred best practice for responsive layouts.
+     *
+     * ..see
+     *      http://www.cssleading.com/
+     */
+
+    @return $ps-leading-value/$font-size;
+}

@@ -1,0 +1,8 @@
+@import "vendor/bourbon/bourbon";
+
+@mixin print-helper-clearfix()
+{
+    .clearfix {
+        @include clearfix;
+    }
+}

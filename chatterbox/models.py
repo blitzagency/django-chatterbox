@@ -35,7 +35,7 @@ class Service(models.Model):
 # (instance of a service)
 class Client(models.Model):
     label = models.CharField(max_length=200)
-    uuid = models.CharField(max_length=36, db_index=True,
+    uuid = models.CharField(max_length=36, unique=True, db_index=True,
                             default=make_uuid, editable=False)
     client_id = models.CharField(max_length=200)
     client_secret = models.CharField(max_length=200)
@@ -109,7 +109,7 @@ class Key(models.Model):
 class Collector(models.Model):
     label = models.CharField(max_length=200)  # Search Tweets
     service = models.ForeignKey('Service', related_name='collectors')
-    action = models.CharField(max_length=200)  # foo.bar.baz.func
+    action = models.CharField(max_length=200, unique=True, db_index=True)  # foo.bar.baz.func
 
     # pre_save and #pre_delete are used for things like: maybe
     # you are using some kind of 3rd party provider and you need
@@ -118,9 +118,20 @@ class Collector(models.Model):
     # are execute when a job is created with this collector NOT when
     # the collector itself is saved/deleted
 
-    pre_save = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
-    pre_delete = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
+    #pre_save = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
+    #pre_delete = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
     # data_label = models.CharField(max_length=250, blank=True, null=True)  # e.g.: Enter Username
+
+    def load_action(self):
+        parts = self.action.split('.')
+
+        module = '.'.join(parts[0:-1])
+        kls = parts[-1]
+
+        try:
+            return getattr(importlib.import_module(module), kls)
+        except:
+            return None
 
     def __unicode__(self):
         return self.label

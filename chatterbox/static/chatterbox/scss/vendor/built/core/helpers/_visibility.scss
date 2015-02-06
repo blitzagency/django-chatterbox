@@ -1,0 +1,13 @@
+@import "../mixins/visibility";
+
+@mixin print-helper-visibility() {
+    .hidden {
+        @include hidden();
+    }
+    .invisible {
+        @include invisible();
+    }
+    .visually-hidden {
+        @include visually-hidden();
+    }
+}

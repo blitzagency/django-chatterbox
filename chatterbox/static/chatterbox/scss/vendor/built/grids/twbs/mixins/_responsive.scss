@@ -1,0 +1,26 @@
+// responsive helper mixins ------------------------------------------------ //
+// ..note:
+//      ported from TWBS v3.2.0
+
+@mixin print-responsive-invisibility($parent) {
+  /**
+   * a custom mixin to replicate TWBS's "responsive invisibility"
+   */
+  #{$parent} {
+    display: none !important;
+  }
+}
+
+@mixin print-responsive-visibility($parent) {
+  /**
+   * a custom mixin to replicate TWBS's "responsive visibility"
+   */
+
+  #{$parent} {
+    display: block !important;
+  }
+  table#{$parent}  { display: table; }
+  tr#{$parent}     { display: table-row !important; }
+  th#{$parent},
+  td#{$parent}     { display: table-cell !important; }
+}

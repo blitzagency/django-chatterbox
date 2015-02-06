@@ -3,6 +3,45 @@
 
 {% block extrahead %}{{ block.super }}
 <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+
+<link rel="stylesheet" type="text/css" media="all" href="{{ STATIC_URL }}/chatterbox/css/styles.css"/>
+<script type="text/javascript" src="{{ STATIC_URL }}/chatterbox/js/vendor/require.js"></script>
+<script type="text/javascript">
+
+    requirejs.config({
+        baseUrl: '{{ STATIC_URL }}/chatterbox/js',
+    });
+
+    require(['{{ STATIC_URL }}/chatterbox/js/common.js'], function (common) {
+        require(['main']);
+    });
+
+    var service = {
+        id: "{{ original.collector.service.id }}",
+        key: "{{ original.collector.service.key }}",
+        label: "{{ original.collector.service.label }}",
+    }
+
+    var collector = {
+        "id": "{{ original.collector.id }}",
+        "label": "{{ original.collector.label }}",
+    }
+
+    var key = {
+        "id": "{{ original.key.id }}",
+        "label": "{{ original.key.service_username }}",
+    }
+
+    var JOB_DATA = {
+        "add": {{ add|stringformat:"s"|lower }},
+        "change": {{ change|stringformat:"s"|lower }},
+        "service": service,
+        "collector": collector,
+        "key": key
+    }
+
+</script>
+
 {{ media }}
 {% endblock %}
 
@@ -37,6 +76,16 @@
   </ul>
 {% endif %}{% endif %}
 {% endblock %}
+
+
+<div id="chatterbox-main"></div>
+
+<!-- <select>
+    {% for each in services %}
+    <option value="{{each.key}}">{{each.label}}</option>
+    {% endfor %}
+</select>
+ -->
 <form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form" novalidate>{% csrf_token %}{% block form_top %}{% endblock %}
 <div>
 {% if is_popup %}<input type="hidden" name="{{ is_popup_var }}" value="1" />{% endif %}

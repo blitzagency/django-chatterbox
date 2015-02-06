@@ -1,0 +1,17 @@
+@import "../../core/functions/maps";
+
+@function get-app-form-config($overrides: $built-app) {
+    /**
+     * returns built app form config
+     */
+
+    $form-border-color: get($overrides, form-border-color, #ddd);
+
+    $_form-bg-color: lighten($form-border-color, 10);
+    $form-bg-color: get($overrides, form-bg-color, $_form-bg-color);
+
+    @return (
+        form-border-color: $form-border-color,
+        form-bg-color: $form-bg-color
+    );
+}

@@ -1,0 +1,15 @@
+@import "../functions/type";
+
+@mixin ps-letter-spacing($ps-tracking-value) {
+    // ..see:
+    //  functions/ps
+
+    letter-spacing: ps-letter-spacing($ps-tracking-value) + 0em;
+}
+
+@mixin ps-line-height($ps-font-size, $ps-leading-value) {
+    //..see
+    //  functions/ps
+
+    line-height: ps-line-height($ps-font-size, $ps-leading-value);
+}

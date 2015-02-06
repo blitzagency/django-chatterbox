@@ -1,0 +1,114 @@
+@import "../../../core/functions/maps";
+@import "vendor/bourbon/bourbon";
+
+@function get-twbs-grid-config($overrides: $built-twbs) {
+
+    // prep container property
+    // needs to be unitless later for susy
+    // but px is useful later
+
+    $_container: strip-units(get($overrides, container, 1170));
+    $_container-px: $_container + 0px;
+
+    // susy settings ------------------------------------------------------- //
+
+    $flow: get($overrides, flow, ltr);
+    $math: get($overrides, math, fluid);
+    $output: get($overrides, output, float);
+    $container: $_container;
+    $gutter-position: get($overrides, gutter-position, inside-static);
+    $container-position: get($overrides, container-position, center);
+    $columns: get($overrides, columns, 12);
+    $gutters: get($overrides, gutters, 30px/97px);
+    $column-width: get($overrides, column-width, 97px);
+    $global-box-sizing: get($overrides, global-box-sizing, border-box);
+    $last-flow: get($overrides, last-flow, from);
+
+    $_debug: (
+        image: hide,
+        color: rgba(#66f, .25),
+        output: background,
+        toggle: top right,
+
+    );
+
+    $debug: get($overrides, debug, $_debug);
+
+    $_use-custom: (
+        background-image: true,
+        background-options: false,
+        box-sizing: true,
+        clearfix: false,
+        rem: true,
+
+    );
+
+    $use-custom: get($overrides, use-custom, $_use-custom);
+
+    // grid width settings ------------------------------------------------- //
+
+    $grid-width-xs: get($overrides, grid-width-xs, 0px);
+    $grid-width-sm: get($overrides, grid-width-sm, 768px);
+    $grid-width-md: get($overrides, grid-width-md, 992px);
+    $grid-width-lg: get($overrides, grid-width-lg, $_container-px);
+
+
+    // container width settings -------------------------------------------- //
+
+    $container-is-fluid: get($overrides, container-is-fluid, false);
+    $container-width-xs: get($overrides, container-width-xs, 100%);
+    $container-width-sm: get($overrides, container-width-sm, 750px);
+    $container-width-md: get($overrides, container-width-md, 970px);
+    $container-width-lg: get($overrides, container-width-lg, $_container-px);
+
+    // breakpoint widths settings ------------------------------------------ //
+
+    $breakpoints-use-ems: get($overrides, breakpoints-use-ems, false);
+
+    // breakpoints are computed based on $grid-width-*
+    // cannot be overridden directly
+
+    $breakpoint-xs: $grid-width-xs;
+    $breakpoint-xs-sm: width $grid-width-xs $grid-width-sm;
+    $breakpoint-sm: $grid-width-sm;
+    $breakpoint-sm-md: width $grid-width-sm $grid-width-md;
+    $breakpoint-md: $grid-width-md;
+    $breakpoint-md-lg: width $grid-width-md $grid-width-lg;
+    $breakpoint-lg: $grid-width-lg;
+
+    @return (
+        flow: $flow,
+        math: $math,
+        output: $output,
+        gutter-position: $gutter-position,
+        container-position: $container-position,
+        columns: $columns,
+        gutters: $gutters,
+        column-width: $column-width,
+        global-box-sizing: $global-box-sizing,
+        last-flow: $last-flow,
+
+        debug: $debug,
+        use-custom: $use-custom,
+
+        grid-width-xs: $grid-width-xs,
+        grid-width-sm: $grid-width-sm,
+        grid-width-md: $grid-width-md,
+        grid-width-lg: $grid-width-lg,
+
+        container-is-fluid: $container-is-fluid,
+        container-width-xs: $container-width-xs,
+        container-width-sm: $container-width-sm,
+        container-width-md: $container-width-md,
+        container-width-lg: $container-width-lg,
+
+        breakpoints-use-ems: $breakpoints-use-ems,
+        breakpoint-xs: $breakpoint-xs,
+        breakpoint-xs-sm: $breakpoint-xs-sm,
+        breakpoint-sm: $breakpoint-sm,
+        breakpoint-sm-md: $breakpoint-sm-md,
+        breakpoint-md: $breakpoint-md,
+        breakpoint-md-lg: $breakpoint-md-lg,
+        breakpoint-lg: $breakpoint-lg
+    );
+}

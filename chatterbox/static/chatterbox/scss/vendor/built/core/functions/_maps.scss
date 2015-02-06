@@ -1,0 +1,25 @@
+@function get($map, $key, $default: null, $debug: false) {
+    /**
+     * a small wrapper around map-get that adds
+     * a nicer @warn when a key cannot be found.
+     *
+     * get will also return a custom default value
+     * when a missing key is encountered
+     *
+     * ..param: $map map
+     * ..param: $key str
+     * ..param: $default mixed
+     */
+
+    @if(map-has-key($map, $key)) {
+        @return map-get($map, $key);
+    }
+    @else {
+        @if($debug) {
+            @warn "Could not find key '#{$key}' in map!";
+            @debug $map;
+        }
+
+        @return $default;
+    }
+}

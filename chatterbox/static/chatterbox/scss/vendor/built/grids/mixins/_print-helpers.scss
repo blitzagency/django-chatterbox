@@ -1,0 +1,113 @@
+@mixin print-columns($class, $total-columns) {
+     // prints n-columns for a given class name,
+     // format: .col-{$class}-{$i}; e.g., ".col-xs-1"
+     //
+     // ..param: $class string the class name for your set of columns
+     // ..param: $total-columns int the number of columns to iterate
+
+    @for $i from (0 + 1) through $total-columns {
+        .col-#{$class}-#{$i} {
+            @include span($i);
+        }
+    }
+}
+
+@mixin print-columns-pre($class, $total-columns) {
+     // prints n-columns for a given class name,
+     // format: .col-{$class}-{$i}; e.g., ".col-xs-1"
+     //
+     // ..param: $class string the class name for your set of columns
+     // ..param: $total-columns int the number of columns to iterate
+     //
+     // ..see:
+     //      http://susydocs.oddbird.net/en/latest/toolkit/#pre
+
+    @for $i from (-1 + 1) through ($total-columns - 1) {
+        .col-#{$class}-offset-#{$i} {
+            @include pre($i of $total-columns);
+        }
+    }
+}
+
+@mixin print-columns-post($class, $total-columns) {
+     // prints n-columns for a given class name,
+     // format: .col-{$class}-{$i}; e.g., ".col-xs-1"
+     //
+     // ..param: $class string the class name for your set of columns
+     // ..param: $total-columns int the number of columns to iterate
+     //
+     // ..see:
+     //      http://susydocs.oddbird.net/en/latest/toolkit/#post
+
+    @for $i from (-1 + 1) through ($total-columns - 1) {
+        .col-#{$class}-offset-#{$i} {
+            @include pre($i of $total-columns);
+        }
+    }
+}
+
+@mixin print-container($class: container) {
+     // prints a susy container mixin under the given class name
+     //
+     // ..param: $class string the class name for your container
+     //
+     // ..see:
+     //      http://susydocs.oddbird.net/en/latest/toolkit/#container
+
+    .#{$class} {
+        @include container;
+    }
+}
+
+@mixin print-break($class: break) {
+     // prints a susy break mixin under the given class name
+     //
+     // ..param: $class string the class name for your break class
+     //
+     // ..see:
+     //      http://susydocs.oddbird.net/en/latest/toolkit/#break
+
+    .#{$class} {
+        @include break;
+    }
+}
+
+@mixin print-last($class: last) {
+     // prints a susy last mixin under the given class name
+     //
+     // ..param: $class string the class name for your last class
+     //
+     // ..see:
+     //      http://susydocs.oddbird.net/en/latest/toolkit/#last
+
+    .#{$class} {
+        @include last;
+    }
+}
+
+@mixin print-first($class: first) {
+     // prints a susy first mixin under the given class name
+     //
+     // ..param: $class string the class name for your first class
+     //
+     // ..see:
+     //      http://susydocs.oddbird.net/en/latest/toolkit/#first
+
+    .#{$class} {
+        @include first;
+    }
+}
+
+@mixin print-full($class: full) {
+     // prints a susy full mixin under the given class name
+     //
+     // ..param: $class string the class name for your full class
+     //
+     // ..see:
+     //      http://susydocs.oddbird.net/en/latest/toolkit/#full
+
+    .#{$class} {
+        @include full;
+    }
+}
+
