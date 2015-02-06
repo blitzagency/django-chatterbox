@@ -7,7 +7,9 @@ from django.utils.safestring import mark_safe
 from django.conf.urls import url
 from django.http import JsonResponse
 from django.core import serializers
+from django.shortcuts import get_object_or_404
 from .models import (Service, Client, Key, Collector, Job)
+
 
 
 
@@ -194,24 +196,13 @@ class JobAdmin(admin.ModelAdmin):
 
         return JsonResponse(data, safe=False)
 
+    def api_collectors_form(self, request, id):
 
-    def api_collectors_form(self, request):
-        data = []
-        collection = []
-        service = request.GET.get('service', None)
+        obj = get_object_or_404(Collector, pk=id)
 
-        if service:
-            collection = Collector.objects.select_related("service")\
-                .filter(service__key=service) \
-                .order_by("label")
-        else:
-            collection = Collector.objects.select_related("service")\
-                .order_by("label")
-
-        for each in collection:
-            data.append({"id": each.id, "label": each.label})
-
-        return JsonResponse(data, safe=False)
+        kls = obj.load_action()
+        collector = kls()
+        return JsonResponse({"html": collector.render()})
 
     def get_urls(self):
         info = self.model._meta.app_label, self.model._meta.model_name
@@ -222,6 +213,7 @@ class JobAdmin(admin.ModelAdmin):
             url(r'^api/clients/$', self.admin_site.admin_view(self.api_clients), name='%s_%s_api_clients' % info),
             url(r'^api/keys/$', self.admin_site.admin_view(self.api_keys), name='%s_%s_api_keys' % info),
             url(r'^api/collectors/$', self.admin_site.admin_view(self.api_collectors), name='%s_%s_api_collectors' % info),
+            url(r'^api/collectors/(?P<id>\d+)/form/$', self.admin_site.admin_view(self.api_collectors_form), name='%s_%s_api_collectors_form' % info),
         ]
 
         return api_urls + urls
