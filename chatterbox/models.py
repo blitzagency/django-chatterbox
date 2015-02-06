@@ -2,6 +2,7 @@ import uuid
 import importlib
 from django.db import models
 from django.conf import settings
+from jsonfield import JSONField
 
 
 def make_uuid():
@@ -131,3 +132,28 @@ class Job(models.Model):
     collector = models.ForeignKey('Collector', related_name='collector_actions')
     key = models.ForeignKey('Key', related_name='key_actions')
     data = models.CharField(max_length=250, blank=True, null=True)
+
+
+TYPE_CHOICES = (
+    ('note', 'Note'),
+    ('video', 'Video'),
+    ('image', 'Image'),
+)
+
+PROVIDER_CHOICES = (
+    ('facebook', 'Facebook'),
+    ('instagram', 'Instagram'),
+    ('youtube', 'YouTube'),
+    ('twitter', 'Twitter'),
+)
+
+
+class Activity(models.Model):
+    published = models.DateTimeField(blank=True, null=True)
+    object_type = models.CharField(max_length=250, choices=TYPE_CHOICES)
+    content = models.TextField(blank=True, null=True)
+    actor_displayName = models.CharField(max_length=250, blank=True, null=True)
+    actor_id = models.CharField(max_length=250, blank=True, null=True)
+    provider_displayName = models.CharField(max_length=250,
+                                            choices=PROVIDER_CHOICES)
+    blob = JSONField()

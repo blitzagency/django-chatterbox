@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import (Service, Client, Key, Collector, Job)
+from .models import (Service, Client, Key, Collector, Job, Activity)
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 
@@ -75,3 +75,8 @@ class CollectorAdmin(admin.ModelAdmin):
 class JobAdmin(admin.ModelAdmin):
     readonly_fields = ("job_id",)
     change_form_template = "admin/job_change_form.html"
+
+
+@admin.register(Activity)
+class ActivityAdmin(admin.ModelAdmin):
+    pass
