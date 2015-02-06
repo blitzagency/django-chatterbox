@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-from django.conf import settings
+import jsonfield.fields
 import chatterbox.models
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
@@ -13,6 +14,22 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.CreateModel(
+            name='Activity',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('published', models.DateTimeField(null=True, blank=True)),
+                ('object_type', models.CharField(max_length=250, choices=[(b'note', b'Note'), (b'video', b'Video'), (b'image', b'Image')])),
+                ('content', models.TextField(null=True, blank=True)),
+                ('actor_displayName', models.CharField(max_length=250, null=True, blank=True)),
+                ('actor_id', models.CharField(max_length=250, null=True, blank=True)),
+                ('provider_displayName', models.CharField(max_length=250, choices=[(b'facebook', b'Facebook'), (b'instagram', b'Instagram'), (b'youtube', b'YouTube'), (b'twitter', b'Twitter')])),
+                ('blob', jsonfield.fields.JSONField()),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
         migrations.CreateModel(
             name='Client',
             fields=[

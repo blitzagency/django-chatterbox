@@ -1,6 +1,7 @@
 import json
 from django.db import models
 from django.contrib import admin
+from .models import (Service, Client, Key, Collector, Job, Activity)
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.conf.urls import url
@@ -74,6 +75,10 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(Collector)
 class CollectorAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Activity)
+class ActivityAdmin(admin.ModelAdmin):
     pass
 
 
