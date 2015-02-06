@@ -42,8 +42,24 @@ var CollectorSelectionView = marionette.CollectionView.extend({
         }
     },
 
+    onShow: function(){
+        this.$el.on("change", this._selectChanged.bind(this));
+    },
+
     _didChange: function(){
         this.trigger("change", this.getSelected());
+    },
+
+    _selectChanged: function(e) {
+        this._model.set("index", this.$el[0].selectedIndex);
+    },
+
+    getSelectedIndex: function(){
+        return this._model.get("index");
+    },
+
+    getSelected: function(){
+        return this.collection.at(this.getSelectedIndex());
     },
 
     childViewOptions: function(model, index) {

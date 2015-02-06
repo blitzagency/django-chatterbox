@@ -34,12 +34,18 @@ var JobLayoutView = marionette.LayoutView.extend({
         this.getRegion("collectors").show(this.collectors)
         this.getRegion("keys").show(this.keys)
 
-        this.listenTo(this.services, 'change', this.serviceDidChange)
+        this.listenTo(this.services, 'change', this.serviceDidChange);
+        this.listenTo(this.collectors, 'change', this.collectorDidChange);
     },
 
     serviceDidChange: function(){
         var service = this.services.getSelected();
         this.setService(service);
+    },
+
+    collectorDidChange: function(){
+        var collector = this.collectors.getSelected();
+        collector.loadForm();
     },
 
     setService: function(service){

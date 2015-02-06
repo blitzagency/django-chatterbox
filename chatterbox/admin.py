@@ -197,12 +197,19 @@ class JobAdmin(admin.ModelAdmin):
         return JsonResponse(data, safe=False)
 
     def api_collectors_form(self, request, id):
+        html = ""
 
-        obj = get_object_or_404(Collector, pk=id)
+        try:
+            obj = Collector.objects.get(pk=id)
+        except:
+            obj = None
 
-        kls = obj.load_action()
-        collector = kls()
-        return JsonResponse({"html": collector.render()})
+        if obj:
+            kls = obj.load_action()
+            collector = kls()
+            html = collector.render()
+
+        return JsonResponse({"form": html})
 
     def get_urls(self):
         info = self.model._meta.app_label, self.model._meta.model_name
