@@ -194,6 +194,25 @@ class JobAdmin(admin.ModelAdmin):
 
         return JsonResponse(data, safe=False)
 
+
+    def api_collectors_form(self, request):
+        data = []
+        collection = []
+        service = request.GET.get('service', None)
+
+        if service:
+            collection = Collector.objects.select_related("service")\
+                .filter(service__key=service) \
+                .order_by("label")
+        else:
+            collection = Collector.objects.select_related("service")\
+                .order_by("label")
+
+        for each in collection:
+            data.append({"id": each.id, "label": each.label})
+
+        return JsonResponse(data, safe=False)
+
     def get_urls(self):
         info = self.model._meta.app_label, self.model._meta.model_name
         urls = super(JobAdmin, self).get_urls()

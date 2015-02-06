@@ -14,6 +14,7 @@ var JobLayoutView = marionette.LayoutView.extend({
         services: ".service",
         collectors: ".collector",
         keys: ".key",
+        form: ".collector-form"
     },
 
     onShow: function(){

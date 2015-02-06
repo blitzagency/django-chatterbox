@@ -28,13 +28,6 @@ class Collector(object):
             return ""
 
 
-
-"""
-twitter tag search
-instagram tag search
-facebook wall
-"""
-
 class TagForm(forms.Form):
     tag = forms.CharField(label='Tag', max_length=100)
 
