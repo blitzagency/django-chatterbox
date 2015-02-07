@@ -7,10 +7,12 @@ from django.utils.safestring import mark_safe
 from django.conf.urls import url
 from django.http import JsonResponse
 from django.core import serializers
-from django.shortcuts import get_object_or_404
-from .models import (Service, Client, Key, Collector, Job)
+from django.views.decorators.csrf import csrf_protect
+from django.utils.decorators import method_decorator
+from django.db import transaction
+from django.contrib.admin import helpers
 
-
+csrf_protect_m = method_decorator(csrf_protect)
 
 
 @admin.register(Client)
@@ -77,7 +79,9 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(Collector)
 class CollectorAdmin(admin.ModelAdmin):
-    pass
+    def add_view(self, request, form_url='', extra_context=None):
+        import pdb; pdb.set_trace()
+        return self.changeform_view(request, None, form_url, extra_context)
 
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
@@ -110,30 +114,57 @@ from functools import update_wrapper
 #                               context_instance=RequestContext(request))
 
 
+TO_FIELD_VAR = '_to_field'
+
+from django import forms
+
+
+class JobForm(forms.ModelForm):
+    service_key = forms.CharField()
+    collector = forms.IntegerField()
+    key = forms.IntegerField()
+
+    class Meta:
+        model = Job
+        exclude = ('data', )
+
+    def _post_clean(self):
+
+        cleaned_data = self.cleaned_data
+        extra_data = {}
+
+        collector = Collector.objects.filter(
+            service__key=cleaned_data['service_key'],
+            id=cleaned_data['collector']).first()
+
+        key = Key.objects.get(id=cleaned_data['key'])
+
+        kls = collector.load_action()
+
+        if kls.form:
+            extra_data = self._process_driver_form(kls.form, self.data, self.files)
+
+        obj = self.instance
+        obj.collector = collector
+        obj.key = key
+        obj.data = json.dumps(extra_data)
+
+    def _process_driver_form(self, form, data, files):
+        f = form(data=data, files=files)
+        result = {}
+
+        if f.is_valid():
+            result = f.cleaned_data
+
+        return result
+
 
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
+    form = JobForm
     readonly_fields = ("job_id",)
     change_form_template = "admin/job_change_form.html"
 
-    # def __data(self):
-    #     context = {
-    #         "services": Service.objects.order_by("-label").all(),
-    #         "clients": Client.objects.select_related("service").all(),
-    #         "keys": Key.objects.select_related("service").all()
-    #     }
-
-    #     return context
-
-    # def add_view(self, request, form_url='', extra_context=None):
-    #     response = self.changeform_view(request, None, form_url, extra_context)
-    #     response.context_data.update(self.__data())
-    #     return response
-
-    # def change_view(self, request, object_id, form_url='', extra_context=None):
-    #     response = self.changeform_view(request, object_id, form_url, extra_context)
-    #     response.context_data.update(self.__data())
-    #     return response
 
     def api_services(self, request):
         data = []

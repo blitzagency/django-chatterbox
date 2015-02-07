@@ -49,6 +49,7 @@ var JobLayoutView = marionette.LayoutView.extend({
             collector.loadForm().then(function(){
                 this.form.show(new marionette.ItemView({
                     tagName: "table",
+                    id: "id_data",
                     template: collector.get("form")
                 }));
             }.bind(this));

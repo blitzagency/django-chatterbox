@@ -18,7 +18,7 @@ var ServiceItemView = require('./service-item').ServiceItemView;
 
 var ServiceSelectionView = marionette.CollectionView.extend({
     tagName: "select",
-
+    id: "id_service_key",
     childView: ServiceItemView,
     modelEvents: {
         'change': 'modelChanged'
@@ -33,7 +33,7 @@ var ServiceSelectionView = marionette.CollectionView.extend({
     },
 
     attributes: function(){
-        return {name: "service"};
+        return {name: "service_key"};
     },
 
     initializeService:function(service){

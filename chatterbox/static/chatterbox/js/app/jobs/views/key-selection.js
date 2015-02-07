@@ -18,6 +18,7 @@ var Service = require('../models/service').Service;
 
 var KeySelectionView = marionette.CollectionView.extend({
     tagName: "select",
+    id: "id_key_id",
     childView: KeyItemView,
     service: null,
 
@@ -47,7 +48,7 @@ var KeySelectionView = marionette.CollectionView.extend({
     },
 
     childViewOptions: function(model, index) {
-        return {attributes: {value: model.get("key")}}
+        return {attributes: {value: model.get("id")}}
     },
 
     setService: function(service){
