@@ -59,6 +59,7 @@ var JobLayoutView = marionette.LayoutView.extend({
     },
 
     setService: function(service){
+        this.form.reset();
         this.collectors.setService(service);
         this.keys.setService(service);
     }

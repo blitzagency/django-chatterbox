@@ -25,11 +25,8 @@ var CollectorSelectionView = marionette.CollectionView.extend({
     initialize: function(options){
         this._model = new backbone.Model({index: -1});
         this.collection = new Collectors();
-
-        this.listenTo(this, "render:collection", this.ready);
-
+        this.options = options;
         this.listenTo(this._model, "change:index", this._didChange);
-
         this.initializeCollector(options);
     },
 
@@ -45,7 +42,10 @@ var CollectorSelectionView = marionette.CollectionView.extend({
             this.collection.forService(service)
             .then(function(){
                 this.setSelectedId(data.id)
+                this.listenTo(this, "render:collection", this.ready);
             }.bind(this));
+        } else {
+            this.listenTo(this, "render:collection", this.ready);
         }
     },
 
