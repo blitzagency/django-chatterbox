@@ -37,7 +37,8 @@
         "change": {{ change|stringformat:"s"|lower }},
         "service": service,
         "collector": collector,
-        "key": key
+        "key": key,
+        "data": {{ original.data|safe }}
     }
 
 </script>

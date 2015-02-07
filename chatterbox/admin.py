@@ -79,9 +79,8 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(Collector)
 class CollectorAdmin(admin.ModelAdmin):
-    def add_view(self, request, form_url='', extra_context=None):
-        import pdb; pdb.set_trace()
-        return self.changeform_view(request, None, form_url, extra_context)
+    pass
+
 
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):

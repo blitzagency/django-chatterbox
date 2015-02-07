@@ -37,10 +37,11 @@ var ServiceSelectionView = marionette.CollectionView.extend({
     },
 
     initializeService:function(service){
+        debugger;
         var model = this.modelInCollection(new backbone.Model(service));
 
         if(model){
-            var index = this.collection.indexOf(this.model);
+            var index = this.collection.indexOf(model);
             this.setSelectedIndex(index, {silent: true})
         } else {
             this.setSelectedIndex(0)
