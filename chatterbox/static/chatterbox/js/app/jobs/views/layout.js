@@ -47,11 +47,13 @@ var JobLayoutView = marionette.LayoutView.extend({
         var collector = this.collectors.getSelected();
         if(collector){
             collector.loadForm().then(function(){
+
                 this.form.show(new marionette.ItemView({
                     tagName: "table",
                     id: "id_data",
                     template: collector.get("form")
                 }));
+
             }.bind(this));
         }
     },

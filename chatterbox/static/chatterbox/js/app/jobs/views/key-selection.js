@@ -39,7 +39,10 @@ var KeySelectionView = marionette.CollectionView.extend({
         var service = new Service({key: options.serviceKey});
 
         if(options.serviceKey){
-            this.collection.forService(service);
+            this.collection.forService(service)
+            .then(function(){
+                this.setSelectedId(data.id)
+            }.bind(this));
         }
     },
 
@@ -55,6 +58,17 @@ var KeySelectionView = marionette.CollectionView.extend({
         this.service = service;
         this.setSelectedIndex(0, {silent: true});
         this.collection.forService(this.service);
+    },
+
+    setSelectedId: function(id, options){
+        var index = 0;
+        var model = this.collection.get(id)
+
+        if(model){
+            index = this.collection.indexOf(model)
+        }
+
+        this.setSelectedIndex(index);
     },
 
     setSelectedIndex: function(index, options){

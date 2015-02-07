@@ -37,7 +37,6 @@ var ServiceSelectionView = marionette.CollectionView.extend({
     },
 
     initializeService:function(service){
-        debugger;
         var model = this.modelInCollection(new backbone.Model(service));
 
         if(model){

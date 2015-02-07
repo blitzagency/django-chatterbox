@@ -43,6 +43,9 @@ var CollectorSelectionView = marionette.CollectionView.extend({
 
         if(options.serviceKey){
             this.collection.forService(service)
+            .then(function(){
+                this.setSelectedId(data.id)
+            }.bind(this));
         }
     },
 
@@ -81,12 +84,24 @@ var CollectorSelectionView = marionette.CollectionView.extend({
         this.collection.forService(this.service)
     },
 
+    setSelectedId: function(id, options){
+        var index = 0;
+        var model = this.collection.get(id)
+
+        if(model){
+            index = this.collection.indexOf(model)
+        }
+
+        this.setSelectedIndex(index);
+    },
+
     setSelectedIndex: function(index, options){
         // changing the selectedIndex on the $el will not
         // trigger a change event in jquery.
         this.$el[0].selectedIndex = index;
         this._model.set({"index": index}, options);
     },
+
 });
 
 
