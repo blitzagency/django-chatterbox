@@ -1,5 +1,9 @@
+import os
+import json
 from django.test import TestCase
 from ..models import Service
+from chatterbox.utils.twitter import parse_to_activity
+from pprint import pprint
 
 
 class TwitterApiTestCase(TestCase):
@@ -27,7 +31,6 @@ class TwitterApiTestCase(TestCase):
     def test_get_home_timeline(self):
         data = self.api.home_timeline()
         count = len(data)
-
         self.assertTrue(count <= 20 and count > 0)
 
     def test_get_home_timeline_complex(self):
@@ -35,3 +38,19 @@ class TwitterApiTestCase(TestCase):
         count = len(data)
 
         self.assertTrue(count <= 50 and count > 20)
+
+
+class TwitterUtils(TestCase):
+
+    def test_parse_to_activity(self):
+        tests_folder = os.path.dirname(os.path.realpath(__file__))
+        in_path = tests_folder + '/test-twitter-parse/in-basic-tweet.json'
+        with open(in_path) as data_file:
+            data = json.load(data_file)
+        output = parse_to_activity(data)
+
+        out_path = tests_folder + '/test-twitter-parse/out-basic-tweet.json'
+        with open(out_path) as data_file:
+            final = json.load(data_file)
+
+        self.assertEqual(output, final)
