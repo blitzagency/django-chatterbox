@@ -144,6 +144,9 @@ class Job(models.Model):
     key = models.ForeignKey('Key', related_name='key_actions')
     data = models.CharField(max_length=250, blank=True, null=True)
 
+    def __unicode__(self):
+        return self.job_id
+
 
 TYPE_CHOICES = (
     ('note', 'Note'),
