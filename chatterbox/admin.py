@@ -87,9 +87,9 @@ class ActivityAdmin(admin.ModelAdmin):
     pass
 
 
-from django.template import RequestContext
-from django.shortcuts import render_to_response
-from functools import update_wrapper
+# from django.template import RequestContext
+# from django.shortcuts import render_to_response
+# from functools import update_wrapper
 
 
 # def admin_job_change_view(request, model_admin):
@@ -113,7 +113,7 @@ from functools import update_wrapper
 #                               context_instance=RequestContext(request))
 
 
-TO_FIELD_VAR = '_to_field'
+# TO_FIELD_VAR = '_to_field'
 
 from django import forms
 
@@ -149,7 +149,7 @@ class JobForm(forms.ModelForm):
         obj.data = json.dumps(extra_data)
 
     def _process_driver_form(self, form, data, files):
-        f = form(data=data, files=files)
+        f = form(data=data, files=files, prefix="data")
         result = {}
 
         if f.is_valid():
@@ -163,7 +163,6 @@ class JobAdmin(admin.ModelAdmin):
     form = JobForm
     readonly_fields = ("job_id",)
     change_form_template = "admin/job_change_form.html"
-
 
     def api_services(self, request):
         data = []

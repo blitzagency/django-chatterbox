@@ -13,7 +13,7 @@ class Collector(object):
         template = self.template
 
         if self.form:
-            form = self.form()
+            form = self.form(prefix="data")
 
         if template and form:
             context = {"form": form}
