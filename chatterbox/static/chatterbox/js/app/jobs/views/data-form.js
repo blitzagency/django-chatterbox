@@ -29,7 +29,7 @@ var DataFormView = marionette.ItemView.extend({
             $input.val(value);
 
         }, this);
-    }
+    },
 })
 
 exports.DataFormView = DataFormView;

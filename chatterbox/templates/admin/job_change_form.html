@@ -17,18 +17,18 @@
     });
 
     var service = {
-        id: {{ original.collector.service.id }},
+        id: {{ original.collector.service.id|default:"null"}},
         key: "{{ original.collector.service.key }}",
         label: "{{ original.collector.service.label }}",
     }
 
     var collector = {
-        "id": {{ original.collector.id }},
+        "id": {{ original.collector.id|default:"null"}},
         "label": "{{ original.collector.label }}",
     }
 
     var key = {
-        "id": {{ original.key.id }},
+        "id": {{ original.key.id|default:"null" }},
         "label": "{{ original.key.service_username }}",
     }
 
@@ -38,7 +38,7 @@
         "service": service,
         "collector": collector,
         "key": key,
-        "data": {{ original.data|safe }}
+        "data": {{ original.data|safe|default:"null" }}
     }
 
 </script>

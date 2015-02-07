@@ -58,7 +58,6 @@ var CollectorSelectionView = marionette.CollectionView.extend({
     },
 
     _didChange: function(){
-        console.log("CHANGE UP!");
         this.trigger("change", this.getSelected());
     },
 

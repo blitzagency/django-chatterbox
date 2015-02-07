@@ -4,6 +4,7 @@ from django import forms
 
 class TagForm(forms.Form):
     tag = forms.CharField(label='Tag', max_length=100)
+    nombre = forms.CharField(label='Nombre', max_length=100)
 
 
 class TwitterTagSearch(Collector):
