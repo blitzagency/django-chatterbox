@@ -1,16 +1,12 @@
 import json
-from django.db import models
 from django.contrib import admin
 from .models import (Service, Client, Key, Collector, Job, Activity)
 from django.utils.html import format_html
-from django.utils.safestring import mark_safe
 from django.conf.urls import url
 from django.http import JsonResponse
-from django.core import serializers
 from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
-from django.db import transaction
-from django.contrib.admin import helpers
+from django import forms
 
 csrf_protect_m = method_decorator(csrf_protect)
 
@@ -87,37 +83,6 @@ class ActivityAdmin(admin.ModelAdmin):
     pass
 
 
-# from django.template import RequestContext
-# from django.shortcuts import render_to_response
-# from functools import update_wrapper
-
-
-# def admin_job_change_view(request, model_admin):
-
-#     template_response =
-#     opts = model_admin.model._meta
-#     admin_site = model_admin.admin_site
-#     has_perm = request.user.has_perm(opts.app_label + '.' \
-#                                      + opts.get_change_permission())
-#     context = {
-#         'admin_site': admin_site.name,
-#         'title': "My Custom View",
-#         'opts': opts,
-#         'app_label': opts.app_label,
-#         'has_change_permission': has_perm
-#     }
-
-#     template = 'admin/job_change_form.html'
-
-#     return render_to_response(template, context,
-#                               context_instance=RequestContext(request))
-
-
-# TO_FIELD_VAR = '_to_field'
-
-from django import forms
-
-
 class JobForm(forms.ModelForm):
     service_key = forms.CharField()
     collector = forms.IntegerField()
@@ -162,7 +127,28 @@ class JobForm(forms.ModelForm):
 class JobAdmin(admin.ModelAdmin):
     form = JobForm
     readonly_fields = ("job_id",)
+    list_display = ("get_service", "get_collector",
+                    "get_service_username", "job_id")
+
     change_form_template = "admin/job_change_form.html"
+
+    def get_service(self, obj):
+        return obj.collector.service.label
+
+    def get_collector(self, obj):
+        return obj.collector.label
+
+    def get_service_username(self, obj):
+        return obj.key.service_username
+
+    get_service.short_description = 'Service'
+    get_service.admin_order_field = 'service__label'
+
+    get_collector.short_description = 'Collector'
+    get_collector.admin_order_field = 'collector__label'
+
+    get_service_username.short_description = 'Service Username'
+    get_service_username.admin_order_field = 'key__service_username'
 
     def api_services(self, request):
         data = []
@@ -235,8 +221,10 @@ class JobAdmin(admin.ModelAdmin):
 
         if obj:
             kls = obj.load_action()
-            collector = kls()
-            html = collector.render()
+
+            if kls:
+                collector = kls()
+                html = collector.render()
 
         return JsonResponse({"form": html})
 
