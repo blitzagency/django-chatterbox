@@ -4,6 +4,7 @@ var marionette = require("marionette");
 var ServiceSelectionView = require("./service-selection").ServiceSelectionView;
 var CollectorSelectionView = require("./collector-selection").CollectorSelectionView;
 var KeySelectionView = require("./key-selection").KeySelectionView;
+var DataFormView = require("./data-form").DataFormView;
 var template = require("hbs!app/jobs/templates/layout");
 
 
@@ -48,9 +49,8 @@ var JobLayoutView = marionette.LayoutView.extend({
         if(collector){
             collector.loadForm().then(function(){
 
-                this.form.show(new marionette.ItemView({
-                    tagName: "table",
-                    id: "id_data",
+                this.form.show(new DataFormView({
+                    data: JOB_DATA.data,
                     template: collector.get("form")
                 }));
 
