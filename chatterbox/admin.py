@@ -132,7 +132,7 @@ class JobAdmin(admin.ModelAdmin):
     form = JobForm
     readonly_fields = ("job_id",)
     list_display = ("get_service", "get_collector",
-                    "get_service_username", "job_id", "data")
+                    "get_service_username", "job_id", "data_json")
 
     change_form_template = "admin/job_change_form.html"
 
