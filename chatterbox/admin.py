@@ -103,7 +103,7 @@ class JobForm(forms.ModelForm):
 
         key = Key.objects.get(id=cleaned_data['key'])
 
-        kls = collector.load_action()
+        kls = collector.load_driver()
 
         if kls.form:
             extra_data = self._process_driver_form(kls.form, self.data, self.files)
@@ -220,7 +220,7 @@ class JobAdmin(admin.ModelAdmin):
             obj = None
 
         if obj:
-            kls = obj.load_action()
+            kls = obj.load_driver()
 
             if kls:
                 collector = kls()

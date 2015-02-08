@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('actor_displayName', models.CharField(max_length=250, null=True, blank=True)),
                 ('actor_id', models.CharField(max_length=250, null=True, blank=True)),
                 ('provider_displayName', models.CharField(max_length=250, choices=[(b'facebook', b'Facebook'), (b'instagram', b'Instagram'), (b'youtube', b'YouTube'), (b'twitter', b'Twitter')])),
-                ('blob', jsonfield.fields.JSONField()),
+                ('blob', jsonfield.fields.JSONField(default=dict)),
             ],
             options={
             },
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('label', models.CharField(max_length=200)),
-                ('uuid', models.CharField(default=chatterbox.models.make_uuid, max_length=36, editable=False, db_index=True)),
+                ('uuid', models.CharField(default=chatterbox.models.make_uuid, unique=True, max_length=36, editable=False, db_index=True)),
                 ('client_id', models.CharField(max_length=200)),
                 ('client_secret', models.CharField(max_length=200)),
                 ('redirect_url', models.URLField()),
@@ -49,9 +49,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('label', models.CharField(max_length=200)),
-                ('action', models.CharField(max_length=200)),
-                ('pre_save', models.CharField(max_length=200, null=True, blank=True)),
-                ('pre_delete', models.CharField(max_length=200, null=True, blank=True)),
+                ('driver', models.CharField(unique=True, max_length=200, db_index=True)),
             ],
             options={
             },

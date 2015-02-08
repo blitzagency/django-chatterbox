@@ -7,7 +7,7 @@ from chatterbox.models import Job
 @receiver(post_save, sender=Job)
 def job_post_save(sender, **kwargs):
     obj = kwargs["instance"]
-    kls = obj.collector.load_action()
+    kls = obj.collector.load_driver()
     action = kls()
 
     hook = getattr(action, "post_save", None)
@@ -19,7 +19,7 @@ def job_post_save(sender, **kwargs):
 @receiver(post_delete, sender=Job)
 def job_post_delete(sender, **kwargs):
     obj = kwargs["instance"]
-    kls = obj.collector.load_action()
+    kls = obj.collector.load_driver()
     action = kls()
 
     hook = getattr(action, "post_delete", None)
