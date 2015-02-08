@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 import jsonfield.fields
-import chatterbox.models
 from django.conf import settings
+import chatterbox.models
 
 
 class Migration(migrations.Migration):
@@ -60,7 +60,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('job_id', models.CharField(default=chatterbox.models.make_uuid, max_length=36, editable=False, db_index=True)),
-                ('data', models.CharField(max_length=250, null=True, blank=True)),
+                ('data', jsonfield.fields.JSONField(default=dict)),
+                ('history', jsonfield.fields.JSONField(default=dict)),
                 ('collector', models.ForeignKey(related_name='collector_actions', to='chatterbox.Collector')),
             ],
             options={
