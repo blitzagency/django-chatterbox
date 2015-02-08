@@ -13,3 +13,10 @@ class TwitterTagSearch(Collector):
     def action(self, job):
         pass
 
+    def post_save(self, job):
+        print("GOT HERE")
+
+    def post_delete(self, job):
+        print("GOT HERE")
+
+
