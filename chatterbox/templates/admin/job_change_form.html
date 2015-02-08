@@ -38,7 +38,7 @@
         "service": service,
         "collector": collector,
         "key": key,
-        "data": {{ original.data|safe|default:"null" }}
+        "data": {{ original.data_json|safe|default:"null" }}
     }
 
 </script>

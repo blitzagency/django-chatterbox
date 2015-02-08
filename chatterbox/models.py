@@ -1,3 +1,4 @@
+import json
 import uuid
 import importlib
 from django.db import models
@@ -133,6 +134,10 @@ class Job(models.Model):
     key = models.ForeignKey('Key', related_name='key_actions')
     data = JSONField()
     history = JSONField()
+
+    @property
+    def data_json(self):
+        return json.dumps(self.data)
 
     def __unicode__(self):
         return self.job_id

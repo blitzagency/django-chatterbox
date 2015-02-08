@@ -1,4 +1,3 @@
-import json
 from django.contrib import admin
 from .models import (Service, Client, Key, Collector, Job, Activity)
 from django.utils.html import format_html
@@ -54,7 +53,9 @@ class ServiceAdmin(admin.ModelAdmin):
         Driver = instance.load_driver()
 
         if Driver:
-            return format_html("<a href=\"{0}\" target=\"_blank\">{0}</a>", Driver.provider_url)
+            return format_html(
+                "<a href=\"{0}\" target=\"_blank\">{0}</a>",
+                Driver.provider_url)
 
         return "Unknown"
 
@@ -62,7 +63,9 @@ class ServiceAdmin(admin.ModelAdmin):
         Driver = instance.load_driver()
 
         if Driver:
-            return format_html("<a href=\"{0}\" target=\"_blank\">{0}</a>", Driver.docs_url)
+            return format_html(
+                "<a href=\"{0}\" target=\"_blank\">{0}</a>",
+                Driver.docs_url)
 
         return "Unknown"
 
@@ -90,7 +93,7 @@ class JobForm(forms.ModelForm):
 
     class Meta:
         model = Job
-        exclude = ('data', )
+        exclude = ("data", "history")
 
     def _post_clean(self):
 
@@ -106,12 +109,13 @@ class JobForm(forms.ModelForm):
         kls = collector.load_driver()
 
         if kls.form:
-            extra_data = self._process_driver_form(kls.form, self.data, self.files)
+            extra_data = self._process_driver_form(
+                kls.form, self.data, self.files)
 
         obj = self.instance
         obj.collector = collector
         obj.key = key
-        obj.data = json.dumps(extra_data)
+        obj.data = extra_data
 
     def _process_driver_form(self, form, data, files):
         f = form(data=data, files=files, prefix="data")
@@ -233,11 +237,35 @@ class JobAdmin(admin.ModelAdmin):
         urls = super(JobAdmin, self).get_urls()
 
         api_urls = [
-            url(r'^api/services/$', self.admin_site.admin_view(self.api_services), name='%s_%s_api_services' % info),
-            url(r'^api/clients/$', self.admin_site.admin_view(self.api_clients), name='%s_%s_api_clients' % info),
-            url(r'^api/keys/$', self.admin_site.admin_view(self.api_keys), name='%s_%s_api_keys' % info),
-            url(r'^api/collectors/$', self.admin_site.admin_view(self.api_collectors), name='%s_%s_api_collectors' % info),
-            url(r'^api/collectors/(?P<id>\d+)/form/$', self.admin_site.admin_view(self.api_collectors_form), name='%s_%s_api_collectors_form' % info),
+            url(
+                r'^api/services/$',
+                self.admin_site.admin_view(self.api_services),
+                name='%s_%s_api_services' % info
+            ),
+
+            url(
+                r'^api/clients/$',
+                self.admin_site.admin_view(self.api_clients),
+                name='%s_%s_api_clients' % info
+            ),
+
+            url(
+                r'^api/keys/$',
+                self.admin_site.admin_view(self.api_keys),
+                name='%s_%s_api_keys' % info
+            ),
+
+            url(
+                r'^api/collectors/$',
+                self.admin_site.admin_view(self.api_collectors),
+                name='%s_%s_api_collectors' % info
+            ),
+
+            url(
+                r'^api/collectors/(?P<id>\d+)/form/$',
+                self.admin_site.admin_view(self.api_collectors_form),
+                name='%s_%s_api_collectors_form' % info
+            ),
         ]
 
         return api_urls + urls
