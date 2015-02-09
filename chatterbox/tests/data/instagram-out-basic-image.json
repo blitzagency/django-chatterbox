@@ -90,7 +90,6 @@
          ]
       },
       "@id":"http://instagram.com/p/y4qucBvmxW/",
-      "displayName":"A Simple Image",
       "url":[
          {
             "instagram:height":150,
@@ -118,13 +117,13 @@
          }
       ],
       "instagram:filter":"Lo-fi",
-      "instagram:users_in_photo":[
-
-      ],
+      "@type":"Image",
       "content":null,
       "instagram:id":"916670433313320022_1204663994",
       "instagram:user_has_liked":false,
-      "@type":"Image"
+      "instagram:users_in_photo":[
+
+      ]
    },
    "actor":[
       {
