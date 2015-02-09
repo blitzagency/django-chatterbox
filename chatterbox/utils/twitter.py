@@ -1,6 +1,6 @@
 
 
-def parse_to_activity(blob):
+def twitter_parse_to_activity(blob):
     stream_object = {}
     stream_object['@context'] = 'http://www.w3.org/ns/activitystreams'
     stream_object['@type'] = 'Activity'
