@@ -1,9 +1,7 @@
-import os
-import json
 from django.test import TestCase
-from ..models import Service
 from chatterbox.utils.twitter import parse_to_activity
-from pprint import pprint
+from .utils import load_json
+from ..models import Service
 
 
 class TwitterApiTestCase(TestCase):
@@ -43,14 +41,8 @@ class TwitterApiTestCase(TestCase):
 class TwitterUtils(TestCase):
 
     def test_parse_to_activity(self):
-        tests_folder = os.path.dirname(os.path.realpath(__file__))
-        in_path = tests_folder + '/data/twitter-in-basic-tweet.json'
-        with open(in_path) as data_file:
-            data = json.load(data_file)
+        data = load_json("twitter-in-basic-tweet")
+        final = load_json("twitter-out-basic-tweet")
         output = parse_to_activity(data)
-
-        out_path = tests_folder + '/data/twitter-out-basic-tweet.json'
-        with open(out_path) as data_file:
-            final = json.load(data_file)
 
         self.assertEqual(output, final)
