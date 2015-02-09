@@ -2,7 +2,7 @@ from django.test import TestCase
 from chatterbox.utils.twitter import parse_to_activity
 from .utils import load_json
 from ..models import Service
-
+from pprint import pprint
 
 class TwitterApiTestCase(TestCase):
     fixtures = ('project/apps/chatterbox/fixtures/users.json',
@@ -44,5 +44,4 @@ class TwitterUtils(TestCase):
         data = load_json("twitter-in-basic-tweet")
         final = load_json("twitter-out-basic-tweet")
         output = parse_to_activity(data)
-
         self.assertEqual(output, final)

@@ -1,3 +1,4 @@
+import json
 from django.test import TestCase
 from ..models import Service
 from chatterbox.utils.instagram import parse_to_activity
@@ -34,7 +35,8 @@ class InstagramUtils(TestCase):
 
     def test_instagram_parse_to_activity(self):
         data = load_json("instagram-in-basic-image")
-        # final = load_json("twitter-out-basic-tweet")
+        final = load_json("instagram-out-basic-image")
         output = parse_to_activity(data)
-
-        # self.assertEqual(output, final)
+        value1 = json.dumps(output, sort_keys=True)
+        value2 = json.dumps(final, sort_keys=True)
+        self.assertEqual(value1, value2)
