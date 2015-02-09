@@ -1,3 +1,4 @@
+import json
 import uuid
 import importlib
 from django.db import models
@@ -109,21 +110,10 @@ class Key(models.Model):
 class Collector(models.Model):
     label = models.CharField(max_length=200)  # Search Tweets
     service = models.ForeignKey('Service', related_name='collectors')
-    action = models.CharField(max_length=200, unique=True, db_index=True)  # foo.bar.baz.func
+    driver = models.CharField(max_length=200, unique=True, db_index=True)  # foo.bar.baz.func
 
-    # pre_save and #pre_delete are used for things like: maybe
-    # you are using some kind of 3rd party provider and you need
-    # to make an api request when you create a collector to create
-    # or delete some information on that API. pre_save and pre_delete
-    # are execute when a job is created with this collector NOT when
-    # the collector itself is saved/deleted
-
-    #pre_save = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
-    #pre_delete = models.CharField(max_length=200, blank=True, null=True)  # foo.bar.baz.func
-    # data_label = models.CharField(max_length=250, blank=True, null=True)  # e.g.: Enter Username
-
-    def load_action(self):
-        parts = self.action.split('.')
+    def load_driver(self):
+        parts = self.driver.split('.')
 
         module = '.'.join(parts[0:-1])
         kls = parts[-1]
@@ -142,7 +132,15 @@ class Job(models.Model):
                               default=make_uuid, editable=False)
     collector = models.ForeignKey('Collector', related_name='collector_actions')
     key = models.ForeignKey('Key', related_name='key_actions')
-    data = models.CharField(max_length=250, blank=True, null=True)
+    data = JSONField()
+    history = JSONField()
+
+    @property
+    def data_json(self):
+        return json.dumps(self.data)
+
+    def __unicode__(self):
+        return self.job_id
 
 
 TYPE_CHOICES = (

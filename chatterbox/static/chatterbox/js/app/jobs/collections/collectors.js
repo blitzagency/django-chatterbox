@@ -8,7 +8,7 @@ var Collectors =  backbone.Collection.extend({
     model: Model,
 
     forService: function(service){
-        return this.fetch({data: {service: service.get("key")}})
+        return this.fetch({reset: true, data: {service: service.get("key")}})
     },
 
 });

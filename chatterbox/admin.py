@@ -1,16 +1,13 @@
-import json
-from django.db import models
 from django.contrib import admin
 from .models import (Service, Client, Key, Collector, Job, Activity)
 from django.utils.html import format_html
-from django.utils.safestring import mark_safe
 from django.conf.urls import url
 from django.http import JsonResponse
-from django.core import serializers
-from django.shortcuts import get_object_or_404
-from .models import (Service, Client, Key, Collector, Job)
+from django.views.decorators.csrf import csrf_protect
+from django.utils.decorators import method_decorator
+from django import forms
 
-
+csrf_protect_m = method_decorator(csrf_protect)
 
 
 @admin.register(Client)
@@ -56,7 +53,9 @@ class ServiceAdmin(admin.ModelAdmin):
         Driver = instance.load_driver()
 
         if Driver:
-            return format_html("<a href=\"{0}\" target=\"_blank\">{0}</a>", Driver.provider_url)
+            return format_html(
+                "<a href=\"{0}\" target=\"_blank\">{0}</a>",
+                Driver.provider_url)
 
         return "Unknown"
 
@@ -64,7 +63,9 @@ class ServiceAdmin(admin.ModelAdmin):
         Driver = instance.load_driver()
 
         if Driver:
-            return format_html("<a href=\"{0}\" target=\"_blank\">{0}</a>", Driver.docs_url)
+            return format_html(
+                "<a href=\"{0}\" target=\"_blank\">{0}</a>",
+                Driver.docs_url)
 
         return "Unknown"
 
@@ -79,61 +80,79 @@ class ServiceAdmin(admin.ModelAdmin):
 class CollectorAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
     pass
 
 
-from django.template import RequestContext
-from django.shortcuts import render_to_response
-from functools import update_wrapper
+class JobForm(forms.ModelForm):
+    service_key = forms.CharField()
+    collector = forms.IntegerField()
+    key = forms.IntegerField()
 
+    class Meta:
+        model = Job
+        exclude = ("data", "history")
 
-# def admin_job_change_view(request, model_admin):
+    def _post_clean(self):
 
-#     template_response =
-#     opts = model_admin.model._meta
-#     admin_site = model_admin.admin_site
-#     has_perm = request.user.has_perm(opts.app_label + '.' \
-#                                      + opts.get_change_permission())
-#     context = {
-#         'admin_site': admin_site.name,
-#         'title': "My Custom View",
-#         'opts': opts,
-#         'app_label': opts.app_label,
-#         'has_change_permission': has_perm
-#     }
+        cleaned_data = self.cleaned_data
+        extra_data = {}
 
-#     template = 'admin/job_change_form.html'
+        collector = Collector.objects.filter(
+            service__key=cleaned_data['service_key'],
+            id=cleaned_data['collector']).first()
 
-#     return render_to_response(template, context,
-#                               context_instance=RequestContext(request))
+        key = Key.objects.get(id=cleaned_data['key'])
 
+        kls = collector.load_driver()
+
+        if kls.form:
+            extra_data = self._process_driver_form(
+                kls.form, self.data, self.files)
+
+        obj = self.instance
+        obj.collector = collector
+        obj.key = key
+        obj.data = extra_data
+
+    def _process_driver_form(self, form, data, files):
+        f = form(data=data, files=files, prefix="data")
+        result = {}
+
+        if f.is_valid():
+            result = f.cleaned_data
+
+        return result
 
 
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
+    form = JobForm
     readonly_fields = ("job_id",)
+    list_display = ("get_service", "get_collector",
+                    "get_service_username", "job_id", "data_json")
+
     change_form_template = "admin/job_change_form.html"
 
-    # def __data(self):
-    #     context = {
-    #         "services": Service.objects.order_by("-label").all(),
-    #         "clients": Client.objects.select_related("service").all(),
-    #         "keys": Key.objects.select_related("service").all()
-    #     }
+    def get_service(self, obj):
+        return obj.collector.service.label
 
-    #     return context
+    def get_collector(self, obj):
+        return obj.collector.label
 
-    # def add_view(self, request, form_url='', extra_context=None):
-    #     response = self.changeform_view(request, None, form_url, extra_context)
-    #     response.context_data.update(self.__data())
-    #     return response
+    def get_service_username(self, obj):
+        return obj.key.service_username
 
-    # def change_view(self, request, object_id, form_url='', extra_context=None):
-    #     response = self.changeform_view(request, object_id, form_url, extra_context)
-    #     response.context_data.update(self.__data())
-    #     return response
+    get_service.short_description = 'Service'
+    get_service.admin_order_field = 'service__label'
+
+    get_collector.short_description = 'Collector'
+    get_collector.admin_order_field = 'collector__label'
+
+    get_service_username.short_description = 'Service Username'
+    get_service_username.admin_order_field = 'key__service_username'
 
     def api_services(self, request):
         data = []
@@ -205,9 +224,11 @@ class JobAdmin(admin.ModelAdmin):
             obj = None
 
         if obj:
-            kls = obj.load_action()
-            collector = kls()
-            html = collector.render()
+            kls = obj.load_driver()
+
+            if kls:
+                collector = kls()
+                html = collector.render()
 
         return JsonResponse({"form": html})
 
@@ -216,11 +237,35 @@ class JobAdmin(admin.ModelAdmin):
         urls = super(JobAdmin, self).get_urls()
 
         api_urls = [
-            url(r'^api/services/$', self.admin_site.admin_view(self.api_services), name='%s_%s_api_services' % info),
-            url(r'^api/clients/$', self.admin_site.admin_view(self.api_clients), name='%s_%s_api_clients' % info),
-            url(r'^api/keys/$', self.admin_site.admin_view(self.api_keys), name='%s_%s_api_keys' % info),
-            url(r'^api/collectors/$', self.admin_site.admin_view(self.api_collectors), name='%s_%s_api_collectors' % info),
-            url(r'^api/collectors/(?P<id>\d+)/form/$', self.admin_site.admin_view(self.api_collectors_form), name='%s_%s_api_collectors_form' % info),
+            url(
+                r'^api/services/$',
+                self.admin_site.admin_view(self.api_services),
+                name='%s_%s_api_services' % info
+            ),
+
+            url(
+                r'^api/clients/$',
+                self.admin_site.admin_view(self.api_clients),
+                name='%s_%s_api_clients' % info
+            ),
+
+            url(
+                r'^api/keys/$',
+                self.admin_site.admin_view(self.api_keys),
+                name='%s_%s_api_keys' % info
+            ),
+
+            url(
+                r'^api/collectors/$',
+                self.admin_site.admin_view(self.api_collectors),
+                name='%s_%s_api_collectors' % info
+            ),
+
+            url(
+                r'^api/collectors/(?P<id>\d+)/form/$',
+                self.admin_site.admin_view(self.api_collectors_form),
+                name='%s_%s_api_collectors_form' % info
+            ),
         ]
 
         return api_urls + urls

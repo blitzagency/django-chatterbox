@@ -15,11 +15,7 @@ var Collector = backbone.Model.extend({
     loadForm: function(){
         var url = this.urlRoot + '/' + this.get('id') + '/form/';
         var options = {url: url};
-
-        return backbone.Model.prototype.fetch.call(this, options)
-        .then(function(data){
-            debugger;
-        });
+        return backbone.Model.prototype.fetch.call(this, options);
 
     }
 });

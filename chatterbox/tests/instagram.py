@@ -1,9 +1,8 @@
-import os
-import json
 from django.test import TestCase
 from ..models import Service
+from chatterbox.utils.instagram import parse_to_activity
+from .utils import load_json
 from pprint import pprint
-from chatterbox.utils.instagram import instagram_parse_to_activity
 
 
 class InstagramApiTestCase(TestCase):
@@ -16,12 +15,12 @@ class InstagramApiTestCase(TestCase):
         self.api = self.key.api
 
     def test_simple_search(self):
-        results = self.api.search('dino')
+        results = self.api.search('fireworks')
         self.assertEqual(results['meta']['code'], 200)
 
     def test_complex_search(self):
         results = self.api.search(
-            'dino',
+            'fireworks',
             count=17,
             min_tag_id='1423001539550109')
         self.assertEqual(len(results['data']), 17)
@@ -34,15 +33,8 @@ class InstagramApiTestCase(TestCase):
 class InstagramUtils(TestCase):
 
     def test_instagram_parse_to_activity(self):
-        tests_folder = os.path.dirname(os.path.realpath(__file__))
-        in_path = tests_folder + '/test-instagram-parse/in-basic-insta.json'
-        with open(in_path) as data_file:
-            data = json.load(data_file)
-        output = instagram_parse_to_activity(data)
-        # pprint(output)
-
-        # out_path = tests_folder + '/test-instagram-parse/out-basic-tweet.json'
-        # with open(out_path) as data_file:
-        #     final = json.load(data_file)
+        data = load_json("instagram-in-basic-image")
+        # final = load_json("twitter-out-basic-tweet")
+        output = parse_to_activity(data)
 
         # self.assertEqual(output, final)

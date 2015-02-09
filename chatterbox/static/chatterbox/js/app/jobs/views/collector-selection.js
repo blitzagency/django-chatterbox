@@ -18,14 +18,15 @@ var Service = require('../models/service').Service;
 
 var CollectorSelectionView = marionette.CollectionView.extend({
     tagName: "select",
+    id: "id_collector_id",
     childView: CollectorItemView,
     service: null,
 
     initialize: function(options){
-        this._model = new backbone.Model({index: 0});
+        this._model = new backbone.Model({index: -1});
         this.collection = new Collectors();
+        this.options = options;
         this.listenTo(this._model, "change:index", this._didChange);
-
         this.initializeCollector(options);
     },
 
@@ -39,7 +40,17 @@ var CollectorSelectionView = marionette.CollectionView.extend({
 
         if(options.serviceKey){
             this.collection.forService(service)
+            .then(function(){
+                this.setSelectedId(data.id)
+                this.listenTo(this, "render:collection", this.ready);
+            }.bind(this));
+        } else {
+            this.listenTo(this, "render:collection", this.ready);
         }
+    },
+
+    ready: function(){
+        this.setSelectedIndex(0);
     },
 
     onShow: function(){
@@ -63,13 +74,24 @@ var CollectorSelectionView = marionette.CollectionView.extend({
     },
 
     childViewOptions: function(model, index) {
-        return {attributes: {value: model.get("key")}}
+        return {attributes: {value: model.get("id")}}
     },
 
     setService: function(service){
         this.service = service;
-        this.setSelectedIndex(0, {silent: true});
-        this.collection.forService(this.service);
+        this._model.set({"index": -1}, {silent: true});
+        this.collection.forService(this.service)
+    },
+
+    setSelectedId: function(id, options){
+        var index = 0;
+        var model = this.collection.get(id)
+
+        if(model){
+            index = this.collection.indexOf(model)
+        }
+
+        this.setSelectedIndex(index);
     },
 
     setSelectedIndex: function(index, options){
@@ -78,6 +100,7 @@ var CollectorSelectionView = marionette.CollectionView.extend({
         this.$el[0].selectedIndex = index;
         this._model.set({"index": index}, options);
     },
+
 });
 
 

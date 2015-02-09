@@ -18,6 +18,7 @@ var Service = require('../models/service').Service;
 
 var KeySelectionView = marionette.CollectionView.extend({
     tagName: "select",
+    id: "id_key_id",
     childView: KeyItemView,
     service: null,
 
@@ -38,7 +39,10 @@ var KeySelectionView = marionette.CollectionView.extend({
         var service = new Service({key: options.serviceKey});
 
         if(options.serviceKey){
-            this.collection.forService(service);
+            this.collection.forService(service)
+            .then(function(){
+                this.setSelectedId(data.id)
+            }.bind(this));
         }
     },
 
@@ -47,13 +51,24 @@ var KeySelectionView = marionette.CollectionView.extend({
     },
 
     childViewOptions: function(model, index) {
-        return {attributes: {value: model.get("key")}}
+        return {attributes: {value: model.get("id")}}
     },
 
     setService: function(service){
         this.service = service;
         this.setSelectedIndex(0, {silent: true});
         this.collection.forService(this.service);
+    },
+
+    setSelectedId: function(id, options){
+        var index = 0;
+        var model = this.collection.get(id)
+
+        if(model){
+            index = this.collection.indexOf(model)
+        }
+
+        this.setSelectedIndex(index);
     },
 
     setSelectedIndex: function(index, options){

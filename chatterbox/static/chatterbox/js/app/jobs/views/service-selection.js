@@ -18,7 +18,7 @@ var ServiceItemView = require('./service-item').ServiceItemView;
 
 var ServiceSelectionView = marionette.CollectionView.extend({
     tagName: "select",
-
+    id: "id_service_key",
     childView: ServiceItemView,
     modelEvents: {
         'change': 'modelChanged'
@@ -33,14 +33,14 @@ var ServiceSelectionView = marionette.CollectionView.extend({
     },
 
     attributes: function(){
-        return {name: "service"};
+        return {name: "service_key"};
     },
 
     initializeService:function(service){
         var model = this.modelInCollection(new backbone.Model(service));
 
         if(model){
-            var index = this.collection.indexOf(this.model);
+            var index = this.collection.indexOf(model);
             this.setSelectedIndex(index, {silent: true})
         } else {
             this.setSelectedIndex(0)

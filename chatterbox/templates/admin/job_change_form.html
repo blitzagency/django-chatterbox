@@ -17,18 +17,18 @@
     });
 
     var service = {
-        id: "{{ original.collector.service.id }}",
+        id: {{ original.collector.service.id|default:"null"}},
         key: "{{ original.collector.service.key }}",
         label: "{{ original.collector.service.label }}",
     }
 
     var collector = {
-        "id": "{{ original.collector.id }}",
+        "id": {{ original.collector.id|default:"null"}},
         "label": "{{ original.collector.label }}",
     }
 
     var key = {
-        "id": "{{ original.key.id }}",
+        "id": {{ original.key.id|default:"null" }},
         "label": "{{ original.key.service_username }}",
     }
 
@@ -37,7 +37,8 @@
         "change": {{ change|stringformat:"s"|lower }},
         "service": service,
         "collector": collector,
-        "key": key
+        "key": key,
+        "data": {{ original.data_json|safe|default:"null" }}
     }
 
 </script>
@@ -63,33 +64,12 @@
 {% endif %}
 
 {% block content %}<div id="content-main">
-{% block object-tools %}
-{% if change %}{% if not is_popup %}
-  <ul class="object-tools">
-    {% block object-tools-items %}
-    <li>
-        {% url opts|admin_urlname:'history' original.pk|admin_urlquote as history_url %}
-        <a href="{% add_preserved_filters history_url %}" class="historylink">{% trans "History" %}</a>
-    </li>
-    {% if has_absolute_url %}<li><a href="{{ absolute_url }}" class="viewsitelink">{% trans "View on site" %}</a></li>{% endif %}
-    {% endblock %}
-  </ul>
-{% endif %}{% endif %}
-{% endblock %}
 
+<form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form" novalidate>{% csrf_token %}
+    <fieldset class="grp-module">
+        <div id="chatterbox-main"></div>
+    </fieldset>
 
-<div id="chatterbox-main"></div>
-
-<!-- <select>
-    {% for each in services %}
-    <option value="{{each.key}}">{{each.label}}</option>
-    {% endfor %}
-</select>
- -->
-<form {% if has_file_field %}enctype="multipart/form-data" {% endif %}action="{{ form_url }}" method="post" id="{{ opts.model_name }}_form" novalidate>{% csrf_token %}{% block form_top %}{% endblock %}
-<div>
-{% if is_popup %}<input type="hidden" name="{{ is_popup_var }}" value="1" />{% endif %}
-{% if to_field %}<input type="hidden" name="{{ to_field_var }}" value="{{ to_field }}" />{% endif %}
 {% if save_on_top %}{% block submit_buttons_top %}{% submit_row %}{% endblock %}{% endif %}
 {% if errors %}
     <p class="errornote">
@@ -97,48 +77,8 @@
     </p>
     {{ adminform.form.non_field_errors }}
 {% endif %}
-
-{% block field_sets %}
-{% for fieldset in adminform %}
-  {% include "admin/includes/fieldset.html" %}
-{% endfor %}
-{% endblock %}
-
-{% block after_field_sets %}{% endblock %}
-
-{% block inline_field_sets %}
-{% for inline_admin_formset in inline_admin_formsets %}
-    {% include inline_admin_formset.opts.template %}
-{% endfor %}
-{% endblock %}
-
-{% block after_related_objects %}{% endblock %}
-
 {% block submit_buttons_bottom %}{% submit_row %}{% endblock %}
-
-{% block admin_change_form_document_ready %}
-    <script type="text/javascript">
-        (function($) {
-            $(document).ready(function() {
-                $('.add-another').click(function(e) {
-                    e.preventDefault();
-                    showAddAnotherPopup(this);
-                });
-                $('.related-lookup').click(function(e) {
-                    e.preventDefault();
-                    showRelatedObjectLookupPopup(this);
-                });
-            {% if adminform and add %}
-                $('form#{{ opts.model_name }}_form :input:visible:enabled:first').focus()
-            {% endif %}
-            });
-        })(django.jQuery);
-    </script>
-{% endblock %}
-
-{# JavaScript for prepopulated fields #}
-{% prepopulated_fields_js %}
-
-</div>
 </form></div>
+
+
 {% endblock %}
