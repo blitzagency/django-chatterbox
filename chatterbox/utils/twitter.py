@@ -1,22 +1,11 @@
-import time
-from datetime import datetime
-from django.utils.timezone import utc
-
-
-def datetime_to_string(obj):
-    return obj.strftime('%Y-%m-%dT%H:%M:%S+0000')
-
-
-def string_to_datetime(created):
-    time_struct = time.strptime(created, '%a %b %d %H:%M:%S +0000 %Y')
-    return datetime.utcfromtimestamp(time.mktime(time_struct)).replace(tzinfo=utc)
+from .date import twitter_date_to_datetime, datetime_to_string
 
 
 def parse_to_activity(blob):
     stream_object = {}
     stream_object['@context'] = 'http://www.w3.org/ns/activitystreams'
     stream_object['@type'] = 'Activity'
-    date = string_to_datetime(blob['created_at'])
+    date = twitter_date_to_datetime(blob['created_at'])
 
     stream_object['published'] = datetime_to_string(date)
 
