@@ -208,5 +208,5 @@
    },
    "@context":"http://www.w3.org/ns/activitystreams",
    "@type":"Activity",
-   "published":"Fri Feb 06 20:17:49 +0000 2015"
+   "published":"2015-02-06T20:17:49+0000"
 }

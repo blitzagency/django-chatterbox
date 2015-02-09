@@ -1,10 +1,14 @@
+from .date import twitter_date_to_datetime, datetime_to_string
 
 
 def parse_to_activity(blob):
     stream_object = {}
     stream_object['@context'] = 'http://www.w3.org/ns/activitystreams'
     stream_object['@type'] = 'Activity'
-    stream_object['published'] = blob['created_at']
+    date = twitter_date_to_datetime(blob['created_at'])
+
+    stream_object['published'] = datetime_to_string(date)
+
     stream_object['provider'] = {
         "@type": "Service",
         "displayName": "Twitter"
