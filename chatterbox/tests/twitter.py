@@ -44,12 +44,12 @@ class TwitterUtils(TestCase):
 
     def test_parse_to_activity(self):
         tests_folder = os.path.dirname(os.path.realpath(__file__))
-        in_path = tests_folder + '/test-twitter-parse/in-basic-tweet.json'
+        in_path = tests_folder + '/data/twitter-in-basic-tweet.json'
         with open(in_path) as data_file:
             data = json.load(data_file)
         output = parse_to_activity(data)
 
-        out_path = tests_folder + '/test-twitter-parse/out-basic-tweet.json'
+        out_path = tests_folder + '/data/twitter-out-basic-tweet.json'
         with open(out_path) as data_file:
             final = json.load(data_file)
 
