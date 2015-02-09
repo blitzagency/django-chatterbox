@@ -7,6 +7,10 @@ API_VERSION = "2.2"
 
 class Facebook(OAuth2Api):
 
+    @property
+    def base_url(self):
+        return "https://graph.facebook.com/v{}".format(API_VERSION)
+
     def whoami(self):
         return self.get("https://graph.facebook.com/me")
 
@@ -33,3 +37,10 @@ class Facebook(OAuth2Api):
         url = 'https://graph.facebook.com/v{}/{}/feed?'\
             .format(API_VERSION, user)
         return self.get(url + urlencode(kwargs))
+
+    def object_detail(self, object_id):
+        """https://developers.facebook.com/docs/graph-api/reference/v2.2/
+        """
+
+        url = "{}/{}".format(self.base_url, object_id)
+        return self.get(url)
