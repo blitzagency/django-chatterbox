@@ -12,7 +12,7 @@ class YouTubeApiTestCase(TestCase):
         self.api = self.key.api
 
     def test_simple_search(self):
-        results = self.api.search("dino")
+        results = self.api.search("fireworks")
         self.assertEqual(results["pageInfo"]["resultsPerPage"], 5)
 
     def test_complex_search(self):
