@@ -1,0 +1,56 @@
+{
+   "@context":"http://www.w3.org/ns/activitystreams",
+   "@type":"Activity",
+   "actor":{
+      "@id":"https://www.facebook.com/11936081183",
+      "@type":"Person",
+      "displayName":"Naked Juice",
+      "facebook:category":"Food/beverages",
+      "facebook:id":"11936081183"
+   },
+   "object":{
+      "@id":"https://www.facebook.com/10152356267416184",
+      "@type":"Image",
+      "content":null,
+      "facebook:actions":[
+         {
+            "link":"https://www.facebook.com/11936081183/posts/10152357221236184",
+            "name":"Comment"
+         },
+         {
+            "link":"https://www.facebook.com/11936081183/posts/10152357221236184",
+            "name":"Like"
+         }
+      ],
+      "facebook:caption":null,
+      "facebook:icon":"https://fbstatic-a.akamaihd.net/rsrc.php/v2/yz/r/StEh3RhPvjk.gif",
+      "facebook:id":"11936081183_10152357221236184",
+      "facebook:link":"https://www.facebook.com/nakedjuice/photos/a.103189721183.101057.11936081183/10152356267416184/?type=1&relevant_count=1",
+      "facebook:message":"Before you tackle traffic, bring Naked Juice along for the ride.",
+      "facebook:message_tags":null,
+      "facebook:name":null,
+      "facebook:picture":"https://scontent-a.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/p130x130/1506477_10152356267416184_1180324622756358039_n.png?oh=f1aa51607848c3595dec030500415964&oe=55555322",
+      "facebook:privacy":{
+         "value":""
+      },
+      "facebook:shares":{
+         "count":3
+      },
+      "facebook:status_type":"added_photos",
+      "facebook:to":null,
+      "facebook:updated_time":"2014-11-28T14:05:04+0000",
+      "url":[
+         {
+            "@type":"Link",
+            "facebook:resolution":"thumbnail",
+            "href":"https://scontent-a.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/p130x130/1506477_10152356267416184_1180324622756358039_n.png?oh=f1aa51607848c3595dec030500415964&oe=55555322",
+            "mediaType":"image/png"
+         }
+      ]
+   },
+   "provider":{
+      "@type":"Service",
+      "displayName":"Facebook"
+   },
+   "published":"2014-11-26T15:00:00+0000"
+}

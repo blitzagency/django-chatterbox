@@ -77,5 +77,4 @@ def parse_to_activity(blob):
             "@type": "Link"
         }]
 
-    pprint(stream_object)
     return stream_object

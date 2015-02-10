@@ -1,0 +1,54 @@
+{
+   "@context":"http://www.w3.org/ns/activitystreams",
+   "@type":"Activity",
+   "actor":{
+      "@id":"https://www.facebook.com/10155164337930641",
+      "@type":"Person",
+      "displayName":"Adam Wright",
+      "facebook:category":null,
+      "facebook:id":"10155164337930641"
+   },
+   "object":{
+      "@id":"https://www.facebook.com/11936081183_10152349814906184",
+      "@type":"Note",
+      "content":"hey! I was wondering what your product costs in grocery stores in Canada! It's for my marketing class. thanks",
+      "facebook:actions":[
+         {
+            "link":"https://www.facebook.com/11936081183/posts/10152349814906184",
+            "name":"Comment"
+         },
+         {
+            "link":"https://www.facebook.com/11936081183/posts/10152349814906184",
+            "name":"Like"
+         }
+      ],
+      "facebook:caption":null,
+      "facebook:icon":null,
+      "facebook:id":"11936081183_10152349814906184",
+      "facebook:link":null,
+      "facebook:message":"hey! I was wondering what your product costs in grocery stores in Canada! It's for my marketing class. thanks",
+      "facebook:message_tags":null,
+      "facebook:name":null,
+      "facebook:picture":null,
+      "facebook:privacy":{
+         "value":""
+      },
+      "facebook:shares":null,
+      "facebook:status_type":null,
+      "facebook:to":{
+         "data":[
+            {
+               "category":"Food/beverages",
+               "id":"11936081183",
+               "name":"Naked Juice"
+            }
+         ]
+      },
+      "facebook:updated_time":"2014-11-21T21:07:45+0000"
+   },
+   "provider":{
+      "@type":"Service",
+      "displayName":"Facebook"
+   },
+   "published":"2014-11-21T21:07:45+0000"
+}

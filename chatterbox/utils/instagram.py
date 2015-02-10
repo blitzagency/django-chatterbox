@@ -75,7 +75,7 @@ def parse_to_activity(blob):
 
     if blob.get('type') == 'video':
         videos = blob.get('videos')
-        stream_object['object']['images'] = stream_object['object']['url']
+        stream_object['object']['image'] = stream_object['object']['url']
         stream_object['object']['url'] = [
             {
                 "@type": "Link",
