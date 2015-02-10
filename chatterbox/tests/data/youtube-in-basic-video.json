@@ -1,0 +1,27 @@
+{
+  "snippet": {
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/QGJuMBdaqIw/default.jpg"
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/QGJuMBdaqIw/hqdefault.jpg"
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/QGJuMBdaqIw/mqdefault.jpg"
+      }
+    },
+    "title": "Katy Perry - Firework",
+    "channelId": "UC-8Q-hLdECwQmaWNwXitYDw",
+    "publishedAt": "2010-10-28T19:37:50.000Z",
+    "liveBroadcastContent": "none",
+    "channelTitle": "KatyPerryVEVO",
+    "description": "Official music video for Katy Perry's \"Firework\" off her album 'Teenage Dream'. Director: Dave Meyers. Producers: Robert Bray & Danny Lockwood. Get 'Teenage ..."
+  },
+  "kind": "youtube#searchResult",
+  "etag": "\"4FSIjSQU83ZJMYAO0IqRYMvZX98/oZcB9f0MyF22FluSPUF0mNbWeUc\"",
+  "id": {
+    "kind": "youtube#video",
+    "videoId": "QGJuMBdaqIw"
+  }
+}
