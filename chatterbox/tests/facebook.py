@@ -51,7 +51,7 @@ class FacebookUtils(TestCase):
         # value2 = json.dumps(final, sort_keys=True)
         # self.assertEqual(value1, value2)
 
-    def test_facebook_status_message_to_activity(self):
+    def test_facebook_basic_status_message_parse_to_activity(self):
         data = load_json("facebook-in-basic-status+message")
         # final = load_json("facebook-out-basic-link")
         # output = parse_to_activity(data)
@@ -60,12 +60,29 @@ class FacebookUtils(TestCase):
         # value2 = json.dumps(final, sort_keys=True)
         # self.assertEqual(value1, value2)
 
+    def test_facebook_basic_status_message_comments_parse_to_activity(self):
+        data = load_json("facebook-in-basic-status+message+comments")
+        # final = load_json("facebook-out-basic-link")
+        # output = parse_to_activity(data)
 
-    def test_facebook_status_message_to_activity(self):
+        # value1 = json.dumps(output, sort_keys=True)
+        # value2 = json.dumps(final, sort_keys=True)
+        # self.assertEqual(value1, value2)
+
+    def test_facebook_status_parse_to_activity(self):
         data = load_json("facebook-in-basic-status")
         # final = load_json("facebook-out-basic-link")
-        pprint(data)
+        # pprint(data)
         # output = parse_to_activity(data)
+
+        # value1 = json.dumps(output, sort_keys=True)
+        # value2 = json.dumps(final, sort_keys=True)
+        # self.assertEqual(value1, value2)
+
+    def test_facebook_status_parse_to_activity(self):
+        data = load_json("facebook-in-basic-video")
+        # final = load_json("facebook-out-basic-link")
+        output = parse_to_activity(data)
 
         # value1 = json.dumps(output, sort_keys=True)
         # value2 = json.dumps(final, sort_keys=True)

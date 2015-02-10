@@ -34,6 +34,7 @@ def parse_to_activity(blob):
         # "facebook:likes": blob.get('likes'),
         "facebook:link": blob.get('link'),
         "facebook:message": blob.get('message'),
+        "facebook:message_tags": blob.get('message_tags'),
         "facebook:name": blob.get('name'),
         "facebook:picture": blob.get('picture'),
         "facebook:privacy": blob.get('privacy'),
@@ -66,79 +67,15 @@ def parse_to_activity(blob):
 
     if msg_type == 'status':
         stream_object['object']['@type'] = 'Note'
+        stream_object['object']['content'] = blob.get('message')
+
+    if msg_type == 'video':
+        stream_object['object']['@type'] = 'Video'
+        stream_object['object']['facebook:duration'] = blob.get('duration')
+        stream_object['object']['url'] = [{
+            "href": blob.get('source'),
+            "@type": "Link"
+        }]
 
     pprint(stream_object)
     return stream_object
-
-
-"""
-
-"""
-
-"""
-{
-        "@context": "http://www.w3.org/ns/activitystreams",
-
-        "@type": "Activity", ------ Abstract wrapper
-
-        "published": "2015-02-10T15:04:55Z",
-
-        "provider": {
-            "@type": "Service",
-            "displayName": "Twitter|FaceBook|Instagram|YouTube"
-        },
-
-        "actor": {
-            "@type": "Person",
-            "@id": "https://www.twitter.com/{{user.screen_name}}
-            "displayName": "Martin Smith",
-            "url": "http://example.org/martin",
-            "image": {
-                "@type": "Link",
-                "href": "http://example.org/martin/image.jpg",
-                "mediaType": "image/jpeg"
-            }
-        },
-
-    ------------------------------------------------------
-
-        "object" : {
-            "@id": "urn:example:blog:abc123/xyz",
-            "@type": "Note",
-            "url": "http://example.org/blog/2011/02/entry",
-            "content": "This is a short note"
-        },
-
-    ------------------------------------------------------
-
-    "object" : {
-        "@id": "urn:example:blog:abc123/xyz",
-        "@type": "Video",
-        "displayName": "A Simple Video",
-        "url": "http://example.org/video.mkv",
-        "duration": "PT2H"
-    },
-
-    ------------------------------------------------------
-
-    "object" : {
-        "@id": "urn:example:blog:abc123/xyz",
-        "@type": "Image",
-        "displayName": "A Simple Image",
-        "content": "any messages?"
-        "url": [
-            {
-                "@type": "Link",
-                "href": "http://example.org/image.jpeg",
-                "mediaType": "image/jpeg"
-            },
-
-            {
-                "@type": "Link",
-                "href": "http://example.org/image.png",
-                "mediaType": "image/png"
-            }
-        ]
-    },
-}
-"""
