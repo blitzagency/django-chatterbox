@@ -37,7 +37,8 @@ class FacebookUtils(TestCase):
     def test_facebook_link_parse_to_activity(self):
         data = load_json("facebook-in-basic-link")
         # final = load_json("facebook-out-basic-link")
-        # output = parse_to_activity(data)
+        output = parse_to_activity(data)
+
         # value1 = json.dumps(output, sort_keys=True)
         # value2 = json.dumps(final, sort_keys=True)
         # self.assertEqual(value1, value2)
@@ -45,7 +46,7 @@ class FacebookUtils(TestCase):
     def test_facebook_photo_parse_to_activity(self):
         data = load_json("facebook-in-basic-photo")
         # final = load_json("facebook-out-basic-link")
-        output = parse_to_activity(data)
+        # output = parse_to_activity(data)
         # value1 = json.dumps(output, sort_keys=True)
         # value2 = json.dumps(final, sort_keys=True)
         # self.assertEqual(value1, value2)
