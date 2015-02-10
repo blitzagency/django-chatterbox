@@ -32,7 +32,9 @@ def parse_to_activity(blob):
         "facebook:caption": blob.get('caption'),
         "facebook:icon": blob.get('icon'),
         "facebook:id": blob.get('id'),
-        "facebook:likes": blob.get('likes'),
+        # this is removed because it is never in real time, if you want likes
+        # make an additiona request for them using the ID of this message
+        # "facebook:likes": blob.get('likes'),
         "facebook:link": blob.get('link'),
         "facebook:message": blob.get('message'),
         "facebook:name": blob.get('name'),
@@ -40,6 +42,10 @@ def parse_to_activity(blob):
         "facebook:privacy": blob.get('privacy'),
         "facebook:to": blob.get('to'),
         "facebook:updated_time": blob.get('updated_time'),
+        # this is removed because it is never in real time, if you want
+        # messages make an additiona request for them using
+        # the ID of this message
+        # "facebook:comments": blob.get('comments'),
     }
 
     if blob.get('type') == 'link':
@@ -48,38 +54,21 @@ def parse_to_activity(blob):
 
 
 
-    pprint(blob)
+    pprint(stream_object)
     return stream_object
 
 
-# link
 """
-{u'actions': [{u'link': u'https://www.facebook.com/11936081183/posts/1563765100521916',
-               u'name': u'Comment'},
-              {u'link': u'https://www.facebook.com/11936081183/posts/1563765100521916',
-               u'name': u'Like'}],
- u'caption': u'www.jasoncouponking.com',
-
- u'created_time': u'2014-11-20T22:59:32+0000',
- u'description': u'Naked Juice Smoothie $1.00 off (1) Printable Coupon - Nice!',
- u'from': {u'category': u'Community',
-           u'id': u'1375557242676037',
-           u'name': u'Jason the Coupon King'},
- u'icon': u'https://fbstatic-a.akamaihd.net/rsrc.php/v2/yD/r/aS8ecmYRys0.gif',
- u'id': u'11936081183_1563765100521916',
- u'likes': {u'data': [{u'id': u'397935350383964', u'name': u'Jay Aguilar'}],
-            u'paging': {u'cursors': {u'after': u'Mzk3OTM1MzUwMzgzOTY0',
-                                     u'before': u'Mzk3OTM1MzUwMzgzOTY0'}}},
- u'link': u'http://wp.me/p3vAqZ-3KS',
- u'message': u'Naked Juice Smoothie $1.00 off (1) Printable Coupon \u2013 Nice!  http://wp.me/p3vAqZ-3KS',
- u'name': u'Naked Juice Smoothie $1.00 off (1) Printable Coupon - Nice! | Jason the Coupon King',
- u'picture': u'https://fbexternal-a.akamaihd.net/safe_image.php?d=AQCse2eyp3UYASlP&w=158&h=158&url=http%3A%2F%2Fwww.jasoncouponking.com%2Fwp-content%2Fuploads%2F2014%2F11%2Fnaked-juice-400x400.png',
+{
+ u'link': u'https://www.facebook.com/nakedjuice/photos/a.103189721183.101057.11936081183/10152356267416184/?type=1&relevant_count=1',
+ u'message': u'Before you tackle traffic, bring Naked Juice along for the ride.',
+ u'object_id': u'10152356267416184',
+ u'picture': u'https://scontent-a.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/p130x130/1506477_10152356267416184_1180324622756358039_n.png?oh=f1aa51607848c3595dec030500415964&oe=55555322',
  u'privacy': {u'value': u''},
- u'to': {u'data': [{u'category': u'Food/beverages',
-                    u'id': u'11936081183',
-                    u'name': u'Naked Juice'}]},
- u'type': u'link',
- u'updated_time': u'2014-11-20T22:59:32+0000'}
+ u'shares': {u'count': 3},
+ u'status_type': u'added_photos',
+ u'type': u'photo',
+ u'updated_time': u'2014-11-28T14:05:04+0000'}
 """
 
 """
