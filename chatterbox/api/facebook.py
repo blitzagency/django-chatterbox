@@ -39,7 +39,7 @@ class Facebook(OAuth2Api):
         return self.get(url + urlencode(kwargs))
 
     def object_detail(self, object_id):
-        """https://developers.facebook.com/docs/graph-api/reference/v2.2/
+        """https://developers.facebook.com/docs/graph-api/reference/v2.2/status
         """
 
         url = "{}/{}".format(self.base_url, object_id)

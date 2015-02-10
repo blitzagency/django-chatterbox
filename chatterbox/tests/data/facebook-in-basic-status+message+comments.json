@@ -1,0 +1,56 @@
+{
+     "id": "11936081183_10152352963561184",
+     "from": {
+        "id": "10152604568440965",
+        "name": "La Toria Southernstylelady Martin"
+     },
+     "to": {
+        "data": [
+           {
+              "category": "Food/beverages",
+              "name": "Naked Juice",
+              "id": "11936081183"
+           }
+        ]
+     },
+     "message": "La Toria Southernstylelady Martin I would like you to know that I will never ever purchase another coconut water by naked again. Thank GOD I followed my mind before mixing the contents with a snack I was preparing, that has come to a screeching halt. Your product that you so happily advertise in millions of big chain grocery stores has freaking MOLD in the top and the POUR AREA. This is beyond disgusting and POOR  quality control. Evidently your company should stop using RECYCLED MATERIALS as if you are really doing the consumers justice. Its obvious its not working. This situation needs to be addressed immediately.  I will also be contacting TetraPrisma Aseptic and every news station here and I also will be contacting the department of agriculture if I have to. Thank You",
+     "actions": [
+        {
+           "name": "Comment",
+           "link": "https://www.facebook.com/11936081183/posts/10152352963561184"
+        },
+        {
+           "name": "Like",
+           "link": "https://www.facebook.com/11936081183/posts/10152352963561184"
+        }
+     ],
+     "privacy": {
+        "value": ""
+     },
+     "type": "status",
+     "created_time": "2014-11-23T20:28:10+0000",
+     "updated_time": "2014-11-28T15:05:04+0000",
+     "comments": {
+        "data": [
+           {
+              "id": "10152352963561184_10152354181261184",
+              "from": {
+                 "category": "Food/beverages",
+                 "name": "Naked Juice",
+                 "id": "11936081183"
+              },
+              "message": "Hi La Toria, we are really sorry to hear about this experience, and we want to help make it right. You can contact Customer Relations by email: http://bit.ly/1fbyLuj or you can give them a call at 1-877-858-4237. Please let us know how else we can help.",
+              "can_remove": false,
+              "created_time": "2014-11-24T15:44:40+0000",
+              "like_count": 0,
+              "user_likes": false
+           }
+        ],
+        "paging": {
+           "cursors": {
+              "after": "Mg==",
+              "before": "Mg=="
+           }
+        }
+     }
+  }
