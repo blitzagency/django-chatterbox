@@ -139,6 +139,14 @@ class Job(models.Model):
     def data_json(self):
         return json.dumps(self.data)
 
+    def run(self):
+        kls = self.collector.load_driver()
+        if not kls:
+            return
+
+        driver = kls()
+        driver.action(self)
+
     def __unicode__(self):
         return self.job_id
 
