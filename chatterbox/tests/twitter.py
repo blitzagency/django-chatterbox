@@ -2,7 +2,7 @@ from django.test import TestCase
 from chatterbox.utils.twitter import parse_to_activity
 from .utils import load_json
 from ..models import Service
-from pprint import pprint
+
 
 class TwitterApiTestCase(TestCase):
     fixtures = ('project/apps/chatterbox/fixtures/users.json',

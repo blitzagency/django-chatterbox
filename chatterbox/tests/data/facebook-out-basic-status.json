@@ -1,0 +1,37 @@
+{
+   "@context":"http://www.w3.org/ns/activitystreams",
+   "@type":"Activity",
+   "actor":{
+      "@id":"https://www.facebook.com/11936081183",
+      "@type":"Person",
+      "displayName":"Naked Juice",
+      "facebook:category":"Food/beverages",
+      "facebook:id":"11936081183"
+   },
+   "object":{
+      "@id":"https://www.facebook.com/11936081183_10152356311821184",
+      "@type":"Note",
+      "content":null,
+      "facebook:actions":null,
+      "facebook:caption":null,
+      "facebook:icon":null,
+      "facebook:id":"11936081183_10152356311821184",
+      "facebook:link":null,
+      "facebook:message":null,
+      "facebook:message_tags":null,
+      "facebook:name":null,
+      "facebook:picture":null,
+      "facebook:privacy":{
+         "value":""
+      },
+      "facebook:shares":null,
+      "facebook:status_type":null,
+      "facebook:to":null,
+      "facebook:updated_time":"2014-11-25T22:31:49+0000"
+   },
+   "provider":{
+      "@type":"Service",
+      "displayName":"Facebook"
+   },
+   "published":"2014-11-25T22:31:49+0000"
+}
