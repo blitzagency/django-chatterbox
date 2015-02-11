@@ -3,7 +3,6 @@ from django.test import TestCase
 from ..models import Service
 from chatterbox.utils.youtube import parse_to_activity
 from .utils import load_json
-from pprint import pprint
 
 
 class YouTubeApiTestCase(TestCase):

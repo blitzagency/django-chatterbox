@@ -3,7 +3,6 @@ from django.test import TestCase
 from ..models import Service
 from .utils import load_json
 from chatterbox.utils.facebook import parse_to_activity
-from pprint import pprint
 
 
 class FacebookApiTestCase(TestCase):
