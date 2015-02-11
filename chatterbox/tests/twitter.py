@@ -4,6 +4,7 @@ from .utils import load_json
 from ..models import Service
 from pprint import pprint
 
+
 class TwitterApiTestCase(TestCase):
     fixtures = ('project/apps/chatterbox/fixtures/users.json',
                 'project/apps/chatterbox/fixtures/dump.json')
