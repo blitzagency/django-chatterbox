@@ -18,6 +18,7 @@ def maybe_load_class(path):
     try:
         return getattr(importlib.import_module(module), kls)
     except:
+        # log the import error
         return None
 
 
