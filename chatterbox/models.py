@@ -10,22 +10,31 @@ def make_uuid():
     return str(uuid.uuid4().hex)
 
 
+def maybe_load_class(path):
+    parts = path.split('.')
+    module = '.'.join(parts[0:-1])
+    kls = parts[-1]
+
+    try:
+        return getattr(importlib.import_module(module), kls)
+    except:
+        return None
+
+
 # Twitter, Instagram, Facebook, Youtube, etc
 class Service(models.Model):
     label = models.CharField(max_length=200)
     key = models.SlugField(unique=True, max_length=200, db_index=True)
     driver = models.CharField(max_length=200)
 
-    def load_driver(self):
-        parts = self.driver.split('.')
-
-        module = '.'.join(parts[0:-1])
-        kls = parts[-1]
+    def load_driver(self, path=None):
+        path = path or self.driver
 
         try:
-            return getattr(importlib.import_module(module), kls)
-        except:
-            return None
+            return self.__driver_class
+        except AttributeError:
+            self.__driver_class = maybe_load_class(path)
+            return self.__driver_class
 
     def __unicode__(self):
         return self.label
@@ -90,38 +99,33 @@ class Key(models.Model):
             return self.__api
         except AttributeError:
             obj = self.service.load_driver()
-            Api = self.load_api(obj.api_path)
+            Api = self.load_api_class(obj.api_path)
             self.__api = Api(key=self, client=self.client)
+            return self.__api
 
-        return self.__api
-
-    def load_api(self, path):
-        parts = path.split('.')
-
-        module = '.'.join(parts[0:-1])
-        kls = parts[-1]
+    def load_api_class(self, path=None):
+        path = path or ""
 
         try:
-            return getattr(importlib.import_module(module), kls)
-        except:
-            return None
+            return self.__api_class
+        except AttributeError:
+            self.__api_class = maybe_load_class(path)
+            return self.__api_class
 
 
 class Collector(models.Model):
     label = models.CharField(max_length=200)  # Search Tweets
     service = models.ForeignKey('Service', related_name='collectors')
-    driver = models.CharField(max_length=200, unique=True, db_index=True)  # foo.bar.baz.func
+    driver = models.CharField(max_length=200, unique=True, db_index=True)
 
-    def load_driver(self):
-        parts = self.driver.split('.')
-
-        module = '.'.join(parts[0:-1])
-        kls = parts[-1]
+    def load_driver(self, path=None):
+        path = path or self.driver
 
         try:
-            return getattr(importlib.import_module(module), kls)
-        except:
-            return None
+            return self.__driver_class
+        except AttributeError:
+            self.__driver_class = maybe_load_class(path)
+            return self.__driver_class
 
     def __unicode__(self):
         return self.label
@@ -139,13 +143,27 @@ class Job(models.Model):
     def data_json(self):
         return json.dumps(self.data)
 
-    def run(self):
-        kls = self.collector.load_driver()
-        if not kls:
-            return
+    @property
+    def collector_instance(self):
+        try:
+            return self.__collector
+        except AttributeError:
+            kls = self.collector.load_driver()
 
-        driver = kls()
-        driver.action(self)
+            if kls:
+                self.__collector = kls()
+            else:
+                self.__collector = None
+
+            return self.__collector
+
+    def run(self):
+        try:
+            self.collector_instance.action(self)
+        except AttributeError:
+            # loading the collector failed and
+            # collector_instance is None
+            pass
 
     def __unicode__(self):
         return self.job_id

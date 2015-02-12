@@ -1,3 +1,4 @@
+from mock import patch
 from django.test import TestCase
 from chatterbox.models import(
     Service, Collector, Client, Key, Job
@@ -29,5 +30,6 @@ class JobsTestCase(TestCase):
         job.collector = collector
         job.key = key
 
-        job.run()
-
+        with patch('chatterbox.tests.collectors.demo.DemoCollector') as MockClass:
+            job.run()
+            job.collector_instance.action.assert_called_once_with(job)
