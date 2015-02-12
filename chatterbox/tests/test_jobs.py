@@ -1,6 +1,6 @@
 from django.test import TestCase
 from chatterbox.models import(
-    Service, Collector, Key, Job
+    Service, Collector, Client, Key, Job
 )
 
 
@@ -19,6 +19,15 @@ class JobsTestCase(TestCase):
 
         collector.service = service
 
+        client = Client()
+
+        key = Key()
+        key.service = service
+        key.client = client
+
         job = Job()
         job.collector = collector
+        job.key = key
+
+        job.run()
 

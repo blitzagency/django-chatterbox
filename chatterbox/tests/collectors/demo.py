@@ -2,7 +2,7 @@
 class DemoCollector(object):
 
     def action(self, job):
-        pass
+        print(job.key.api)
 
     def post_save(self, job):
         pass
