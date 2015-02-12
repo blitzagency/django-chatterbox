@@ -126,4 +126,10 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(related_name='keys', to='chatterbox.Service'),
             preserve_default=True,
         ),
+        migrations.AddField(
+            model_name='activity',
+            name='job',
+            field=models.ManyToManyField(related_name='job_activity', to='chatterbox.Job'),
+            preserve_default=True,
+        ),
     ]

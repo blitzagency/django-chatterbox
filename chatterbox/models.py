@@ -189,6 +189,7 @@ class Activity(models.Model):
     content = models.TextField(blank=True, null=True)
     actor_displayName = models.CharField(max_length=250, blank=True, null=True)
     actor_id = models.CharField(max_length=250, blank=True, null=True)
+    job = models.ManyToManyField(Job, related_name='job_activity')
     provider_displayName = models.CharField(max_length=250,
                                             choices=PROVIDER_CHOICES)
     blob = JSONField()
