@@ -10,9 +10,9 @@ class ServicesTestCase(TestCase):
         pass
 
     def test_load_driver(self):
-        from chatterbox.tests.drivers.demo import DemoService
+        from chatterbox.tests.services.demo import DemoService
         service = Service()
-        service.driver = "chatterbox.tests.drivers.demo.DemoService"
+        service.driver = "chatterbox.tests.services.demo.DemoService"
 
         kls = service.load_driver()
 

@@ -12,7 +12,7 @@ class KeysTestCase(TestCase):
     def test_load_api(self):
         from chatterbox.tests.api.demo import DemoApi
         service = Service()
-        service.driver = "chatterbox.tests.drivers.demo.DemoService"
+        service.driver = "chatterbox.tests.services.demo.DemoService"
 
         client = Client()
 

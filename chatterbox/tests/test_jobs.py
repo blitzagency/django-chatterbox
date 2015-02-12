@@ -12,7 +12,7 @@ class JobsTestCase(TestCase):
     def test_run_job(self):
 
         service = Service()
-        service.driver = "chatterbox.tests.drivers.demo.DemoService"
+        service.driver = "chatterbox.tests.services.demo.DemoService"
 
         collector = Collector()
         collector.driver = "chatterbox.tests.collectors.demo.DemoCollector"
