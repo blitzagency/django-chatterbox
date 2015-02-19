@@ -1,10 +1,11 @@
 from django.test import TestCase
+from django.test import TransactionTestCase
 from chatterbox.models import (
     Service, Collector, Job
 )
 
 
-class CollectorTwitterTestCase(TestCase):
+class CollectorTwitterTestCase(TransactionTestCase):
     fixtures = ('project/apps/chatterbox/fixtures/users.json',
                 'project/apps/chatterbox/fixtures/dump.json')
 
@@ -17,6 +18,7 @@ class CollectorTwitterTestCase(TestCase):
         collector = Collector()
         collector.driver = "chatterbox.collectors.twitter.TwitterTagSearch"
         collector.service = service
+        collector.save()
 
         client = service.keys.all()[0]
 
@@ -26,4 +28,5 @@ class CollectorTwitterTestCase(TestCase):
         job.collector = collector
         job.key = key
         job.data = {"tag": "#dino"}
+        job.save()
         job.run()

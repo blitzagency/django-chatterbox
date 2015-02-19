@@ -35,11 +35,10 @@ class TwitterTagSearch(Collector):
         tag = format_search_tag(job.data["tag"])
         api = job.key.api
         statuses = twitter_iterator(api.search, tag)
-        return
 
         for status in statuses:
-            activity = activity_from_dict(status)
-            # import pdb; pdb.set_trace()
+            a1 = activity_from_dict(status, job)
+            a2 = activity_from_dict(status, job)
 
     def post_save(self, job):
         print("GOT HERE")

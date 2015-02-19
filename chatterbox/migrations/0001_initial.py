@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('published', models.DateTimeField(null=True, blank=True)),
+                ('object_id', models.CharField(unique=True, max_length=800)),
                 ('object_type', models.CharField(max_length=250, choices=[(b'note', b'Note'), (b'video', b'Video'), (b'image', b'Image')])),
                 ('content', models.TextField(null=True, blank=True)),
                 ('actor_displayName', models.CharField(max_length=250, null=True, blank=True)),

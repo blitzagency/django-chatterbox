@@ -2,9 +2,9 @@ from chatterbox.models import Activity
 from .date import twitter_date_to_datetime, datetime_to_string
 
 
-def activity_from_dict(data):
+def activity_from_dict(data, job):
     activity_dict = activity_dict_from_dict(data)
-    return Activity.from_activity_dict(activity_dict)
+    return Activity.from_activity_dict(activity_dict, job)
 
 
 def activity_dict_from_dict(blob):

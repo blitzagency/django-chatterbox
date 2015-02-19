@@ -3,6 +3,7 @@ import uuid
 import importlib
 from django.db import models
 from django.conf import settings
+from django.db import IntegrityError
 from jsonfield import JSONField
 from chatterbox.utils.date import string_to_datetime
 
@@ -187,6 +188,7 @@ PROVIDER_CHOICES = (
 
 class Activity(models.Model):
     published = models.DateTimeField(blank=True, null=True)
+    object_id = models.CharField(max_length=800, unique=True)
     object_type = models.CharField(max_length=250, choices=TYPE_CHOICES)
     content = models.TextField(blank=True, null=True)
     actor_displayName = models.CharField(max_length=250, blank=True, null=True)
@@ -197,14 +199,32 @@ class Activity(models.Model):
     blob = JSONField()
 
     @classmethod
-    def from_activity_dict(cls, data):
+    def from_activity_dict(cls, data, job):
+        # check first if the data already has an activity in our DB
+        # (we dont' want duplicate activities coming in)
+
         activity = cls()
+        object_id = data.get('object').get('@id')
+        activity.object_id = object_id
+
+        # try and save the object after setting the ID, if there is error
+        # it's because the object is not unique
+        try:
+            activity.save()
+        except IntegrityError:
+            # it already exists..but is it from another job?
+            a = Activity.objects.get(object_id=object_id)
+
+            import pdb; pdb.set_trace()
+
         activity.published = string_to_datetime(data.get('published'))
-        activity.object_type = data.get('provider').get('displayName').lower()
+        activity.object_type = data.get('object').get('@type').lower()
         activity.content = data.get('object').get('content')
         activity.actor_displayName = data.get('actor').get('displayName')
         activity.actor_id = data.get('actor').get('@id')
-        activity.provider_displayName
+        activity.provider_displayName = data.get('provider').get('displayName').lower()
         activity.blob = data
+        activity.job.add(job)
+        activity.save()
 
         return activity
