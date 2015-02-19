@@ -4,7 +4,6 @@ import importlib
 from django.db import models
 from django.conf import settings
 from jsonfield import JSONField
-from chatterbox.utils import twitter
 from chatterbox.utils.date import string_to_datetime
 
 

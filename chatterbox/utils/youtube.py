@@ -1,4 +1,4 @@
-from chatterbox.models import Activity
+from ..models import Activity
 from .date import activity_stream_date_to_datetime, datetime_to_string
 
 
