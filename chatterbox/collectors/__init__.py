@@ -30,7 +30,7 @@ class Collector(object):
             return ""
 
     def create_activity_from_dict(self, data):
-        activity = self.activity_from_dict(data)
+        activity = self.activity_from_dict.__func__(data)
         # try and save the object after setting the ID, if there is error
         # it's because the object is not unique
         try:
@@ -40,3 +40,10 @@ class Collector(object):
             activity = Activity.objects.get(object_id=activity.object_id)
 
         return activity
+
+    def register_activity(self, activity, job):
+        count = activity.job.filter(id=job.id).count()
+        if count:
+            raise Exception("Job already associated with activity")
+
+        activity.job.add(job)

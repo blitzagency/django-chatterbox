@@ -39,7 +39,14 @@ class TwitterTagSearch(Collector):
 
         for status in statuses:
             activity = self.create_activity_from_dict(status)
-            activity.job.add(job)
+            try:
+                self.register_activity(activity, job)
+            except Exception:
+                # need to decide when to stop...
+                # at this point this job has already processed this activity
+                # before, should we do nothing?  for now we are going to stop
+                # all iteration and be done
+                break
 
     def post_save(self, job):
         print("GOT HERE")

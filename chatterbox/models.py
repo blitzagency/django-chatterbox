@@ -208,6 +208,5 @@ class Activity(models.Model):
         activity.actor_id = data.get('actor').get('@id')
         activity.provider_displayName = data.get('provider').get('displayName').lower()
         activity.blob = data
-        activity.save()
 
         return activity
