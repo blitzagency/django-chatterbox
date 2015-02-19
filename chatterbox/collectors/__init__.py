@@ -29,7 +29,7 @@ class Collector(object):
         else:
             return ""
 
-    def create_activity_from_dict(self, data):
+    def create_or_get_activity_from_dict(self, data):
         activity = self.activity_from_dict.__func__(data)
         # try and save the object after setting the ID, if there is error
         # it's because the object is not unique

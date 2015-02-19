@@ -38,7 +38,8 @@ class TwitterTagSearch(Collector):
         statuses = twitter_iterator(api.search, tag)
 
         for status in statuses:
-            activity = self.create_activity_from_dict(status)
+            # this will
+            activity = self.create_or_get_activity_from_dict(status)
             try:
                 self.register_activity(activity, job)
             except Exception:
