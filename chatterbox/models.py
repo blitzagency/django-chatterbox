@@ -4,6 +4,8 @@ import importlib
 from django.db import models
 from django.conf import settings
 from jsonfield import JSONField
+from chatterbox.utils import twitter
+from chatterbox.utils.date import string_to_datetime
 
 
 def make_uuid():
@@ -194,3 +196,23 @@ class Activity(models.Model):
     provider_displayName = models.CharField(max_length=250,
                                             choices=PROVIDER_CHOICES)
     blob = JSONField()
+
+    @staticmethod
+    def create_from_activity_json(blob, job):
+        activity = Activity()
+        date = blob.get('published')
+        activity.published = string_to_datetime(blob.get('published'))
+        activity.object_type = blob.get('provider').get('displayName').lower()
+        activity.content = blob.get('object').get('content')
+        activity.actor_displayName = blob.get('actor').get('displayName')
+        activity.actor_id = blob.get('actor').get('@id')
+        activity.provider_displayName
+        activity.blob = blob
+        # if Job.job_activity.filter().exists():
+        #     # already exists, dont need to add it
+        #     pass
+        # else:
+        #     activity.job.add(job)
+
+
+        # import pdb; pdb.set_trace()
