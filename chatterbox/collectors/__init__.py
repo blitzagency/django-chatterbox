@@ -1,9 +1,12 @@
 from django.template.response import SimpleTemplateResponse
+from django.db import IntegrityError
+from chatterbox.models import Activity
 
 
 class Collector(object):
     form = None
     template = None
+    activity_from_dict = lambda: None
 
     def action(self, job):
         raise NotImplementedError("Subclasses must implement the \"action\" method")
@@ -25,3 +28,15 @@ class Collector(object):
 
         else:
             return ""
+
+    def create_activity_from_dict(self, data):
+        activity = self.activity_from_dict(data)
+        # try and save the object after setting the ID, if there is error
+        # it's because the object is not unique
+        try:
+            activity.save()
+        except IntegrityError:
+            # it already exists..but is it from another job?
+            activity = Activity.objects.get(object_id=activity.object_id)
+
+        return activity

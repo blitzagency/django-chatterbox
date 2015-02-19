@@ -1,8 +1,6 @@
 from . import Collector
 from django import forms
-from django.db import IntegrityError
 from chatterbox.utils.twitter import activity_from_dict
-from chatterbox.models import Activity
 
 
 def format_search_tag(tag):
@@ -32,6 +30,7 @@ class TagForm(forms.Form):
 
 class TwitterTagSearch(Collector):
     form = TagForm
+    activity_from_dict = activity_from_dict
 
     def action(self, job):
         tag = format_search_tag(job.data["tag"])
@@ -41,18 +40,6 @@ class TwitterTagSearch(Collector):
         for status in statuses:
             activity = self.create_activity_from_dict(status)
             activity.job.add(job)
-
-    def create_activity_from_dict(self, data):
-        activity = activity_from_dict(data)
-        # try and save the object after setting the ID, if there is error
-        # it's because the object is not unique
-        try:
-            activity.save()
-        except IntegrityError:
-            # it already exists..but is it from another job?
-            activity = Activity.objects.get(object_id=activity.object_id)
-
-        return activity
 
     def post_save(self, job):
         print("GOT HERE")
