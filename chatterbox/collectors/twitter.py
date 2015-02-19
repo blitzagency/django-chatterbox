@@ -37,8 +37,8 @@ class TwitterTagSearch(Collector):
         statuses = twitter_iterator(api.search, tag)
 
         for status in statuses:
-            a1 = activity_from_dict(status, job)
-            a2 = activity_from_dict(status, job)
+            activity = activity_from_dict(status)
+            activity.job.add(job)
 
     def post_save(self, job):
         print("GOT HERE")

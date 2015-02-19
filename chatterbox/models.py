@@ -214,8 +214,7 @@ class Activity(models.Model):
         except IntegrityError:
             # it already exists..but is it from another job?
             a = Activity.objects.get(object_id=object_id)
-
-            import pdb; pdb.set_trace()
+            return a
 
         activity.published = string_to_datetime(data.get('published'))
         activity.object_type = data.get('object').get('@type').lower()
@@ -224,7 +223,6 @@ class Activity(models.Model):
         activity.actor_id = data.get('actor').get('@id')
         activity.provider_displayName = data.get('provider').get('displayName').lower()
         activity.blob = data
-        activity.job.add(job)
         activity.save()
 
         return activity
