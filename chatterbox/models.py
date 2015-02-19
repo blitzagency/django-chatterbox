@@ -197,22 +197,15 @@ class Activity(models.Model):
                                             choices=PROVIDER_CHOICES)
     blob = JSONField()
 
-    @staticmethod
-    def create_from_activity_json(blob, job):
-        activity = Activity()
-        date = blob.get('published')
-        activity.published = string_to_datetime(blob.get('published'))
-        activity.object_type = blob.get('provider').get('displayName').lower()
-        activity.content = blob.get('object').get('content')
-        activity.actor_displayName = blob.get('actor').get('displayName')
-        activity.actor_id = blob.get('actor').get('@id')
+    @classmethod
+    def from_activity_dict(cls, data):
+        activity = cls()
+        activity.published = string_to_datetime(data.get('published'))
+        activity.object_type = data.get('provider').get('displayName').lower()
+        activity.content = data.get('object').get('content')
+        activity.actor_displayName = data.get('actor').get('displayName')
+        activity.actor_id = data.get('actor').get('@id')
         activity.provider_displayName
-        activity.blob = blob
-        # if Job.job_activity.filter().exists():
-        #     # already exists, dont need to add it
-        #     pass
-        # else:
-        #     activity.job.add(job)
+        activity.blob = data
 
-
-        # import pdb; pdb.set_trace()
+        return activity

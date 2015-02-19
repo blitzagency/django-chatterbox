@@ -55,10 +55,13 @@ CACHES = {
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 INSTALLED_APPS += (
     'debug_toolbar',
+    'django_nose',
     'storages',
     'chatterbox',
 )
 
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 INTERNAL_IPS = ('127.0.0.1', '172.16.187.2')

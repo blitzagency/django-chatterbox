@@ -1,7 +1,13 @@
+from chatterbox.models import Activity
 from .date import timestamp_to_datetime, datetime_to_string
-from pprint import pprint
 
-def parse_to_activity(blob):
+
+def activity_from_dict(data):
+    activity_dict = activity_dict_from_dict(data)
+    return Activity.from_activity_dict(activity_dict)
+
+
+def activity_dict_from_dict(blob):
     stream_object = {}
 
     stream_object["@context"] = "http://www.w3.org/ns/activitystreams"

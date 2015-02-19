@@ -1,7 +1,6 @@
 from . import Collector
 from django import forms
-from chatterbox.utils.twitter import parse_to_activity
-from chatterbox.models import Activity
+from chatterbox.utils.twitter import activity_from_dict
 
 
 def format_search_tag(tag):
@@ -37,10 +36,9 @@ class TwitterTagSearch(Collector):
         api = job.key.api
         statuses = twitter_iterator(api.search, tag)
         return
-        for status in statuses:
-            blob = parse_to_activity(status)
-            a = Activity.create_from_activity_json(blob, job)
 
+        for status in statuses:
+            activity = activity_from_dict(status)
             # import pdb; pdb.set_trace()
 
     def post_save(self, job):
