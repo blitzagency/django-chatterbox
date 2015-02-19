@@ -3,7 +3,6 @@ import uuid
 import importlib
 from django.db import models
 from django.conf import settings
-from django.db import IntegrityError
 from jsonfield import JSONField
 from chatterbox.utils.date import string_to_datetime
 
@@ -199,10 +198,7 @@ class Activity(models.Model):
     blob = JSONField()
 
     @classmethod
-    def from_activity_dict(cls, data, job):
-        # check first if the data already has an activity in our DB
-        # (we dont' want duplicate activities coming in)
-
+    def from_activity_dict(cls, data):
         activity = cls()
         activity.object_id = data.get('object').get('@id')
         activity.published = string_to_datetime(data.get('published'))
