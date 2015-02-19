@@ -1,4 +1,3 @@
-from django.test import TestCase
 from django.test import TransactionTestCase
 from .utils import load_json
 import mock
