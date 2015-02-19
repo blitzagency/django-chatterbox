@@ -204,18 +204,7 @@ class Activity(models.Model):
         # (we dont' want duplicate activities coming in)
 
         activity = cls()
-        object_id = data.get('object').get('@id')
-        activity.object_id = object_id
-
-        # try and save the object after setting the ID, if there is error
-        # it's because the object is not unique
-        try:
-            activity.save()
-        except IntegrityError:
-            # it already exists..but is it from another job?
-            a = Activity.objects.get(object_id=object_id)
-            return a
-
+        activity.object_id = data.get('object').get('@id')
         activity.published = string_to_datetime(data.get('published'))
         activity.object_type = data.get('object').get('@type').lower()
         activity.content = data.get('object').get('content')

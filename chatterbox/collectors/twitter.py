@@ -38,6 +38,14 @@ class TwitterTagSearch(Collector):
 
         for status in statuses:
             activity = activity_from_dict(status)
+            # try and save the object after setting the ID, if there is error
+            # it's because the object is not unique
+            try:
+                activity.save()
+            except IntegrityError:
+                # it already exists..but is it from another job?
+                activity = Activity.objects.get(object_id=object_id)
+
             activity.job.add(job)
 
     def post_save(self, job):
