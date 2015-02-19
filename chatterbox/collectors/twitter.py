@@ -49,7 +49,9 @@ class TwitterTagSearch(Collector):
                 break
 
     def post_save(self, job):
-        print("GOT HERE")
+        pass
+        # print("GOT HERE")
 
     def post_delete(self, job):
-        print("GOT HERE")
+        pass
+        # print("GOT HERE")
