@@ -39,9 +39,10 @@ class TwitterTagSearch(Collector):
         statuses = twitter_iterator(api.search, tag)
 
         for status in statuses:
-            activity = self.create_activity_from_dict(status, job)
+            activity = self.create_activity_from_dict(status)
+            activity.job.add(job)
 
-    def create_activity_from_dict(self, data, job):
+    def create_activity_from_dict(self, data):
         activity = activity_from_dict(data)
         # try and save the object after setting the ID, if there is error
         # it's because the object is not unique
@@ -50,8 +51,6 @@ class TwitterTagSearch(Collector):
         except IntegrityError:
             # it already exists..but is it from another job?
             activity = Activity.objects.get(object_id=activity.object_id)
-
-        activity.job.add(job)
 
         return activity
 
