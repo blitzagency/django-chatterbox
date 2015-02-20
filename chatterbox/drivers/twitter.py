@@ -1,4 +1,8 @@
+import logging
 from .oauth import OAuth1
+
+
+log = logging.getLogger(__name__)
 
 
 class Twitter(OAuth1):

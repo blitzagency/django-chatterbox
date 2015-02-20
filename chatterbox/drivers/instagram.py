@@ -1,5 +1,9 @@
+import logging
 from .oauth import OAuth2
 from .oauth import BEARER_URI
+
+
+log = logging.getLogger(__name__)
 
 
 class Instagram(OAuth2):

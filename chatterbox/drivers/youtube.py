@@ -1,4 +1,7 @@
+import logging
 from .oauth import OAuth2
+
+log = logging.getLogger(__name__)
 
 
 class YouTube(OAuth2):

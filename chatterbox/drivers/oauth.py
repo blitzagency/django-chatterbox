@@ -1,12 +1,17 @@
-import requests
+import logging
 import json
 from datetime import (datetime, timedelta)
 import pytz
+import requests
 from oauthlib.oauth1.rfc5849 import SIGNATURE_HMAC, SIGNATURE_TYPE_AUTH_HEADER
 from oauthlib.common import generate_token
 from requests_oauthlib import OAuth1 as OAuth1Manager
 from six.moves.urllib.parse import parse_qsl
 from oauthlib.oauth2.rfc6749.clients import base as oauthlib_base
+
+
+log = logging.getLogger(__name__)
+
 
 """Bearer Types
 
@@ -49,6 +54,8 @@ class OAuth(object):
     signature_type = SIGNATURE_TYPE_AUTH_HEADER
 
     def __init__(self, client_id, client_secret):
+        log.debug("Initializing OAuth Driver")
+
         self.client_id = client_id
         self.client_secret = client_secret
         self.request = None

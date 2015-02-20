@@ -1,6 +1,10 @@
+import logging
+from six.moves.urllib.parse import parse_qsl
 from .oauth import OAuth2
 from .oauth import BEARER_URI
-from six.moves.urllib.parse import parse_qsl
+
+
+log = logging.getLogger(__name__)
 
 
 class Facebook(OAuth2):
