@@ -16,8 +16,8 @@ def format_search_tag(tag):
 
 
 def twitter_iterator(method, search):
-    log.debug("Creating Twitter iterator for %s with args: %s",
-              method.__name__, search)
+    # log.debug("Creating Twitter iterator for %s with args: %s",
+    #           method.__name__, search)
 
     results = method(search)
     tweets = results.get('statuses')

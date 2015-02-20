@@ -1,5 +1,5 @@
 from django.test import TestCase
-from ..models import Service
+from chatterbox.models import Service
 
 
 class YouTubeApiTestCase(TestCase):
