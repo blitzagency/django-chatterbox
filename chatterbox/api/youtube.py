@@ -7,6 +7,10 @@ log = logging.getLogger(__name__)
 
 
 class YouTube(OAuth2Api):
+
+    def verify_parsed_response(self, data):
+        pass
+
     def whoami(self):
         log.debug("Invoking whoami")
         return self.get("https://www.googleapis.com/oauth2/v2/userinfo")

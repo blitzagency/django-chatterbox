@@ -8,6 +8,9 @@ log = logging.getLogger(__name__)
 
 class Instagram(OAuth2Api):
 
+    def verify_parsed_response(self, data):
+        pass
+
     def whoami(self):
         log.debug("Invoking whoami")
         return self.get("https://api.instagram.com/v1/users/self")

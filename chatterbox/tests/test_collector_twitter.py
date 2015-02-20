@@ -1,6 +1,6 @@
 from django.test import TransactionTestCase
-from .utils import load_json
 import mock
+from .utils import load_json
 from chatterbox.models import (
     Service, Collector, Job, Activity
 )
