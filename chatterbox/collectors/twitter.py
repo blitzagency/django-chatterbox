@@ -1,7 +1,8 @@
 import logging
-from . import Collector
 from django import forms
 from chatterbox.utils.twitter import activity_from_dict
+from chatterbox.exceptions import RateLimitException
+from . import Collector
 
 
 log = logging.getLogger(__name__)
@@ -19,7 +20,12 @@ def twitter_iterator(method, search):
     # log.debug("Creating Twitter iterator for %s with args: %s",
     #           method.__name__, search)
 
-    results = method(search)
+    try:
+        results = method(search)
+    except RateLimitException:
+        log.error("Aborting search due to rate limit: %s", search)
+        raise StopIteration
+
     tweets = results.get('statuses')
 
     while 1:

@@ -15,7 +15,7 @@ var JobLayoutView = marionette.LayoutView.extend({
     regions: {
         services: ".service",
         collectors: ".collector",
-        keys: ".key",
+        keys: ".keys",
         form: ".collector-form"
     },
 
@@ -28,7 +28,7 @@ var JobLayoutView = marionette.LayoutView.extend({
         });
 
         this.keys = new KeySelectionView({
-            data: JOB_DATA.key,
+            data: JOB_DATA.keys,
              serviceKey: JOB_DATA.service.key
         });
 
