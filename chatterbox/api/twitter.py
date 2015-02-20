@@ -1,12 +1,17 @@
+import logging
 from six.moves.urllib.parse import urlencode
 from . import OAuth1Api, SimpleProfile
+
+log = logging.getLogger(__name__)
 
 
 class Twitter(OAuth1Api):
     def whoami(self):
+        log.debug("Invoking whoami")
         return self.get("https://api.twitter.com/1.1/account/verify_credentials.json")
 
     def simple_profile(self):
+        log.debug("Invoking simple_profile")
         data = self.whoami()
 
         result = {
@@ -40,6 +45,7 @@ class Twitter(OAuth1Api):
                     with a callback of the given name.
 
         """
+        log.debug("Invoking search")
         kwargs = kwargs or {}
         url = 'https://api.twitter.com/1.1/search/tweets.json?'
         kwargs['q'] = query
@@ -78,6 +84,7 @@ class Twitter(OAuth1Api):
 
 
         """
+        log.debug("Invoking home_timeline")
         kwargs = kwargs or {}
         url = "https://api.twitter.com/1.1/statuses/home_timeline.json?"
         return self.get(url + urlencode(kwargs))

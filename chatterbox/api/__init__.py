@@ -1,8 +1,11 @@
-import time
+import logging
 import calendar
 import pytz
 from datetime import (datetime, timedelta)
 from requests_oauthlib import OAuth2Session, OAuth1Session
+
+
+log = logging.getLogger(__name__)
 
 
 class SimpleProfile(object):
@@ -33,6 +36,7 @@ class Api(object):
         pass
 
     def post(self, url, **kwargs):
+        log.debug("POST: %s, %s", url, kwargs)
         r = self._session.request(
             "POST",
             url=url,
@@ -41,6 +45,8 @@ class Api(object):
         return r.content
 
     def get(self, url, **kwargs):
+        log.debug("GET: %s, %s", url, kwargs)
+
         r = self._session.request(
             "GET",
             url=url,
@@ -52,6 +58,7 @@ class Api(object):
         raise NotImplementedError("simple_profile() must be defined in a subclass")
 
     def parse_response(self, response):
+        log.debug("Pasring API Response: %s", response.content)
         return response.json()
 
     def whoami(self):
@@ -60,7 +67,7 @@ class Api(object):
 
 class OAuth1Api(Api):
     def __init__(self, key, client):
-
+        log.debug("Initializing OAuth1 API")
         self.key = key
         self.client = client
 
@@ -74,7 +81,7 @@ class OAuth1Api(Api):
 
 class OAuth2Api(Api):
     def __init__(self, key, client):
-
+        log.debug("Initializing OAuth2 API")
         self.key = key
         self.client = client
 
@@ -109,6 +116,7 @@ class OAuth2Api(Api):
         self._session._client.default_token_placement = client.driver.bearer_type
 
     def token_updater(self, token):
+        log.debug("Updating Token")
 
         # save access_token
         self.client.access_token = token.get('access_token')

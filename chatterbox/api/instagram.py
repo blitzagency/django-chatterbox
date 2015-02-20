@@ -1,13 +1,19 @@
+import logging
 from six.moves.urllib.parse import urlencode
 from . import OAuth2Api, SimpleProfile
+
+
+log = logging.getLogger(__name__)
 
 
 class Instagram(OAuth2Api):
 
     def whoami(self):
+        log.debug("Invoking whoami")
         return self.get("https://api.instagram.com/v1/users/self")
 
     def simple_profile(self):
+        log.debug("Invoking simple_profile")
         data = self.whoami()
 
         data = data.get('data', {})
@@ -33,6 +39,9 @@ class Instagram(OAuth2Api):
         max_tag_id -- Return media after this max_tag_id.
 
         """
+
+        log.debug("Invoking search")
+
         # need to do a check on quality of query (spaces?)
         url = 'https://api.instagram.com/v1/tags/{}/media/recent'.format(query)
         if kwargs:
@@ -52,6 +61,8 @@ class Instagram(OAuth2Api):
         max_id -- Return media earlier than this max_id.
 
         """
+
+        log.debug("Invoking user_media")
         # need to do a check on quality of query (spaces?)
         url = 'https://api.instagram.com/v1/users/self/media/recent'
         if kwargs:
