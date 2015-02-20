@@ -22,6 +22,14 @@ class InstagramApiTestCase(TestCase):
             min_tag_id='1423001539550109')
         self.assertEqual(len(results['data']), 17)
 
-    def test_user_media(self):
+    def test_default_user_media(self):
         results = self.api.user_media()
         self.assertEqual(results['meta']['code'], 200)
+
+    def test_user_media(self):
+        user_id='11314839'
+        results = self.api.user_media(user_id=user_id)
+        self.assertEqual(results['meta']['code'], 200)
+        first_post = results.get('data')[0]
+        first_user_id = first_post.get('user').get('id')
+        self.assertEqual(first_user_id, user_id)

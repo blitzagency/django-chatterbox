@@ -49,7 +49,7 @@ class Instagram(OAuth2Api):
             url = url + '?{}'.format(additional)
         return self.get(url)
 
-    def user_media(self, user='self', **kwargs):
+    def user_media(self, user_id='self', **kwargs):
         """http://instagram.com/developer/endpoints/users/#get_users_feed
 
         PARAMETERS
@@ -64,7 +64,7 @@ class Instagram(OAuth2Api):
 
         log.debug("Invoking user_media")
         # need to do a check on quality of query (spaces?)
-        url = 'https://api.instagram.com/v1/users/{}/media/recent'.format(user)
+        url = 'https://api.instagram.com/v1/users/{}/media/recent'.format(user_id)
         if kwargs:
             additional = urlencode(kwargs)
             url = url + '?{}'.format(additional)
