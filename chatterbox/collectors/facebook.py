@@ -62,9 +62,3 @@ class FacebookWall(Collector):
                 # all iteration and be done, in the future we might want to
                 # keep running the process and run an update action? idk...
                 break
-
-
-class FacebookSearch(Collector):
-
-    def action(self, job):
-        pass
