@@ -1,7 +1,7 @@
 {
   "paging": {
-    "next": "https://graph.facebook.com/v2.2/11936081183/feed?access_token=CAALTIjkbkrEBANfEJZB6OTdQslVMsmHhBkavw0S7l51lf1Jk02WjTb0hZBcqUYcUXZAtycSvvYdZAGEK7JjVY3xJhgjAB0ipGC5M6oLgEtVsKxvObiu0XoOzKDWLMBmlw0y9rTtjZADPV7uXpP9x8tqU3H3rgk8zwy1sLurH2m2GZA3BSdOCGQAN2rUDnm3kOjXeN1LUupiYe9Y3d1ngbT&limit=25&until=1422643126&__paging_token=enc_AewDFc5-k-YT6JXkfxk0d9E2MbRjOir6PgNYJ74G863KjPlJFwz3wPRXoD4TAcYjcWbuoTTSUlLCVaX1hb1IC0IB",
-    "previous": "https://graph.facebook.com/v2.2/11936081183/feed?since=1423502394&access_token=CAALTIjkbkrEBANfEJZB6OTdQslVMsmHhBkavw0S7l51lf1Jk02WjTb0hZBcqUYcUXZAtycSvvYdZAGEK7JjVY3xJhgjAB0ipGC5M6oLgEtVsKxvObiu0XoOzKDWLMBmlw0y9rTtjZADPV7uXpP9x8tqU3H3rgk8zwy1sLurH2m2GZA3BSdOCGQAN2rUDnm3kOjXeN1LUupiYe9Y3d1ngbT&limit=25&__paging_token=enc_AewlmEDdRtB9b5BnbuMaA2cJr3UbEHDWxkF6GD5NZpELUfJtUoAdMn0kshrBKLi_2-wQ5EcOMQOrY9Xh7pURcyoI&__previous=1"
+    "next": "",
+    "previous": ""
   },
   "data": [
     {

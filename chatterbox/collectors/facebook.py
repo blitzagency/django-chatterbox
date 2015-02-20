@@ -1,20 +1,58 @@
 from . import Collector
 from django import forms
+from chatterbox.utils.facebook import activity_from_dict
+
+
+def facebook_iterator(api, method, **kwargs):
+    results = method(**kwargs)
+    messages = results.get('data')
+    while 1:
+        if len(messages) == 0:
+            raise StopIteration
+
+        for message in messages:
+            yield message
+
+        next = results.get('paging', {}).get('next')
+        if next:
+            results = api.get(next)
+            messages = results.get('data')
+        else:
+            raise StopIteration
 
 
 class FacebookUserForm(forms.Form):
-    username = forms.CharField(label='Username', max_length=100)
+    user_id = forms.CharField(label='User ID', max_length=100)
 
 
 class FacebookWall(Collector):
     form = FacebookUserForm
+    activity_from_dict = activity_from_dict
 
     def action(self, job):
-        pass
+        user_id = job.data["user_id"]
+        api = job.key.api
+        statuses = facebook_iterator(api, api.user_feed, user=user_id)
+
+        for status in statuses:
+            if status.get('story') and not status.get('content', None):
+                # these are useless things like, 'dino commented on his photo'
+                # we don't want this, if you do, override the collector
+                continue
+            activity = self.create_or_get_activity_from_dict(status)
+            print(activity.object_id)
+            try:
+                self.register_activity(activity, job)
+            except Exception:
+                # need to decide when to stop...
+                # at this point this job has already processed this activity
+                # before, should we do nothing?  for now we are going to stop
+                # all iteration and be done, in the future we might want to
+                # keep running the process and run an update action? idk...
+                break
 
 
 class FacebookSearch(Collector):
 
     def action(self, job):
         pass
-
