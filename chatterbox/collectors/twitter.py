@@ -1,7 +1,7 @@
 import logging
 from django import forms
 from chatterbox.utils.twitter import activity_from_dict
-from chatterbox.exceptions import RateLimitException
+from chatterbox.exceptions import RateLimitException, KeyInvalidationException
 from . import Collector
 
 
@@ -16,28 +16,28 @@ def format_search_tag(tag):
     return tag
 
 
-def twitter_iterator(method, search):
-    # log.debug("Creating Twitter iterator for %s with args: %s",
-    #           method.__name__, search)
+# def twitter_iterator(method, search):
+#     # log.debug("Creating Twitter iterator for %s with args: %s",
+#     #           method.__name__, search)
 
-    try:
-        results = method(search)
-    except RateLimitException:
-        log.error("Aborting search due to rate limit: %s", search)
-        raise StopIteration
+#     try:
+#         results = method(search)
+#     except RateLimitException:
+#         log.error("Aborting search due to rate limit: %s", search)
 
-    tweets = results.get('statuses')
 
-    while 1:
-        if len(tweets) == 0:
-            raise StopIteration
+#     tweets = results.get('statuses')
 
-        for tweet in tweets:
-            yield tweet
+#     while 1:
+#         if len(tweets) == 0:
+#             raise StopIteration
 
-        log.debug("Fetching next page")
-        results = method(search, max_id=tweet['id_str'])
-        tweets = results.get('statuses')
+#         for tweet in tweets:
+#             yield tweet
+
+#         log.debug("Fetching next page")
+#         results = method(search, max_id=tweet['id_str'])
+#         tweets = results.get('statuses')
 
 
 class TagForm(forms.Form):
@@ -52,13 +52,9 @@ class TwitterTagSearch(Collector):
     def action(self, job):
         log.debug("Invoking action")
 
-        tag = format_search_tag(job.data["tag"])
-        api = job.key.api
-        statuses = twitter_iterator(api.search, tag)
-
-        for status in statuses:
-            # this will
+        for status in self.statuses:
             activity = self.create_or_get_activity_from_dict(status)
+
             try:
                 self.register_activity(activity, job)
             except Exception:
@@ -68,6 +64,50 @@ class TwitterTagSearch(Collector):
                 # before, should we do nothing?  for now we are going to stop
                 # all iteration and be done
                 break
+
+    @property
+    def statuses(self):
+        tag = format_search_tag(self.job.data["tag"])
+
+        results = self.maybe_fetch_results(tag)
+
+        if results is None:
+            raise StopIteration
+
+        tweets = results.get('statuses')
+
+        while 1:
+            if len(tweets) == 0:
+                raise StopIteration
+
+            for tweet in tweets:
+                yield tweet
+
+            log.debug("Fetching next page")
+            results = self.maybe_fetch_results(tag, max_id=tweet['id_str'])
+
+            if results is None:
+                raise StopIteration
+
+            tweets = results.get('statuses')
+
+    def maybe_fetch_results(self, tag, **kwargs):
+        results = None
+
+        try:
+            results = self.api.search(tag)
+        except RateLimitException:
+
+            log.error("Aborting search due to rate limit: %s", tag)
+
+            try:
+                self.key_manager.invalidate_current_key()
+                results = self.api.search(tag, **kwargs)
+            except KeyInvalidationException:
+                log.error("Unable to invalidate current key, we are done here")
+                results = None
+
+        return results
 
     def post_save(self, job):
         pass

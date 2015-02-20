@@ -158,6 +158,8 @@ class Job(models.Model):
                 self.__collector = None
 
             self.__collector.keys = self.keys.all()
+            self.__collector.job = self
+
             return self.__collector
 
     def run(self):

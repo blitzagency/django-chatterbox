@@ -2,6 +2,8 @@ import logging
 from django.template.response import SimpleTemplateResponse
 from django.db import IntegrityError
 from chatterbox.models import Activity
+from chatterbox.exceptions import KeyInvalidationException
+
 
 log = logging.getLogger(__name__)
 
@@ -34,7 +36,10 @@ class KeyManager(object):
 
         if index == self.current_index:
             log.debug("Unable to invalidate current key. Next key is current key")
-            return
+            raise KeyInvalidationException
+
+        log.debug("Previous key has been invalidated, switching "
+                  "to next available key")
 
         self.current_key = self.keys[index]
         self.current_index = index
