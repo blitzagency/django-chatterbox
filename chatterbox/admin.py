@@ -141,7 +141,7 @@ class JobAdmin(admin.ModelAdmin):
 
     def get_service_username(self, obj):
         names = obj.keys.all()
-        return ','.join([x.service_username for x in names])
+        return ', '.join([x.service_username for x in names])
 
     def save_model(self, request, obj, form, change):
         super(JobAdmin, self).save_model(request, obj, form, change)
