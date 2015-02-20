@@ -1,0 +1,52 @@
+[
+{
+    "fields": {
+        "driver": "chatterbox.tests.services.demo.DemoService",
+        "key": "demo",
+        "label": "Demo Service"
+    },
+    "model": "chatterbox.service",
+    "pk": 1
+},
+
+{
+    "fields": {
+        "uuid": "0a506451302c433eb3ebaacb023f8548",
+        "service": 1,
+        "label": "My Demo Client",
+        "client_id": "my id",
+        "redirect_url": "http://localhost:8000/chatterbox/callback/",
+        "client_secret": "my secret"
+    },
+    "model": "chatterbox.client",
+    "pk": 1
+},
+
+{
+    "fields": {
+        "service": 1,
+        "access_token": "abcdef",
+        "expires": "2015-02-03T23:03:45.184Z",
+        "service_user_id": "12345",
+        "secret": null,
+        "client": 1,
+        "user": 1,
+        "service_username": "demo user",
+        "refresh_token": "abcdef"
+    },
+    "model": "chatterbox.key",
+    "pk": 1
+},
+
+{
+    "fields": {
+        "label": "Demo Collector"
+        "driver": "chatterbox.tests.collectors.demo.DemoCollector",
+        "service": 1,
+    },
+
+    "model": "chatterbox.collector",
+    "pk": 1
+},
+
+]

@@ -27,7 +27,7 @@ def maybe_load_class(path):
 class Service(models.Model):
     label = models.CharField(max_length=200)
     key = models.SlugField(unique=True, max_length=200, db_index=True)
-    driver = models.CharField(max_length=200)
+    driver = models.CharField(max_length=200, unique=True, db_index=True)
 
     def load_driver(self, path=None):
         path = path or self.driver

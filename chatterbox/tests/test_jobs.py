@@ -6,19 +6,23 @@ from chatterbox.models import(
 
 
 class JobsTestCase(TestCase):
+    fixtures = ('project/apps/chatterbox/fixtures/users.json',
+                'project/apps/chatterbox/fixtures/demo.json')
 
     def setUp(self):
         pass
 
     def test_run_job(self):
 
-        service = Service()
-        service.driver = "chatterbox.tests.services.demo.DemoService"
+        service = Service.create(
+            driver="chatterbox.tests.services.demo.DemoService"
+        )
 
-        collector = Collector()
-        collector.driver = "chatterbox.tests.collectors.demo.DemoCollector"
-
-        collector.service = service
+        collector = Collector.create(
+            label="Demo Collector"
+            driver="chatterbox.tests.collectors.demo.DemoCollector"
+            service=service
+        )
 
         client = Client()
 
@@ -28,7 +32,7 @@ class JobsTestCase(TestCase):
 
         job = Job()
         job.collector = collector
-        job.key = key
+        job.keys = key
 
         with patch('chatterbox.tests.collectors.demo.DemoCollector') as MockClass:
             job.run()
