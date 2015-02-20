@@ -52,13 +52,20 @@ class Api(object):
             url=url,
             **kwargs
         )
-        return self.parse_response(r)
+
+        data = self.parse_response(r)
+        self.verify_parsed_response(data)
+
+        return data
+
+    def verify_parsed_response(self, data):
+        raise NotImplementedError("verify_response() must be defined in a subclass")
 
     def simple_profile(self):
         raise NotImplementedError("simple_profile() must be defined in a subclass")
 
     def parse_response(self, response):
-        log.debug("Pasring API Response: %s", response.content)
+        log.debug("Parsing API Response: %s", response.content)
         return response.json()
 
     def whoami(self):

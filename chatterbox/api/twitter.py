@@ -1,11 +1,18 @@
 import logging
 from six.moves.urllib.parse import urlencode
 from . import OAuth1Api, SimpleProfile
+from ..exceptions import RateLimitException
+
 
 log = logging.getLogger(__name__)
 
 
 class Twitter(OAuth1Api):
+
+    def verify_parsed_response(self, data):
+        if "errors" in data and data["errors"][0]["code"] == 88:
+            raise RateLimitException
+
     def whoami(self):
         log.debug("Invoking whoami")
         return self.get("https://api.twitter.com/1.1/account/verify_credentials.json")
