@@ -157,6 +157,7 @@ class Job(models.Model):
             else:
                 self.__collector = None
 
+            self.__collector.keys = self.keys.all()
             return self.__collector
 
     def run(self):

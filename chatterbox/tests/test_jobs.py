@@ -14,25 +14,18 @@ class JobsTestCase(TestCase):
 
     def test_run_job(self):
 
-        service = Service.create(
-            driver="chatterbox.tests.services.demo.DemoService"
+        service = Service.objects.get(pk=1)
+        collector = Collector.objects.get(pk=1)
+        client = Client.objects.get(pk=1)
+        key = Key.objects.get(pk=1)
+
+        job = Job.objects.create(
+            collector=collector,
+            data={},
+            history={}
         )
 
-        collector = Collector.create(
-            label="Demo Collector"
-            driver="chatterbox.tests.collectors.demo.DemoCollector"
-            service=service
-        )
-
-        client = Client()
-
-        key = Key()
-        key.service = service
-        key.client = client
-
-        job = Job()
-        job.collector = collector
-        job.keys = key
+        job.keys.add(key)
 
         with patch('chatterbox.tests.collectors.demo.DemoCollector') as MockClass:
             job.run()

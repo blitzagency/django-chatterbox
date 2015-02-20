@@ -1,5 +1,6 @@
+from chatterbox.collectors import Collector
 
-class DemoCollector(object):
+class DemoCollector(Collector):
 
     def action(self, job):
         print(job.key.api)
