@@ -137,7 +137,7 @@ class Job(models.Model):
     job_id = models.CharField(max_length=36, db_index=True,
                               default=make_uuid, editable=False)
     collector = models.ForeignKey('Collector', related_name='collector_actions')
-    key = models.ForeignKey('Key', related_name='key_actions')
+    keys = models.ManyToManyField(Key, related_name='jobs')
     data = JSONField()
     history = JSONField()
 

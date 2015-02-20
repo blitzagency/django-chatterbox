@@ -14,12 +14,29 @@
         <div class="c-2 collector"></div>
     </div>
 </div>
-<div class="grp-row grp-cells-1">
+<!-- <div class="grp-row grp-cells-1">
     <div class="l-2c-fluid l-d-4">
         <div class="c-1">
             <label class="required" for="id_key_id">Key</label>
         </div>
         <div class="c-2 key"></div>
+    </div>
+</div> -->
+<div class="grp-row grp-cells-1">
+    <div class="l-2c-fluid l-d-4">
+        <div class="c-1">
+            <label class="required" for="id_keys_id">Keys</label>
+        </div>
+        <div class="c-2 available-keys">
+            <div class="selector">
+                <div class="selector-chosen">
+                    <h2>Available keys </h2>
+                    <div class="keys">
+                    </div>
+                    <!-- <select id="id_keys_to" multiple="multiple" size="0" name="keys" class="filtered"></select> -->
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="grp-row grp-cells-1">
@@ -31,3 +48,40 @@
     </div>
 </div>
 
+
+
+
+
+
+<!--
+<div class="l-2c-fluid l-d-4">
+    <div class="c-1">
+        <label for="id_keys">Keys</label>
+    </div>
+    <div class="c-2">
+        <script type="text/javascript">addEvent(window, "load", function(e) {SelectFilter.init("id_keys", "keys", 0, "/static/admin/"); });</script>
+        <a href="/admin/auth/group/add/?_to_field=id" class="add-another" id="add_id_keys" onclick="return showAddAnotherPopup(this);">
+        <img src="/static/admin/img/icon_addlink.gif" width="10" height="10" alt="Add Another"></a>
+        <div class="selector">
+            <div class="selector-available">
+                <h2>Available keys <img src="/static/admin/img/icon-unknown.gif" width="10" height="10" class="help help-tooltip" title="This is the list of available keys. You may choose some by selecting them in the box below and then clicking the &quot;Choose&quot; arrow between the two boxes."></h2>
+                <p id="id_keys_filter" class="selector-filter">
+                    <label for="id_keys_input"></label>
+                    <input type="text" placeholder="Filter" id="id_keys_input">
+                </p>
+                <select multiple="multiple" class="filtered" id="id_keys_from" name="keys_old"></select>
+                <a title="Click to choose all keys at once." href='javascript: (function(){ SelectBox.move_all("id_keys_from", "id_keys_to"); SelectFilter.refresh_icons("id_keys");})()' id="id_keys_add_all_link" class="selector-chooseall">Choose all</a>
+            </div>
+            <ul class="selector-chooser">
+                <li><a title="Choose" href='javascript: (function(){ SelectBox.move("id_keys_from","id_keys_to"); SelectFilter.refresh_icons("id_keys");})()' id="id_keys_add_link" class="selector-add">Choose</a></li>
+                <li><a title="Remove" href='javascript: (function(){ SelectBox.move("id_keys_to","id_keys_from"); SelectFilter.refresh_icons("id_keys");})()' id="id_keys_remove_link" class="selector-remove">Remove</a></li>
+            </ul>
+            <div class="selector-chosen">
+                <h2>Chosen keys </h2>
+                <select id="id_keys_to" multiple="multiple" size="0" name="keys" class="filtered"></select>
+                <a title="Click to remove all chosen keys at once." href='javascript: (function() { SelectBox.move_all("id_keys_to", "id_keys_from"); SelectFilter.refresh_icons("id_keys");})()' id="id_keys_remove_all_link" class="selector-clearall">Remove all</a>
+            </div>
+        </div>
+    </div>
+</div>
+ -->

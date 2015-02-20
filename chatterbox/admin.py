@@ -89,7 +89,7 @@ class ActivityAdmin(admin.ModelAdmin):
 class JobForm(forms.ModelForm):
     service_key = forms.CharField()
     collector = forms.IntegerField()
-    key = forms.IntegerField()
+    keys = forms.ModelMultipleChoiceField(queryset=Key.objects.all())
 
     class Meta:
         model = Job
@@ -104,8 +104,6 @@ class JobForm(forms.ModelForm):
             service__key=cleaned_data['service_key'],
             id=cleaned_data['collector']).first()
 
-        key = Key.objects.get(id=cleaned_data['key'])
-
         kls = collector.load_driver()
 
         if kls.form:
@@ -114,7 +112,6 @@ class JobForm(forms.ModelForm):
 
         obj = self.instance
         obj.collector = collector
-        obj.key = key
         obj.data = extra_data
 
     def _process_driver_form(self, form, data, files):
@@ -143,7 +140,14 @@ class JobAdmin(admin.ModelAdmin):
         return obj.collector.label
 
     def get_service_username(self, obj):
-        return obj.key.service_username
+        names = obj.keys.all()
+        return ', '.join([x.service_username for x in names])
+
+    def save_model(self, request, obj, form, change):
+        super(JobAdmin, self).save_model(request, obj, form, change)
+
+        keys = form.cleaned_data['keys']
+        obj.keys.add(*keys)
 
     get_service.short_description = 'Service'
     get_service.admin_order_field = 'service__label'
@@ -151,8 +155,7 @@ class JobAdmin(admin.ModelAdmin):
     get_collector.short_description = 'Collector'
     get_collector.admin_order_field = 'collector__label'
 
-    get_service_username.short_description = 'Service Username'
-    get_service_username.admin_order_field = 'key__service_username'
+    get_service_username.short_description = 'Service Username(s)'
 
     def api_services(self, request):
         data = []

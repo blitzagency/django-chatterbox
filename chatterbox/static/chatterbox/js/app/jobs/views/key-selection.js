@@ -9,6 +9,7 @@ define(function( require, exports, module ){
  * It likely never will, but it's broken apart if we want to do it.
  **/
 
+var _ = require("underscore");
 var marionette = require("marionette");
 var backbone = require("backbone");
 var Keys = require("../collections/keys").Keys;
@@ -18,7 +19,7 @@ var Service = require('../models/service').Service;
 
 var KeySelectionView = marionette.CollectionView.extend({
     tagName: "select",
-    id: "id_key_id",
+    id: "id_keys_id",
     childView: KeyItemView,
     service: null,
 
@@ -31,7 +32,7 @@ var KeySelectionView = marionette.CollectionView.extend({
     },
 
     attributes: function(){
-        return {name: "key"};
+        return {name: "keys", multiple: "multiple", size: 0};
     },
 
     initializeKey: function(options){
@@ -41,7 +42,7 @@ var KeySelectionView = marionette.CollectionView.extend({
         if(options.serviceKey){
             this.collection.forService(service)
             .then(function(){
-                this.setSelectedId(data.id)
+                this.setSelected(data, {silent: true})
             }.bind(this));
         }
     },
@@ -58,6 +59,31 @@ var KeySelectionView = marionette.CollectionView.extend({
         this.service = service;
         this.setSelectedIndex(0, {silent: true});
         this.collection.forService(this.service);
+    },
+
+    getSelected: function(){
+        var ids = this._model.get("index");
+        if(_.isNumber(ids)){
+            return ids
+        }
+
+        return _.map(ids.split(','), function(each){
+            return parseInt(each, 10);
+        });
+    },
+
+    setSelected: function(obj, options){
+        var data = obj
+
+        if(_.isArray(obj) === false){
+            data = [obj];
+        }
+
+        var ids = _.map(data, function(each){ return each.id; })
+        var index = ids.sort().join(',');
+        this.$el.val(ids);
+
+        this._model.set({"index": index}, options);
     },
 
     setSelectedId: function(id, options){

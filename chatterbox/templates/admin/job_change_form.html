@@ -27,17 +27,21 @@
         "label": "{{ original.collector.label }}",
     }
 
-    var key = {
-        "id": {{ original.key.id|default:"null" }},
-        "label": "{{ original.key.service_username }}",
-    }
+    var keys = [
+        {% for key in original.keys.all %}
+        {
+            "id": {{ key.id|default:"null" }},
+            "label": "{{ key.service_username }}",
+        },
+        {% endfor %}
+    ]
 
     var JOB_DATA = {
         "add": {{ add|stringformat:"s"|lower }},
         "change": {{ change|stringformat:"s"|lower }},
         "service": service,
         "collector": collector,
-        "key": key,
+        "keys": keys,
         "data": {{ original.data_json|safe|default:"null" }}
     }
 
