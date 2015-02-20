@@ -40,7 +40,7 @@ def activity_dict_from_dict(blob):
         "instagram:website": user.get("website"),
         "instagram:bio": user.get("bio"),
         "instagram:id": user.get("id"),
-    },
+    }
 
     caption = blob.get("caption", {})
     images = blob.get("images")
