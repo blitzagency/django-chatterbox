@@ -1,63 +1,70 @@
+import logging
 from ..models import Activity
 from .date import activity_stream_date_to_datetime, datetime_to_string
 
 
+log = logging.getLogger(__name__)
+
+
 def activity_from_dict(data):
+    log.debug("Converting YouTube dict to Activity Model")
     activity_dict = activity_dict_from_dict(data)
     return Activity.from_activity_dict(activity_dict)
 
 
 def activity_dict_from_dict(blob):
-    stream_object = {}
-    stream_object['@context'] = 'http://www.w3.org/ns/activitystreams'
-    stream_object['@type'] = 'Activity'
-    date = blob.get('snippet').get('publishedAt')
-    date = activity_stream_date_to_datetime(date)
-    stream_object['published'] = datetime_to_string(date)
+    log.debug("Converting YouTube dict to activity dict: %s", blob)
 
-    stream_object['provider'] = {
+    stream_object = {}
+    stream_object["@context"] = "http://www.w3.org/ns/activitystreams"
+    stream_object["@type"] = "Activity"
+    date = blob.get("snippet").get("publishedAt")
+    date = activity_stream_date_to_datetime(date)
+    stream_object["published"] = datetime_to_string(date)
+
+    stream_object["provider"] = {
         "@type": "Service",
         "displayName": "YouTube"
     }
-    snippet = blob.get('snippet')
+    snippet = blob.get("snippet")
     stream_object["actor"] = {
         "@type": "Person",
-        "@id": "https://www.youtube.com/user/{}".format(snippet.get('channelTitle')),
-        "displayName": snippet.get('channelTitle'),
+        "@id": "https://www.youtube.com/user/{}".format(snippet.get("channelTitle")),
+        "displayName": snippet.get("channelTitle"),
     }
 
     stream_object["object"] = {
-        "@id": "https://www.youtube.com/watch?v={}".format(blob.get('id').get('videoId')),
+        "@id": "https://www.youtube.com/watch?v={}".format(blob.get("id").get("videoId")),
         "@type": "Video",
-        "displayName": snippet.get('title'),
+        "displayName": snippet.get("title"),
         "url": [{
-            "href": "https://www.youtube.com/watch?v={}".format(blob.get('id').get('videoId')),
+            "href": "https://www.youtube.com/watch?v={}".format(blob.get("id").get("videoId")),
             "@type": "Link"
         }],
-        "content": snippet.get('description'),
-        "youtube:etag": blob.get('etag'),
-        "youtube:kind": blob.get('kind'),
-        "youtube:id:kind": blob.get('id').get('kind'),
-        "youtube:channelId": snippet.get('channelId'),
-        "youtube:liveBroadcastContent": snippet.get('liveBroadcastContent'),
+        "content": snippet.get("description"),
+        "youtube:etag": blob.get("etag"),
+        "youtube:kind": blob.get("kind"),
+        "youtube:id:kind": blob.get("id").get("kind"),
+        "youtube:channelId": snippet.get("channelId"),
+        "youtube:liveBroadcastContent": snippet.get("liveBroadcastContent"),
         "image": [
             {
                 "@type": "Link",
-                "href": snippet.get('thumbnails').get('default').get('url'),
+                "href": snippet.get("thumbnails").get("default").get("url"),
                 "mediaType": "image/jpeg",
-                "youtube:resolution": 'default'
+                "youtube:resolution": "default"
             },
             {
                 "@type": "Link",
-                "href": snippet.get('thumbnails').get('medium').get('url'),
+                "href": snippet.get("thumbnails").get("medium").get("url"),
                 "mediaType": "image/jpeg",
-                "youtube:resolution": 'medium'
+                "youtube:resolution": "medium"
             },
             {
                 "@type": "Link",
-                "href": snippet.get('thumbnails').get('high').get('url'),
+                "href": snippet.get("thumbnails").get("high").get("url"),
                 "mediaType": "image/jpeg",
-                "youtube:resolution": 'high'
+                "youtube:resolution": "high"
             },
 
         ]
