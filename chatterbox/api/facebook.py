@@ -10,6 +10,9 @@ API_VERSION = "2.2"
 
 class Facebook(OAuth2Api):
 
+    def verify_parsed_response(self, data):
+        pass
+
     @property
     def base_url(self):
         return "https://graph.facebook.com/v{}".format(API_VERSION)
