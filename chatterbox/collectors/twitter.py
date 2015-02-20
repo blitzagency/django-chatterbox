@@ -1,17 +1,27 @@
+import logging
 from . import Collector
 from django import forms
 from chatterbox.utils.twitter import activity_from_dict
 
 
+log = logging.getLogger(__name__)
+
+
 def format_search_tag(tag):
+    log.debug("Invoking format_search_tag: %s", tag)
+
     if not tag.startswith("#"):
         tag = "#{}".format(tag)
     return tag
 
 
 def twitter_iterator(method, search):
+    log.debug("Creating Twitter iterator for %s with args: %s",
+              method.__name__, search)
+
     results = method(search)
     tweets = results.get('statuses')
+
     while 1:
         if len(tweets) == 0:
             raise StopIteration
@@ -19,6 +29,7 @@ def twitter_iterator(method, search):
         for tweet in tweets:
             yield tweet
 
+        log.debug("Fetching next page")
         results = method(search, max_id=tweet['id_str'])
         tweets = results.get('statuses')
 
@@ -33,6 +44,8 @@ class TwitterTagSearch(Collector):
     activity_from_dict = activity_from_dict
 
     def action(self, job):
+        log.debug("Invoking action")
+
         tag = format_search_tag(job.data["tag"])
         api = job.key.api
         statuses = twitter_iterator(api.search, tag)
@@ -43,6 +56,7 @@ class TwitterTagSearch(Collector):
             try:
                 self.register_activity(activity, job)
             except Exception:
+                log.debug("Stopping action")
                 # need to decide when to stop...
                 # at this point this job has already processed this activity
                 # before, should we do nothing?  for now we are going to stop
