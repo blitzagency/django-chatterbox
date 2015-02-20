@@ -66,6 +66,9 @@ class Instagram(OAuth2Api):
         """
 
         log.debug("Invoking user_media")
+        # user_id can be None
+        if not user_id:
+            user_id = 'self'
         # need to do a check on quality of query (spaces?)
         url = 'https://api.instagram.com/v1/users/{}/media/recent'.format(user_id)
         if kwargs:
