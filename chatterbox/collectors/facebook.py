@@ -9,11 +9,9 @@ log = logging.getLogger(__name__)
 
 def facebook_iterator(api, method, **kwargs):
     log.debug("Creating Facebook iterator for %s with args: %s",
-              method.__name__, kwargs)
-
+              'user_feed', kwargs)
     results = method(**kwargs)
     messages = results.get('data')
-
     while 1:
         if len(messages) == 0:
             raise StopIteration
@@ -43,7 +41,6 @@ class FacebookWall(Collector):
         user_id = job.data["user_id"]
         api = job.key.api
         statuses = facebook_iterator(api, api.user_feed, user=user_id)
-
         for status in statuses:
             if status.get("story") and not status.get("content", None):
                 log.debug("Got unused type %s", status)
@@ -51,7 +48,6 @@ class FacebookWall(Collector):
                 # we don't want this, if you do, override the collector
                 continue
             activity = self.create_or_get_activity_from_dict(status)
-
             try:
                 self.register_activity(activity, job)
             except Exception:
