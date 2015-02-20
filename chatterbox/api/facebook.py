@@ -4,9 +4,7 @@ from six.moves.urllib.parse import urlencode
 from . import OAuth2Api, SimpleProfile
 
 
-# Get an instance of a logger
 log = logging.getLogger(__name__)
-
 API_VERSION = "2.2"
 
 
