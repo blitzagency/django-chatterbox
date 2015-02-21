@@ -1,5 +1,6 @@
 from chatterbox.collectors import Collector
 
+
 class DemoCollector(Collector):
 
     def action(self, job):
