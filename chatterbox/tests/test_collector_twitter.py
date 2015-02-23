@@ -27,9 +27,9 @@ class CollectorTwitterSearchTestCase(TransactionTestCase):
 
         job = Job()
         job.collector = collector
-        job.key = key
         job.data = {"tag": "#dino"}
         job.save()
+        job.keys.add(key)
         self.job = job
 
     def test_basic_search(self):
@@ -37,37 +37,37 @@ class CollectorTwitterSearchTestCase(TransactionTestCase):
         job = self.job
         # mock the request response
         return_value = load_json("twitter-basic-search-response")
-        job.key.api.search = mock.Mock(return_value=return_value)
-        job.run()
-        self.assertEqual(Activity.objects.all().count(), 2)
+        with mock.patch('chatterbox.api.twitter.Twitter.search') as mock_search:
+            mock_search.return_value = return_value
+            job.run()
+            self.assertEqual(Activity.objects.all().count(), 2)
 
     def test_duplicate_results(self):
         job = self.job
 
         # mock the request response
         return_value = load_json("twitter-duplicate-tweets")
-        job.key.api.search = mock.Mock(return_value=return_value)
-        job.run()
+        with mock.patch('chatterbox.api.twitter.Twitter.search') as mock_search:
+            mock_search.return_value = return_value
+            job.run()
         self.assertEqual(Activity.objects.all().count(), 1)
 
     def test_multiple_job_tweets(self):
         job1 = self.job
 
-        # mock the request response
-        return_value = load_json("twitter-basic-search-response")
-        job1.key.api.search = mock.Mock(return_value=return_value)
-        job1.run()
-
         # create 2nd job
         job2 = Job()
         job2.collector = job1.collector
-        job2.key = job1.key
         job2.data = {"tag": "#dino"}
         job2.save()
+        job2.keys.add(job1.keys.all()[0])
 
+        # mock the request response
         return_value = load_json("twitter-basic-search-response")
-        job2.key.api.search = mock.Mock(return_value=return_value)
-        job2.run()
+        with mock.patch('chatterbox.api.twitter.Twitter.search') as mock_search:
+            mock_search.return_value = return_value
+            job1.run()
+            job2.run()
 
         activity = Activity.objects.all()[0]
         self.assertEqual(activity.job.all().count(), 2)
@@ -79,19 +79,18 @@ class CollectorTwitterSearchTestCase(TransactionTestCase):
 
         # mock the request response
         return_value = load_json("twitter-basic-search-response")
-        job1.key.api.search = mock.Mock(return_value=return_value)
-        job1.run()
 
         # create 2nd job
         job2 = Job()
         job2.collector = job1.collector
-        job2.key = job1.key
         job2.data = {"tag": "#dino"}
         job2.save()
+        job2.keys.add(job1.keys.all()[0])
 
-        return_value = load_json("twitter-basic-search-response")
-        job2.key.api.search = mock.Mock(return_value=return_value)
-        job2.run()
+        with mock.patch('chatterbox.api.twitter.Twitter.search') as mock_search:
+            mock_search.return_value = return_value
+            job1.run()
+            job2.run()
 
         activity = Activity.objects.all()[0]
         self.assertEqual(activity.job.all().count(), 2)
