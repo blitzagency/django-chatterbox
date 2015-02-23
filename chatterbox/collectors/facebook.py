@@ -1,6 +1,7 @@
 import logging
 from django import forms
 from chatterbox.utils.facebook import activity_from_dict
+from chatterbox.exceptions import RateLimitException, KeyInvalidationException
 from . import Collector
 
 
@@ -38,10 +39,8 @@ class FacebookWall(Collector):
 
     def action(self, job):
         log.debug("Invoking action")
-        user_id = job.data["user_id"]
-        api = job.key.api
-        statuses = facebook_iterator(api, api.user_feed, user=user_id)
-        for status in statuses:
+
+        for status in self.statuses:
             if status.get("story") and not status.get("content", None):
                 log.debug("Got unused type %s", status)
                 # these are useless things like, 'dino commented on his photo'
@@ -58,3 +57,70 @@ class FacebookWall(Collector):
                 # all iteration and be done, in the future we might want to
                 # keep running the process and run an update action? idk...
                 break
+
+    @property
+    def statuses(self):
+        user_id = self.job.data["user_id"]
+        results = self.maybe_fetch_results(user_id)
+
+        if results is None:
+            raise StopIteration
+
+        messages = results.get('data')
+
+        while 1:
+            if len(messages) == 0:
+                raise StopIteration
+
+            for message in messages:
+                yield message
+
+            log.debug("Fetching next page")
+
+            next = results.get('paging', {}).get('next')
+
+            if next:
+                log.debug("Fetching next page")
+                results = self.maybe_fetch_next_page(next)
+                messages = results.get('data')
+            else:
+                raise StopIteration
+
+            if results is None:
+                raise StopIteration
+
+            messages = results.get('data')
+
+    def maybe_fetch_results(self, user_id, **kwargs):
+        results = None
+        try:
+            results = self.api.user_feed(user_id)
+        except RateLimitException:
+
+            log.error("Aborting scrape due to rate limit: %s", user_id)
+
+            try:
+                self.key_manager.invalidate_current_key()
+                results = self.api.user_feed(user_id, **kwargs)
+            except KeyInvalidationException:
+                log.error("Unable to invalidate current key, we are done here")
+                results = None
+
+        return results
+
+    def maybe_fetch_next_page(self, next, **kwargs):
+        results = None
+        try:
+            results = self.api.get(next)
+        except RateLimitException:
+
+            log.error("Aborting scrape due to rate limit: %s", next)
+
+            try:
+                self.key_manager.invalidate_current_key()
+                results = self.api.get(next, **kwargs)
+            except KeyInvalidationException:
+                log.error("Unable to invalidate current key, we are done here")
+                results = None
+
+        return results

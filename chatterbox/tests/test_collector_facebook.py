@@ -24,20 +24,24 @@ class CollectorFacebookWallTestCase(TransactionTestCase):
 
         job = Job()
         job.collector = collector
-        job.key = key
         job.data = {"user_id": "11936081183"}
         job.save()
+        job.keys.add(key)
         self.job = job
 
     def test_basic_wall_scrape(self):
         job = self.job
         # mock the request response
         return_value = load_json("facebook-brand-feed-response")
-        job.key.api.user_feed = mock.Mock(return_value=return_value)
-        job.run()
-        self.assertEqual(Activity.objects.all().count(), 20)
+        # job.key.api.user_feed = mock.Mock(return_value=return_value)
+        # job.run()
 
-        # if we run this command at a later time, with same results, we
-        # will not get any duplicate or additional Activity items added
-        job.run()
-        self.assertEqual(Activity.objects.all().count(), 20)
+        with mock.patch('chatterbox.api.facebook.Facebook.user_feed') as mock_user_feed:
+            mock_user_feed.return_value = return_value
+            job.run()
+            self.assertEqual(Activity.objects.all().count(), 20)
+
+            # if we run this command at a later time, with same results, we
+            # will not get any duplicate or additional Activity items added
+            job.run()
+            self.assertEqual(Activity.objects.all().count(), 20)
