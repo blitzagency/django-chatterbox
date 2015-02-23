@@ -56,14 +56,13 @@ class FacebookWall(Collector):
 
             log.debug("Fetching next page")
 
-            next = results.get('paging', {}).get('next')
-
-            if next:
-                log.debug("Fetching next page")
-                results = self.maybe_fetch_next_page(next)
-                messages = results.get('data')
-            else:
+            try:
+                next = results["paging"]["next"]
+            except KeyError:
                 raise StopIteration
+
+            log.debug("Fetching next page")
+            results = self.maybe_fetch_url(next)
 
             if results is None:
                 raise StopIteration
@@ -72,6 +71,7 @@ class FacebookWall(Collector):
 
     def maybe_fetch_results(self, user_id, **kwargs):
         results = None
+
         try:
             results = self.api.user_feed(user_id)
         except RateLimitException:
@@ -87,8 +87,9 @@ class FacebookWall(Collector):
 
         return results
 
-    def maybe_fetch_next_page(self, next, **kwargs):
+    def maybe_fetch_url(self, next, **kwargs):
         results = None
+
         try:
             results = self.api.get(next)
         except RateLimitException:
