@@ -33,8 +33,6 @@ class CollectorFacebookWallTestCase(TransactionTestCase):
         job = self.job
         # mock the request response
         return_value = load_json("facebook-brand-feed-response")
-        # job.key.api.user_feed = mock.Mock(return_value=return_value)
-        # job.run()
 
         with mock.patch('chatterbox.api.facebook.Facebook.user_feed') as mock_user_feed:
             mock_user_feed.return_value = return_value
