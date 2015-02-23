@@ -55,7 +55,10 @@ class Collector(object):
 
     @property
     def keys(self):
-        return self.key_manager.keys
+        try:
+            return self.key_manager.keys
+        except:
+            return []
 
     @keys.setter
     def keys(self, value):
