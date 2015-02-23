@@ -57,12 +57,12 @@ class FacebookWall(Collector):
             log.debug("Fetching next page")
 
             try:
-                next = results["paging"]["next"]
+                next_url = results["paging"]["next"]
             except KeyError:
                 raise StopIteration
 
             log.debug("Fetching next page")
-            results = self.maybe_fetch_url(next)
+            results = self.maybe_fetch_url(next_url)
 
             if results is None:
                 raise StopIteration
