@@ -16,30 +16,6 @@ def format_search_tag(tag):
     return tag
 
 
-# def twitter_iterator(method, search):
-#     # log.debug("Creating Twitter iterator for %s with args: %s",
-#     #           method.__name__, search)
-
-#     try:
-#         results = method(search)
-#     except RateLimitException:
-#         log.error("Aborting search due to rate limit: %s", search)
-
-
-#     tweets = results.get('statuses')
-
-#     while 1:
-#         if len(tweets) == 0:
-#             raise StopIteration
-
-#         for tweet in tweets:
-#             yield tweet
-
-#         log.debug("Fetching next page")
-#         results = method(search, max_id=tweet['id_str'])
-#         tweets = results.get('statuses')
-
-
 class TagForm(forms.Form):
     tag = forms.CharField(label='Tag', max_length=100)
     nombre = forms.CharField(label='Nombre', max_length=100)
