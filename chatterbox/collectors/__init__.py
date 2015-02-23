@@ -24,12 +24,8 @@ class KeyManager(object):
         self.keys = keys
         self._cycle = cycle(len(keys))
 
-        try:
-            self.current_key = keys[0]
-            self.current_index = next(self._cycle)
-        except IndexError:
-            self.current_key = None
-            self.current_index = -1
+        self.current_key = keys[0]
+        self.current_index = next(self._cycle)
 
     @property
     def api(self):
@@ -55,7 +51,6 @@ class Collector(object):
     activity_from_dict = lambda: None
 
     def __init__(self):
-        self.keys = []
         self.key_manager = None
 
     @property
