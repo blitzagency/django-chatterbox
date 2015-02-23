@@ -8,27 +8,6 @@ from . import Collector
 log = logging.getLogger(__name__)
 
 
-def facebook_iterator(api, method, **kwargs):
-    log.debug("Creating Facebook iterator for %s with args: %s",
-              'user_feed', kwargs)
-    results = method(**kwargs)
-    messages = results.get('data')
-    while 1:
-        if len(messages) == 0:
-            raise StopIteration
-
-        for message in messages:
-            yield message
-
-        next = results.get('paging', {}).get('next')
-        if next:
-            log.debug("Fetching next page")
-            results = api.get(next)
-            messages = results.get('data')
-        else:
-            raise StopIteration
-
-
 class FacebookUserForm(forms.Form):
     user_id = forms.CharField(label='User ID', max_length=100)
 
