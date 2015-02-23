@@ -24,8 +24,12 @@ class KeyManager(object):
         self.keys = keys
         self._cycle = cycle(len(keys))
 
-        self.current_key = keys[0]
-        self.current_index = next(self._cycle)
+        try:
+            self.current_key = keys[0]
+            self.current_index = next(self._cycle)
+        except IndexError:
+            self.current_key = None
+            self.current_index = -1
 
     @property
     def api(self):
