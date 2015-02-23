@@ -87,18 +87,18 @@ class FacebookWall(Collector):
 
         return results
 
-    def maybe_fetch_url(self, next, **kwargs):
+    def maybe_fetch_url(self, url, **kwargs):
         results = None
 
         try:
-            results = self.api.get(next)
+            results = self.api.get(url)
         except RateLimitException:
 
-            log.error("Aborting scrape due to rate limit: %s", next)
+            log.error("Aborting scrape due to rate limit: %s", url)
 
             try:
                 self.key_manager.invalidate_current_key()
-                results = self.api.get(next, **kwargs)
+                results = self.api.get(url, **kwargs)
             except KeyInvalidationException:
                 log.error("Unable to invalidate current key, we are done here")
                 results = None
