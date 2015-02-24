@@ -1,8 +1,7 @@
 import logging
 from django import forms
 from chatterbox.utils.twitter import activity_from_dict
-from chatterbox.exceptions import RateLimitException, KeyInvalidationException
-from . import Collector
+from . import (Collector, maybe)
 
 
 log = logging.getLogger(__name__)
@@ -45,7 +44,7 @@ class TwitterTagSearch(Collector):
     def statuses(self):
         tag = format_search_tag(self.job.data["tag"])
 
-        results = self.maybe_fetch_results(tag)
+        results = maybe(self.fetch_results)(tag)
 
         if results is None:
             raise StopIteration
@@ -60,30 +59,15 @@ class TwitterTagSearch(Collector):
                 yield tweet
 
             log.debug("Fetching next page")
-            results = self.maybe_fetch_results(tag, max_id=tweet['id_str'])
+            results = maybe(self.fetch_results)(tag, max_id=tweet['id_str'])
 
             if results is None:
                 raise StopIteration
 
             tweets = results.get('statuses')
 
-    def maybe_fetch_results(self, tag, **kwargs):
-        results = None
-
-        try:
-            results = self.api.search(tag)
-        except RateLimitException:
-
-            log.error("Aborting search due to rate limit: %s", tag)
-
-            try:
-                self.key_manager.invalidate_current_key()
-                results = self.api.search(tag, **kwargs)
-            except KeyInvalidationException:
-                log.error("Unable to invalidate current key, we are done here")
-                results = None
-
-        return results
+    def fetch_results(self, tag, **kwargs):
+        return self.api.search(tag, **kwargs)
 
     def post_save(self, job):
         pass

@@ -1,8 +1,7 @@
 import logging
 from django import forms
 from chatterbox.utils.facebook import activity_from_dict
-from chatterbox.exceptions import RateLimitException, KeyInvalidationException
-from . import Collector
+from . import (Collector, maybe)
 
 
 log = logging.getLogger(__name__)
@@ -40,7 +39,7 @@ class FacebookWall(Collector):
     @property
     def statuses(self):
         user_id = self.job.data["user_id"]
-        results = self.maybe_fetch_results(user_id)
+        results = maybe(self.fetch_results)(user_id)
 
         if results is None:
             raise StopIteration
@@ -62,45 +61,15 @@ class FacebookWall(Collector):
                 raise StopIteration
 
             log.debug("Fetching next page")
-            results = self.maybe_fetch_url(next_url)
+            results = maybe(self.fetch_url)(next_url)
 
             if results is None:
                 raise StopIteration
 
             messages = results.get('data')
 
-    def maybe_fetch_results(self, user_id, **kwargs):
-        results = None
+    def fetch_results(self, user_id, **kwargs):
+        return self.api.user_feed(user_id, **kwargs)
 
-        try:
-            results = self.api.user_feed(user_id)
-        except RateLimitException:
-
-            log.error("Aborting scrape due to rate limit: %s", user_id)
-
-            try:
-                self.key_manager.invalidate_current_key()
-                results = self.api.user_feed(user_id, **kwargs)
-            except KeyInvalidationException:
-                log.error("Unable to invalidate current key, we are done here")
-                results = None
-
-        return results
-
-    def maybe_fetch_url(self, url, **kwargs):
-        results = None
-
-        try:
-            results = self.api.get(url)
-        except RateLimitException:
-
-            log.error("Aborting scrape due to rate limit: %s", url)
-
-            try:
-                self.key_manager.invalidate_current_key()
-                results = self.api.get(url, **kwargs)
-            except KeyInvalidationException:
-                log.error("Unable to invalidate current key, we are done here")
-                results = None
-
-        return results
+    def fetch_url(self, url, **kwargs):
+        return self.api.get(url, **kwargs)
