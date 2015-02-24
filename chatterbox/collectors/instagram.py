@@ -1,8 +1,7 @@
 import logging
 from django import forms
 from chatterbox.utils.instagram import activity_from_dict
-from chatterbox.exceptions import RateLimitException, KeyInvalidationException
-from . import Collector
+from . import (Collector, maybe)
 
 
 log = logging.getLogger(__name__)
@@ -36,7 +35,14 @@ class InstagramCollector(Collector):
         user_id = self.job.data.get("user_id")
         query = self.job.data.get("query")
 
-        results = self.maybe_fetch_results(user_id=user_id, query=query)
+        results = None
+
+        if query:
+            results = maybe(self.fetch_search_results)(query)
+        elif user_id:
+            results = maybe(self.fetch_user_media)(user_id)
+        else:
+            results = maybe(self.fetch_user_media)()
 
         if results is None:
             raise StopIteration
@@ -58,46 +64,21 @@ class InstagramCollector(Collector):
                 raise StopIteration
 
             log.debug("Fetching next page")
-            results = self.maybe_fetch_results(next=next_url)
+            results = maybe(self.fetch_url)(next_url)
 
             if results is None:
                 raise StopIteration
 
             messages = results.get('data')
 
-    def maybe_fetch_results(self, user_id=None, query=None, next=None, **kwargs):
-        method = None
-        args = []
-        if query:
-            method = self.api.search
-            kwargs['query'] = query
+    def fetch_search_results(self, query, **kwargs):
+        return self.api.search(query=query, **kwargs)
 
-        elif user_id:
-            method = self.api.user_media
-            kwargs['user_id'] = user_id
+    def fetch_user_media(self, *args, **kwargs):
+        return self.api.user_media(*args, **kwargs)
 
-        elif next:
-            method = self.api.get
-            args.append(next)
-        else:
-            method = self.api.user_media
-
-        results = None
-        try:
-            results = method(*args, **kwargs)
-        except RateLimitException:
-
-            log.error("Aborting scrape due to rate limit: %s", user_id)
-
-            try:
-                self.key_manager.invalidate_current_key()
-                # results = self.api.search(user_id, **kwargs)
-                results = method(**kwargs)
-            except KeyInvalidationException:
-                log.error("Unable to invalidate current key, we are done here")
-                results = None
-
-        return results
+    def fetch_url(self, url, **kwargs):
+        return self.api.get(url, **kwargs)
 
 
 # Wall Collector (this doesn't need a form because it uses the key)
