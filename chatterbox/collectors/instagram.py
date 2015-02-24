@@ -100,20 +100,23 @@ class InstagramCollector(Collector):
         return results
 
 
-class InstagramUserForm(forms.Form):
-    user_id = forms.CharField(label='User ID', max_length=100)
-
-
-class InstagramSearchForm(forms.Form):
-    query = forms.CharField(label='Search Term(s)', max_length=100)
-
-
+# Wall Collector (this doesn't need a form because it uses the key)
 class InstagramWall(InstagramCollector):
     activity_from_dict = activity_from_dict
 
 
+# Wall Collector + Form
+class InstagramUserForm(forms.Form):
+    user_id = forms.CharField(label='User ID', max_length=100)
+
+
 class InstagramWallFromKey(InstagramWall):
     form = InstagramUserForm
+
+
+# Search Collector + Form
+class InstagramSearchForm(forms.Form):
+    query = forms.CharField(label='Search Term(s)', max_length=100)
 
 
 class InstagramSearch(InstagramCollector):
