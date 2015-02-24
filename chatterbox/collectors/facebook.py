@@ -60,6 +60,14 @@ class FacebookWall(Collector):
             except KeyError:
                 raise StopIteration
 
+            # Facebook can respond with:
+            # {paging: {next: "", previous: ""}}
+            # so we may not get a `KeyError`, but we may
+            # get an empty string, so ensure we actually
+            # have a url
+            if not next_url:
+                raise StopIteration
+
             log.debug("Fetching next page")
             results = maybe(self.fetch_url)(next_url)
 
