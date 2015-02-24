@@ -24,15 +24,15 @@ class CollectorInstagrameWallTestCase(TransactionTestCase):
 
         job = Job()
         job.collector = collector
-        job.key = key
         job.save()
+        job.keys.add(key)
 
         # mock the request response
         return_value = load_json("instagram-user-feed-response")
-        job.key.api.user_media = mock.Mock(return_value=return_value)
-        job.run()
-
-        self.assertEqual(Activity.objects.all().count(), 2)
+        with mock.patch('chatterbox.api.instagram.Instagram.user_media') as mock_user_media:
+            mock_user_media.return_value = return_value
+            job.run()
+            self.assertEqual(Activity.objects.all().count(), 2)
 
     def test_user_wall_scrape(self):
         service = Service.objects.get(key='instagram')
@@ -48,14 +48,14 @@ class CollectorInstagrameWallTestCase(TransactionTestCase):
 
         job = Job()
         job.collector = collector
-        job.key = key
         job.save()
+        job.keys.add(key)
 
-        # mock the request response
         return_value = load_json("instagram-user-feed-response")
-        job.key.api.user_media = mock.Mock(return_value=return_value)
-        job.data = {"user_id": "11314839"}
-        job.run()
+        with mock.patch('chatterbox.api.instagram.Instagram.user_media') as mock_user_media:
+            mock_user_media.return_value = return_value
+            job.data = {"user_id": "11314839"}
+            job.run()
         self.assertEqual(Activity.objects.all().count(), 2)
 
     def test_search_scrape(self):
@@ -72,12 +72,14 @@ class CollectorInstagrameWallTestCase(TransactionTestCase):
 
         job = Job()
         job.collector = collector
-        job.key = key
         job.save()
+        job.keys.add(key)
 
-        # mock the request response
         return_value = load_json("instagram-search-response")
-        job.key.api.search = mock.Mock(return_value=return_value)
         job.data = {"query": "fireworks"}
-        job.run()
-        self.assertEqual(Activity.objects.all().count(), 20)
+
+        with mock.patch('chatterbox.api.instagram.Instagram.search') as mock_search:
+            mock_search.return_value = return_value
+            job.run()
+
+            self.assertEqual(Activity.objects.all().count(), 20)
