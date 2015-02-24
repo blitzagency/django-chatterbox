@@ -1,4 +1,6 @@
+from django.shortcuts import redirect
 from chatterbox.models import Client, Key
+from chatterbox import settings
 
 
 def callback(request):
@@ -62,3 +64,5 @@ def callback(request):
     key.service_username = profile.name
     key.service_user_id = profile.id
     key.save()
+
+    return redirect(settings.SUCCESS_REDIRECT_URL)
