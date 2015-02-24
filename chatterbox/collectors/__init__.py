@@ -2,10 +2,42 @@ import logging
 from django.template.response import SimpleTemplateResponse
 from django.db import IntegrityError
 from chatterbox.models import Activity
-from chatterbox.exceptions import KeyInvalidationException
+from chatterbox.exceptions import (
+    RateLimitException, KeyInvalidationException
+)
 
 
 log = logging.getLogger(__name__)
+
+
+def maybe(func):
+    """ Don't use this as a method decorator. Though tempting,
+    remember that during method decoration, the class is not created
+    yet. `func` will not be bound to anything, and will not have
+    `func.im_self` which is important in our use case.
+    """
+    def action(*args, **kwargs):
+
+        results = None
+        instance = func.im_self
+
+        try:
+            results = func(*args, **kwargs)
+        except RateLimitException:
+            log.error("RateLimitException: '%s.%s.%s(*%s, **%s)'",
+                      instance.__module__, instance.__class__.__name__,
+                      func.im_func.__name__, args, kwargs)
+            try:
+                instance.key_manager.invalidate_current_key()
+                results = func(*args, **kwargs)
+            except KeyInvalidationException:
+                log.error("KeyInvalidationException: Unable "
+                          "to invalidate current key, we are done here")
+                results = None
+
+        return results
+
+    return action
 
 
 def cycle(count):
