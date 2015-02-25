@@ -81,13 +81,25 @@ class CollectorAdmin(admin.ModelAdmin):
     pass
 
 
+def make_approved(modeladmin, request, queryset):
+    queryset.update(is_approved=True)
+make_approved.short_description = "Mark selected activities as approved"
+
+
+def make_not_approved(modeladmin, request, queryset):
+    queryset.update(is_approved=False)
+make_not_approved.short_description = "Mark selected activities as not approved"
+
+
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
     readonly_fields = ('job', 'actor_displayName', 'provider_displayName',
                        'actor_id', 'object_type', 'object_id', 'published',
                        'content')
     list_display = ('object_type', 'actor_displayName', 'provider_displayName',
-                    'published', 'content', 'admin_media')
+                    'published', 'content', 'admin_media', 'is_approved')
+
+    actions = [make_approved, make_not_approved]
 
 
 class JobForm(forms.ModelForm):
