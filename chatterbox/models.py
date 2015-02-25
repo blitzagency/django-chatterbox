@@ -5,7 +5,7 @@ from django.db import models
 from django.conf import settings
 from jsonfield import JSONField
 from chatterbox.utils.date import string_to_datetime
-
+from chatterbox import settings as chatterbox_settings
 
 def make_uuid():
     return str(uuid.uuid4().hex)
@@ -188,7 +188,12 @@ PROVIDER_CHOICES = (
 )
 
 
+def default_approved():
+    return chatterbox_settings.AUTO_APPROVE
+
+
 class Activity(models.Model):
+    is_approved = models.BooleanField(default=default_approved)
     published = models.DateTimeField(blank=True, null=True)
     object_id = models.CharField(max_length=800, unique=True)
     object_type = models.CharField(max_length=250, choices=TYPE_CHOICES)
@@ -199,6 +204,35 @@ class Activity(models.Model):
     provider_displayName = models.CharField(max_length=250,
                                             choices=PROVIDER_CHOICES)
     blob = JSONField()
+
+    def admin_media(self):
+        object_type = self.object_type
+        if object_type == 'image':
+            return self.get_image()
+        elif object_type == 'video':
+            return self.get_video()
+
+    admin_media.allow_tags = True
+
+    def get_image(self):
+        urls = self.blob.get('object').get('url')
+        if urls:
+            url = urls[-1]
+            href = url.get('href')
+            return '<img src="{}">'.format(href)
+        else:
+            return ''
+
+    def get_video(self):
+        urls = self.blob.get('object').get('url')
+        if urls:
+            url = urls[-1]
+            href = url.get('href')
+        else:
+            return ''
+        if 'youtube' in href:
+            return '<iframe src="{}?autoStart=false" frameborder="0"></iframe>'.format(href)
+        return '<iframe src="{}" frameborder="0"></iframe>'.format(href)
 
     @classmethod
     def from_activity_dict(cls, data):

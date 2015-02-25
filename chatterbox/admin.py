@@ -83,7 +83,11 @@ class CollectorAdmin(admin.ModelAdmin):
 
 @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ('job', 'actor_displayName', 'provider_displayName',
+                       'actor_id', 'object_type', 'object_id', 'published',
+                       'content')
+    list_display = ('object_type', 'actor_displayName', 'provider_displayName',
+                    'published', 'content', 'admin_media')
 
 
 class JobForm(forms.ModelForm):

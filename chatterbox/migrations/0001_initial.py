@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
             name='Activity',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('is_approved', models.BooleanField(default=chatterbox.models.default_approved)),
                 ('published', models.DateTimeField(null=True, blank=True)),
                 ('object_id', models.CharField(unique=True, max_length=800)),
                 ('object_type', models.CharField(max_length=250, choices=[(b'note', b'Note'), (b'video', b'Video'), (b'image', b'Image')])),
