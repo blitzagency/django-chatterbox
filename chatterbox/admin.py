@@ -96,8 +96,9 @@ class ActivityAdmin(admin.ModelAdmin):
     readonly_fields = ('job', 'actor_displayName', 'provider_displayName',
                        'actor_id', 'object_type', 'object_id', 'published',
                        'content')
-    list_display = ('object_type', 'actor_displayName', 'provider_displayName',
-                    'published', 'content', 'admin_media', 'is_approved')
+    list_display = ('object_type', 'admin_media', 'actor_displayName',
+                    'provider_displayName', 'published', 'content',
+                    'is_approved')
 
     actions = [make_approved, make_not_approved]
 

@@ -219,7 +219,7 @@ class Activity(models.Model):
         if urls:
             url = urls[-1]
             href = url.get('href')
-            return '<img src="{}">'.format(href)
+            return '<img width=200px height=200px src="{}">'.format(href)
         else:
             return ''
 
