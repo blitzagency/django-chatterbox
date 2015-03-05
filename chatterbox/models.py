@@ -1,3 +1,4 @@
+import logging
 import json
 import uuid
 import importlib
@@ -6,6 +7,10 @@ from django.conf import settings
 from jsonfield import JSONField
 from chatterbox.utils.date import string_to_datetime
 from chatterbox import settings as chatterbox_settings
+
+
+log = logging.getLogger(__name__)
+
 
 def make_uuid():
     return str(uuid.uuid4().hex)
@@ -18,8 +23,8 @@ def maybe_load_class(path):
 
     try:
         return getattr(importlib.import_module(module), kls)
-    except:
-        # log the import error
+    except ImportError as e:
+        log.error(e)
         return None
 
 
