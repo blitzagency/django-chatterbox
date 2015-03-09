@@ -1,6 +1,11 @@
+import logging
 from django.shortcuts import redirect
+from django.contrib import messages
 from chatterbox.models import Client, Key
 from chatterbox import settings
+
+
+log = logging.getLogger(__name__)
 
 
 def callback(request):
@@ -30,10 +35,10 @@ def callback(request):
     #     pass
     try:
         client = Client.objects.select_related("service").get(uuid=client_uuid)
-    except:
-        print("ERROR!!!!!!!! INVALID CLIENT")
-        # TODO Add Error Handling, invalid client
-        pass
+    except Client.DoesNotExist as e:
+        log.error('Invalid Client: %s', e)
+        messages.error(request, 'OOOPS!! something went wrong, check the logs?')
+        return redirect(settings.SUCCESS_REDIRECT_URL)
 
     # code = request.GET.get('code', None)
 
@@ -41,7 +46,6 @@ def callback(request):
     #     # TODO Bail out, we didn't get a code back from the
     #     # provider, nothing we can do here.
     #     pass
-
     driver = client.driver
     driver.request = request
 
