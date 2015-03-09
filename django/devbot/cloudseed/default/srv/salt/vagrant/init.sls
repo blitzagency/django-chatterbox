@@ -19,7 +19,7 @@ include:
   - memcached
   - postgresql
   - postgresql.dev
-  
+
 
 app.virtualenv:
   virtualenv.managed:
@@ -52,6 +52,12 @@ app.ps1:
             Bwhite='\[\e[0;37m\]'
             reset='\[\e[0m\]'
             export  PS1="\[[${purple}\u@\h ${Bwhite}\w${reset}\$(__git_ps1 \" (${yellow}%s${reset})\")]\n\$(date +%H:%M) \$ "
+
+app.chownlog:
+  file.directory:
+    - name: /var/log
+    - user: vagrant
+    - group: vagrant
 
 app.cdwww:
   file.append:

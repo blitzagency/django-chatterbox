@@ -54,6 +54,14 @@ Append urls to urls.py
 
 EXAMPLE TIME!!
 =============
+
+
+Video demo here_.
+
+.. _here: https://www.youtube.com/embed/g5q4FBLctvE
+
+or:
+
 - Go to instagram: https://instagram.com/developer/clients/manage/ and register an App
 - Once you have the app created, go here: `/admin/chatterbox/client/add/`
 - Fill out all Client model info using key/secret from instagram.com
