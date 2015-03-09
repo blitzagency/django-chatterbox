@@ -8,13 +8,13 @@ Django Chatterbox: Social listening made easy
         :target: https://pypi.python.org/pypi/django-chatterbox
 
 
-Djanog Chatterbox is an Apache2 Licensed Social aggregation tool written with
+Django Chatterbox is an Apache2 Licensed Social aggregation tool written with
 modularity in mind.
 
 Aggregating content from multiple social networks is not so much fun.  First
 you have to handle OAuth, then acquiring keys, managing keys, writing api's
 to get data out of each social network, and then once you have it all, each
-social interaction looks different.
+social activity looks different.
 
 This is a pain...a huge pain.
 
