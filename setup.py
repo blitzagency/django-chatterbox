@@ -30,7 +30,7 @@ history = open(os.path.join(here, 'HISTORY.rst')).read().replace('.. :changelog:
 setup(
     name='django-chatterbox',
     version=chatterbox.__version__,
-    description='',
+    description='Social listening made easy',
     url='https://github.com/blitzagency/django-chatterbox',
     long_description=readme + '\n\n' + history,
     author='Adam Venturella <aventurella@blitzagency.com>',
@@ -46,7 +46,7 @@ setup(
     tests_require=tests_require,
     license="BSD",
     zip_safe=False,
-    keywords='',
+    keywords='django social chatterbox',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
