@@ -90,7 +90,7 @@ or:
 How does it work?
 ==========================
 
-Chatterbox comes with a good a few built in models and features.  Here is a
+Chatterbox comes with a few built in models and features.  Here is a
 quick run down of what you all get...
 
 Services
