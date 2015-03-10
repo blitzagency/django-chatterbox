@@ -31,6 +31,7 @@ setup(
     name='django-chatterbox',
     version=chatterbox.__version__,
     description='',
+    url='https://github.com/blitzagency/django-chatterbox',
     long_description=readme + '\n\n' + history,
     author='Adam Venturella <aventurella@blitzagency.com>',
     author_email='aventurella@blitzagency.com',
