@@ -3,5 +3,6 @@ include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include README.rst
-recursive-include chatterbox/templates *.html
+recursive-include chatterbox/templates *
+recursive-include chatterbox/static *
 recursive-include requirements *.txt
