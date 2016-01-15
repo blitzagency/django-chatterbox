@@ -132,12 +132,18 @@ class Collector(object):
         activity = self.activity_from_dict.__func__(data)
         # try and save the object after setting the ID, if there is error
         # it's because the object is not unique
-        try:
+        if not Activity.objects.filter(object_id=activity.object_id).count():
             activity.save()
-        except IntegrityError:
-            # it already exists..but is it from another job?
+        else:
             log.debug("Activity exists, fetching existing")
             activity = Activity.objects.get(object_id=activity.object_id)
+
+        # try:
+        #     activity.save()
+        # except IntegrityError:
+        #     # it already exists..but is it from another job?
+        #     log.debug("Activity exists, fetching existing")
+        #     activity = Activity.objects.get(object_id=activity.object_id)
 
         return activity
 

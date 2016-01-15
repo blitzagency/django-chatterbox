@@ -244,11 +244,12 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    'django_extensions',
-    # 'tastypie',
+    'debug_toolbar',
+    'django_nose',
+    'chatterbox',
     'require',
     # Database migration helpers:
-    )
+)
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
@@ -310,17 +311,22 @@ LOGGING = {
 
     'loggers': {
         '': {
-            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['stream'],
+            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['mail_admins'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'requests': {
+            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['mail_admins'],
             'level': 'DEBUG',
             'propagate': False,
         },
         'django.db': {
-            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['stream'],
+            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['mail_admins'],
             'level': 'WARNING',
             'propagate': False,
         },
         'z.pool': {
-            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['stream'],
+            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['mail_admins'],
             'level': 'WARNING',
             'propagate': False,
         },

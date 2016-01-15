@@ -54,10 +54,7 @@ CACHES = {
 ########## TOOLBAR CONFIGURATION
 # See: https://github.com/django-debug-toolbar/django-debug-toolbar#installation
 INSTALLED_APPS += (
-    'debug_toolbar',
-    'django_nose',
     'storages',
-    'chatterbox',
 )
 
 
