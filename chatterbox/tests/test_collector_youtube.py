@@ -1,4 +1,4 @@
-from django.test import TransactionTestCase
+from django.test import TestCase
 from .utils import load_json
 import mock
 from chatterbox.models import (
@@ -6,7 +6,7 @@ from chatterbox.models import (
 )
 
 
-class CollectorYouTubeWallTestCase(TransactionTestCase):
+class CollectorYouTubeWallTestCase(TestCase):
     fixtures = ('project/apps/chatterbox/fixtures/users.json',
                 'project/apps/chatterbox/fixtures/dump.json')
 
@@ -16,10 +16,8 @@ class CollectorYouTubeWallTestCase(TransactionTestCase):
     def test_basic_search_scrape(self):
         service = Service.objects.get(key='youtube')
 
-        collector = Collector()
-        collector.driver = "chatterbox.collectors.youtube.YouTubeSearch"
-        collector.service = service
-        collector.save()
+        collector = Collector.objects.get(
+            driver="chatterbox.collectors.youtube.YouTubeSearch")
 
         client = service.keys.all()[0]
 
@@ -46,10 +44,8 @@ class CollectorYouTubeWallTestCase(TransactionTestCase):
     def test_basic_user_scrape(self):
         service = Service.objects.get(key='youtube')
 
-        collector = Collector()
-        collector.driver = "chatterbox.collectors.youtube.YouTubeUser"
-        collector.service = service
-        collector.save()
+        collector = Collector.objects.get(
+            driver="chatterbox.collectors.youtube.YouTubeUser")
 
         client = service.keys.all()[0]
 

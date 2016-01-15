@@ -1,4 +1,4 @@
-from django.test import TransactionTestCase
+from django.test import TestCase
 from .utils import load_json
 import mock
 from chatterbox.models import (
@@ -6,17 +6,15 @@ from chatterbox.models import (
 )
 
 
-class CollectorInstagrameWallTestCase(TransactionTestCase):
+class CollectorInstagrameWallTestCase(TestCase):
     fixtures = ('project/apps/chatterbox/fixtures/users.json',
                 'project/apps/chatterbox/fixtures/dump.json')
 
     def test_basic_wall_scrape(self):
         service = Service.objects.get(key='instagram')
 
-        collector = Collector()
-        collector.driver = 'chatterbox.collectors.instagram.InstagramWall'
-        collector.service = service
-        collector.save()
+        collector = Collector.objects.get(
+            driver='chatterbox.collectors.instagram.InstagramWall')
 
         client = service.keys.all()[0]
 
@@ -37,10 +35,8 @@ class CollectorInstagrameWallTestCase(TransactionTestCase):
     def test_user_wall_scrape(self):
         service = Service.objects.get(key='instagram')
 
-        collector = Collector()
-        collector.driver = 'chatterbox.collectors.instagram.InstagramWall'
-        collector.service = service
-        collector.save()
+        collector = Collector.objects.get(
+            driver='chatterbox.collectors.instagram.InstagramWall')
 
         client = service.keys.all()[0]
 
@@ -61,10 +57,8 @@ class CollectorInstagrameWallTestCase(TransactionTestCase):
     def test_search_scrape(self):
         service = Service.objects.get(key='instagram')
 
-        collector = Collector()
-        collector.driver = 'chatterbox.collectors.instagram.InstagramSearch'
-        collector.service = service
-        collector.save()
+        collector = Collector.objects.get(
+            driver='chatterbox.collectors.instagram.InstagramSearch')
 
         client = service.keys.all()[0]
 

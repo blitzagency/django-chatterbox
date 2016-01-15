@@ -1,4 +1,4 @@
-from django.test import TransactionTestCase
+from django.test import TestCase
 from .utils import load_json
 import mock
 from chatterbox.models import (
@@ -6,17 +6,15 @@ from chatterbox.models import (
 )
 
 
-class CollectorFacebookWallTestCase(TransactionTestCase):
+class CollectorFacebookWallTestCase(TestCase):
     fixtures = ('project/apps/chatterbox/fixtures/users.json',
                 'project/apps/chatterbox/fixtures/dump.json')
 
     def setUp(self):
         service = Service.objects.get(key='facebook')
 
-        collector = Collector()
-        collector.driver = "chatterbox.collectors.facebook.FacebookWall"
-        collector.service = service
-        collector.save()
+        collector = Collector.objects.get(
+            driver="chatterbox.collectors.facebook.FacebookWall")
 
         client = service.keys.all()[0]
 
