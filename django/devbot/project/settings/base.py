@@ -297,7 +297,7 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'stream': {
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
         },
@@ -316,6 +316,21 @@ LOGGING = {
             'propagate': False,
         },
         'requests': {
+            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['mail_admins'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'oauthlib': {
+            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['mail_admins'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'chatterbox': {
+            'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['stream'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+        'requests_oauthlib': {
             'handlers': ENABLE_EMAIL_LOGGING and ['stream', 'mail_admins'] or ['mail_admins'],
             'level': 'DEBUG',
             'propagate': False,

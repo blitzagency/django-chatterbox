@@ -138,13 +138,6 @@ class Collector(object):
             log.debug("Activity exists, fetching existing")
             activity = Activity.objects.get(object_id=activity.object_id)
 
-        # try:
-        #     activity.save()
-        # except IntegrityError:
-        #     # it already exists..but is it from another job?
-        #     log.debug("Activity exists, fetching existing")
-        #     activity = Activity.objects.get(object_id=activity.object_id)
-
         return activity
 
     def register_activity(self, activity, job):
@@ -152,7 +145,7 @@ class Collector(object):
         count = activity.job.filter(id=job.id).count()
 
         if count:
-            log.error("Job: %s already associated with activity: %s", job, activity)
+            log.debug("Job: %s already associated with activity: %s", job, activity)
             raise Exception("Job already associated with activity")
 
         activity.job.add(job)

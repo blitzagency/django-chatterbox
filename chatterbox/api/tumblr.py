@@ -35,13 +35,12 @@ class Tumblr(OAuth1Api):
 
     def tags(self, query, **kwargs):
         """
-        https://www.tumblr.com/docs/en/api/v2#tags
+        https://www.tumblr.com/docs/en/api/v2#tagged-method
         """
         log.debug("Invoking tag search")
         kwargs = kwargs or {}
         url = 'https://api.tumblr.com/v2/tagged?'
         kwargs['tag'] = query
-
         return self.get(url + urlencode(kwargs))
 
     def posts(self, host_name, **kwargs):

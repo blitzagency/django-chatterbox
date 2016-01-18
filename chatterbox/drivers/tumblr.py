@@ -27,7 +27,7 @@ class Tumblr(OAuth1):
 
     def get_request_token_params(self, redirect_uri, scopes):
         params = super(Tumblr, self).get_request_token_params(redirect_uri, scopes)
-        # Convert to Twitter's permissions model
+        # Convert to Tumblr's permissions model
         scopes = map(lambda x: self.scope_map.get(x or None), scopes)
         if any(scopes):
             params['x_auth_access_type'] = scopes[0]
