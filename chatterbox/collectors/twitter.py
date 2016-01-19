@@ -51,6 +51,51 @@ class TwitterCollector(Collector):
                 # all iteration and be done
                 break
 
+    def post_save(self, job):
+        pass
+        # print("GOT HERE")
+
+    def post_delete(self, job):
+        pass
+        # print("GOT HERE")
+
+    def fetch_results(self, tag, **kwargs):
+        return self.api.search(tag, **kwargs)
+
+
+class TwitterTagSearch(TwitterCollector):
+    form = TagForm
+
+    @property
+    def statuses(self):
+        tag = format_search_username(self.job.data["tag"])
+
+        results = maybe(self.fetch_results)(tag)
+
+        if results is None:
+            raise StopIteration
+
+        tweets = results.get('statuses')
+
+        while 1:
+            if len(tweets) == 0:
+                raise StopIteration
+
+            for tweet in tweets:
+                yield tweet
+
+            log.debug("Fetching next page")
+            results = maybe(self.fetch_results)(tag, max_id=tweet['id_str'])
+
+            if results is None:
+                raise StopIteration
+
+            tweets = results.get('statuses')
+
+
+class TwitterUserSearch(TwitterCollector):
+    form = TimelineForm
+
     @property
     def statuses(self):
         nombre = format_search_username(self.job.data["nombre"])
@@ -76,22 +121,3 @@ class TwitterCollector(Collector):
                 raise StopIteration
 
             tweets = results.get('statuses')
-
-    def post_save(self, job):
-        pass
-        # print("GOT HERE")
-
-    def post_delete(self, job):
-        pass
-        # print("GOT HERE")
-
-    def fetch_results(self, tag, **kwargs):
-        return self.api.search(tag, **kwargs)
-
-
-class TwitterTagSearch(TwitterCollector):
-    form = TagForm
-
-
-class TwitterUserSearch(TwitterCollector):
-    form = TimelineForm
