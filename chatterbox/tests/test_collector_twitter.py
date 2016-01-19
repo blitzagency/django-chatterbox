@@ -37,7 +37,7 @@ class CollectorTwitterSearchTestCase(TestCase):
         with mock.patch('chatterbox.api.twitter.Twitter.search') as mock_search:
             mock_search.return_value = return_value
             job.run()
-            # self.assertEqual(Activity.objects.all().count(), 2)
+            self.assertEqual(Activity.objects.all().count(), 2)
 
     def test_duplicate_results(self):
         job = self.job
@@ -81,3 +81,33 @@ class CollectorTwitterSearchTestCase(TestCase):
 
         activities = Activity.objects.all().count()
         self.assertEqual(activities, 0)
+
+
+class CollectorTwitterTimelineTestCase(TestCase):
+    fixtures = ('project/apps/chatterbox/fixtures/users.json',
+                'project/apps/chatterbox/fixtures/dump.json')
+
+    def setUp(self):
+        service = Service.objects.get(key='twitter')
+
+        collector = Collector.objects.get(
+            driver="chatterbox.collectors.twitter.TwitterUserSearch")
+        client = service.keys.all()[0]
+
+        key = client.client_keys.all()[0]
+
+        job = Job()
+        job.collector = collector
+        job.data = {"nombre": "@MacRumors"}
+        job.save()
+        job.keys.add(key)
+        self.job = job
+
+    def test_user_scrape(self):
+        job = self.job
+
+        return_value = load_json("twitter-user-search-response")
+        with mock.patch('chatterbox.api.twitter.Twitter.search') as mock_search:
+            mock_search.return_value = return_value
+            job.run()
+            self.assertEqual(Activity.objects.all().count(), 15)

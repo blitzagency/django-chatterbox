@@ -15,12 +15,24 @@ def format_search_tag(tag):
     return tag
 
 
+def format_search_username(tag):
+    log.debug("Invoking format_search_tag: %s", tag)
+
+    if not tag.startswith("@"):
+        tag = "@{}".format(tag)
+    return tag
+
+
 class TagForm(forms.Form):
     tag = forms.CharField(label='Tag', max_length=100)
 
 
-class TwitterTagSearch(Collector):
-    form = TagForm
+class TimelineForm(forms.Form):
+    nombre = forms.CharField(label='username', max_length=100)
+
+
+class TwitterCollector(Collector):
+
     activity_from_dict = activity_from_dict
 
     def action(self, job):
@@ -41,9 +53,9 @@ class TwitterTagSearch(Collector):
 
     @property
     def statuses(self):
-        tag = format_search_tag(self.job.data["tag"])
+        nombre = format_search_username(self.job.data["nombre"])
 
-        results = maybe(self.fetch_results)(tag)
+        results = maybe(self.fetch_results)(nombre)
 
         if results is None:
             raise StopIteration
@@ -58,15 +70,12 @@ class TwitterTagSearch(Collector):
                 yield tweet
 
             log.debug("Fetching next page")
-            results = maybe(self.fetch_results)(tag, max_id=tweet['id_str'])
+            results = maybe(self.fetch_results)(nombre, max_id=tweet['id_str'])
 
             if results is None:
                 raise StopIteration
 
             tweets = results.get('statuses')
-
-    def fetch_results(self, tag, **kwargs):
-        return self.api.search(tag, **kwargs)
 
     def post_save(self, job):
         pass
@@ -75,3 +84,14 @@ class TwitterTagSearch(Collector):
     def post_delete(self, job):
         pass
         # print("GOT HERE")
+
+    def fetch_results(self, tag, **kwargs):
+        return self.api.search(tag, **kwargs)
+
+
+class TwitterTagSearch(TwitterCollector):
+    form = TagForm
+
+
+class TwitterUserSearch(TwitterCollector):
+    form = TimelineForm

@@ -297,7 +297,7 @@ LOGGING = {
             'class': 'django.utils.log.AdminEmailHandler'
         },
         'stream': {
-            'level': 'INFO',
+            'level': 'ERROR',
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
         },

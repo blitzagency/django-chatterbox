@@ -23,6 +23,12 @@ def populate_collectors(apps):
                     driver='chatterbox.collectors.tumblr.TumblrPostFeed')
     col.save()
 
+    twitter = Service.objects.get(label="Twitter")
+    col = Collector(label='Twitter User Search',
+                    service=twitter,
+                    driver='chatterbox.collectors.twitter.TwitterUserSearch')
+    col.save()
+
 
 def populate(apps, schema_editor):
     populate_collectors(apps)

@@ -11,7 +11,7 @@ class Twitter(OAuth1Api):
 
     def verify_parsed_response(self, data):
         if "errors" in data and data["errors"][0]["code"] == 88:
-            log.error("Rate Limited: %s", data)
+            log.info("Rate Limited: %s", data)
             raise RateLimitException
 
     def whoami(self):
