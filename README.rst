@@ -63,17 +63,17 @@ or:
 - Go to instagram: https://instagram.com/developer/clients/manage/ and register an App
 - Once you have the app created, go here: `/admin/chatterbox/client/add/`
 - Fill out all Client model info using key/secret from instagram.com
-- Once the Model is created, click on it in the admin. It should look like this:
+- Once the Model is created, click on it in the admin. Should look like this:
     .. image:: https://www.evernote.com/shard/s503/sh/e3a0b4d3-8445-4e0e-953c-b170015f5c79/04111dcbb150cd0eb0c41bb760b224fe/deep/0/Change-client---Django-site-admin.png
 - Select the permissions you require (most likely just read permissions)
 - Click 'get authorization'
 - Follow the prompts redirecting you back to the admin
 - You now have a key model added to the admin
 - Next lets create a job, go here: `/admin/chatterbox/job/add/`
-- Select Instagram, Instagram tag search, highlight your key, and add a search term
+- Select Instagram, Instagram tag search, highlight your key, add a search term
 - You now have everything you need to run a job.  Lets execute it!
 
-.. code-block
+.. code-block:: python
 
     ./manage.py shell
     from chatterbox.models import Job
@@ -119,7 +119,7 @@ Chatterbox ships with a few built in collectors.  Think of collectors as
 the thing that goes out, collects the social activites, and then saves them.
 For every social networks possible collection point, we have build out a
 collector.  ex: i want to search instagram for all activites flagged with
-the hash #cheese.  This would use the collector 'Instagram Tag Search'
+the hash \#cheese.  This would use the collector 'Instagram Tag Search'
 
 
 Jobs
