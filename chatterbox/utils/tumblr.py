@@ -84,25 +84,36 @@ def activity_dict_from_dict(blob):
 
     if stream_type == "photo":
         stream_object["object"]["@type"] = "Image"
+
     elif stream_type == "link":
         stream_object["object"]["@type"] = "Link"
         stream_object["object"]["href"] = blob.get('url')
+
     elif stream_type == "text":
         stream_object["object"]["@type"] = "Note"
         stream_object["object"]["content"] = blob.get("body")
+
     elif stream_type == "video":
         stream_object["object"]["@type"] = "Video"
         stream_object["object"]["tumblr:player"] = blob.get("player")
         stream_object["object"]["tumblr:duration"] = blob.get("duration")
-        stream_object["object"]["tumblr:html5_capable"] = blob.get("html5_capable")
-        stream_object["object"]["tumblr:thumbnail_height"] = blob.get("thumbnail_height")
-        stream_object["object"]["tumblr:thumbnail_width"] = blob.get("thumbnail_width")
-        stream_object["object"]["tumblr:thumbnail_url"] = blob.get("thumbnail_url")
+        stream_object["object"][
+            "tumblr:html5_capable"] = blob.get("html5_capable")
+        stream_object["object"][
+            "tumblr:thumbnail_height"] = blob.get("thumbnail_height")
+        stream_object["object"][
+            "tumblr:thumbnail_width"] = blob.get("thumbnail_width")
+        stream_object["object"][
+            "tumblr:thumbnail_url"] = blob.get("thumbnail_url")
         stream_object["object"]["tumblr:video_type"] = blob.get("video_type")
+
         stream_object["object"]["url"] = [{
             "href": blob.get("video_url"),
             "@type": "Link"
         }]
+        if not blob.get("video_url"):
+            stream_object["object"]["@type"] = "Link"
+            stream_object["object"]["href"] = blob.get("permalink_url")
 
     elif stream_type == "answer":
         stream_object["object"]["@type"] = "Note"
@@ -127,24 +138,27 @@ def activity_dict_from_dict(blob):
             "href": blob.get("audio_url"),
             "@type": "Link"
         }]
-        stream_object["object"]["tumblr:audio_source_url"] = blob.get("audio_source_url")
+        stream_object["object"][
+            "tumblr:audio_source_url"] = blob.get("audio_source_url")
         stream_object["object"]["tumblr:audio_type"] = blob.get("audio_type")
         stream_object["object"]["tumblr:embed"] = blob.get("embed")
         stream_object["object"]["tumblr:player"] = blob.get("player")
         stream_object["object"]["tumblr:plays"] = blob.get("plays")
-        stream_object["object"]["tumblr:source_title"] = blob.get("source_title")
+        stream_object["object"][
+            "tumblr:source_title"] = blob.get("source_title")
         stream_object["object"]["tumblr:source_url"] = blob.get("source_url")
 
     else:
         # GOTTA UPATE FEADER!
         log.error("tumlr: Update utils/tubmlr.py activity_dict_from_dict method")
         log.error(blob)
-        import pdb; pdb.set_trace()
+        log.error("missed type: %s", blob.get('type'))
 
     return stream_object
 
 
 """
+
 AUDIO
 
 {u'audio_source_url': u'https://www.tumblr.com/audio_file/pitchersandpoets/25448766013/tumblr_m5vo97tJ3L1qfnhhq',

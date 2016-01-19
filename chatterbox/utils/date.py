@@ -83,6 +83,7 @@ def twitter_date_to_datetime(timestamp):
     dt = datetime.strptime(timestamp, "%a %b %d %H:%M:%S +0000 %Y")
     return dt.replace(tzinfo=pytz.utc)
 
+
 def tumblr_date_to_datetime(timestamp):
     """
     2016-01-15 22:01:42 GMT -> datetime()

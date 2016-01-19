@@ -10,9 +10,10 @@ log = logging.getLogger(__name__)
 class Tumblr(OAuth1Api):
 
     def verify_parsed_response(self, data):
-        if "errors" in data and data["errors"][0]["code"] == 88:
-            log.error("Rate Limited: %s", data)
-            raise RateLimitException
+        if data.get('meta').get('msg') != "OK":
+            log.error("Tumblr response error:")
+            log.error(data.get('meta'))
+            # raise RateLimitException
 
     def whoami(self):
         log.debug("Invoking whoami")
@@ -61,5 +62,4 @@ class Tumblr(OAuth1Api):
         kwargs = kwargs or {}
         url = 'https://api.tumblr.com/v2/blog/pitchersandpoets.tumblr.com/posts?'
         kwargs['host_name'] = host_name
-        import pdb; pdb.set_trace()
         return self.get(url + urlencode(kwargs))

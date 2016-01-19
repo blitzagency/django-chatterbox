@@ -54,7 +54,10 @@ class TumblrTagSearch(TumblrCollector):
     form = TublrTagForm
 
     def fetch_results(self, tag, **kwargs):
-        return self.api.tags(tag, **kwargs)
+        res = self.api.tags(tag, **kwargs)
+        # if res.get('meta').get('status') != 200:
+        #     import pdb; pdb.set_trace()
+        return res
 
     @property
     def statuses(self):

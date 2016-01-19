@@ -161,7 +161,6 @@ class JobAdmin(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         super(JobAdmin, self).save_model(request, obj, form, change)
-
         keys = form.cleaned_data['keys']
         obj.keys.add(*keys)
 

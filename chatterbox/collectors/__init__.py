@@ -1,6 +1,5 @@
 import logging
 from django.template.response import SimpleTemplateResponse
-from django.db import IntegrityError
 from chatterbox.models import Activity
 from chatterbox.exceptions import (
     RateLimitException, KeyInvalidationException
@@ -24,15 +23,15 @@ def maybe(func):
         try:
             results = func(*args, **kwargs)
         except RateLimitException:
-            log.error("RateLimitException: '%s.%s.%s(*%s, **%s)'",
-                      instance.__module__, instance.__class__.__name__,
-                      func.im_func.__name__, args, kwargs)
+            log.info("RateLimitException: '%s.%s.%s(*%s, **%s)'",
+                     instance.__module__, instance.__class__.__name__,
+                     func.im_func.__name__, args, kwargs)
             try:
                 instance.key_manager.invalidate_current_key()
                 results = func(*args, **kwargs)
             except KeyInvalidationException:
-                log.error("KeyInvalidationException: Unable "
-                          "to invalidate current key, we are done here")
+                log.info("KeyInvalidationException: Unable "
+                         "to invalidate current key, we are done here")
                 results = None
 
         return results
@@ -52,6 +51,7 @@ def cycle(count):
 
 
 class KeyManager(object):
+
     def __init__(self, keys):
         self.keys = keys
         self._cycle = cycle(len(keys))
@@ -67,7 +67,7 @@ class KeyManager(object):
         index = next(self._cycle)
 
         if index == self.current_index:
-            log.debug("Unable to invalidate current key. Next key is current key")
+            log.debug("Unable to invalidate current key")
             raise KeyInvalidationException
 
         log.debug("Previous key has been invalidated, switching "
@@ -101,7 +101,8 @@ class Collector(object):
         return self.key_manager.api
 
     def action(self, job):
-        raise NotImplementedError("Subclasses must implement the \"action\" method")
+        raise NotImplementedError(
+            "Subclasses must implement the \"action\" method")
 
     def render(self):
         log.debug("Rendering Collector")
@@ -145,7 +146,8 @@ class Collector(object):
         count = activity.job.filter(id=job.id).count()
 
         if count:
-            log.debug("Job: %s already associated with activity: %s", job, activity)
+            log.debug("Job: %s already associated with activity: %s",
+                      job, activity)
             raise Exception("Job already associated with activity")
 
         activity.job.add(job)
