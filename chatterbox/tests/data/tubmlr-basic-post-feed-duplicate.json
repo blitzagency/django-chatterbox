@@ -1,0 +1,2114 @@
+{
+   "meta":{
+      "status":200,
+      "msg":"OK"
+   },
+   "response":{
+      "blog":{
+         "ask_anon":true,
+         "updated":1431032383,
+         "description":"Baseball & Cultural Ephemera compiled in the tradition of Hiroshi Arakawa, Fernando Valenzuela, and Lance Berkman. Brought to you by <a href=\"http://pitchersandpoets.com\"><strong>Pitchers & Poets</a>. <a href=\"http://twitter.com/pitchersnpoets\">@pitchersnpoets</strong></a>.",
+         "title":"Pitchrs & Poets",
+         "url":"http://pitchersandpoets.tumblr.com/",
+         "ask_page_title":"Questions",
+         "share_likes":false,
+         "posts":1155,
+         "is_nsfw":false,
+         "ask":true,
+         "name":"pitchersandpoets"
+      },
+      "total_posts":1155,
+      "posts":[
+         {
+            "reblog_key":"UmVcRXbi",
+            "short_url":"http://tmblr.co/ZhSWUx1kGYcyT",
+            "id":118389108509,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/118389108509",
+            "source_title":"livedoor.blogimg.jp",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/118389108509",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":""
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1431032383,
+            "note_count":7462,
+            "source_url":"http://livedoor.blogimg.jp/rock1963roll/imgs/d/9/d91dfffb.jpg",
+            "trail":[
+
+            ],
+            "date":"2015-05-07 20:59:43 GMT",
+            "slug":"",
+            "blog_name":"pitchersandpoets",
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://40.media.tumblr.com/ff9f55dde747a293fca55e5febcddcde/tumblr_nn9i0qFsmP1qzjji2o1_1280.jpg",
+                     "width":1024,
+                     "height":683
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://40.media.tumblr.com/ff9f55dde747a293fca55e5febcddcde/tumblr_nn9i0qFsmP1qzjji2o1_1280.jpg",
+                        "width":1024,
+                        "height":683
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/ff9f55dde747a293fca55e5febcddcde/tumblr_nn9i0qFsmP1qzjji2o1_500.jpg",
+                        "width":500,
+                        "height":333
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/ff9f55dde747a293fca55e5febcddcde/tumblr_nn9i0qFsmP1qzjji2o1_400.jpg",
+                        "width":400,
+                        "height":267
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/ff9f55dde747a293fca55e5febcddcde/tumblr_nn9i0qFsmP1qzjji2o1_250.jpg",
+                        "width":250,
+                        "height":167
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/ff9f55dde747a293fca55e5febcddcde/tumblr_nn9i0qFsmP1qzjji2o1_100.jpg",
+                        "width":100,
+                        "height":67
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/ff9f55dde747a293fca55e5febcddcde/tumblr_nn9i0qFsmP1qzjji2o1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "link_url":"http://livedoor.blogimg.jp/rock1963roll/imgs/d/9/d91dfffb.jpg",
+            "summary":"",
+            "caption":""
+         },
+         {
+            "reblog_key":"ntLITISa",
+            "short_url":"http://tmblr.co/ZhSWUx1hw0guq",
+            "excerpt":null,
+            "link_author":null,
+            "id":115863629364,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/115863629364/who-are-these-f-ng-guys",
+            "title":"\"Who are these f@#$%ng guys?\"",
+            "tags":[
+
+            ],
+            "link_image":"https://33.media.tumblr.com/tumblr_nmhzyibLUu1qk9es5_og.jpg",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"<p>P&P adjunct faculty Pete Beatty on the identity of the Indians in modern Cleveland.</p>",
+               "tree_html":""
+            },
+            "type":"link",
+            "recommended_color":null,
+            "description":"<p>P&amp;P adjunct faculty Pete Beatty on the identity of the Indians in modern Cleveland.</p>",
+            "format":"html",
+            "timestamp":1428513354,
+            "note_count":2,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://33.media.tumblr.com/tumblr_nmhzyibLUu1qk9es5_og.jpg",
+                     "width":500,
+                     "height":500
+                  },
+                  "alt_sizes":[
+
+                  ]
+               }
+            ],
+            "date":"2015-04-08 17:15:54 GMT",
+            "slug":"who-are-these-f-ng-guys",
+            "blog_name":"pitchersandpoets",
+            "publisher":"clevescene.com",
+            "trail":[
+               {
+                  "content":"<p>P&amp;P adjunct faculty Pete Beatty on the identity of the Indians in modern Cleveland.</p>",
+                  "content_raw":"<p>P&P adjunct faculty Pete Beatty on the identity of the Indians in modern Cleveland.</p>",
+                  "is_current_item":true,
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"pitchersandpoets"
+                  },
+                  "is_root_item":true,
+                  "post":{
+                     "id":"115863629364"
+                  }
+               }
+            ],
+            "url":"http://www.clevescene.com/cleveland/the-identity-of-the-indians-in-modern-day-cleveland/Content?oid=4555548",
+            "link_image_dimensions":{
+               "width":500,
+               "height":500
+            },
+            "summary":"\"Who are these f@#$%ng guys?\""
+         },
+         {
+            "reblog_key":"sSBFq5c5",
+            "short_url":"http://tmblr.co/ZhSWUx1do4GdJ",
+            "id":111435385299,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/111435385299/lostsplendor-openmarginalis-the-ghistelles",
+            "source_title":"openmarginalis",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/111435385299",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a href=\"http://lostsplendor.tumblr.com/post/111412096424\" class=\"tumblr_blog\">lostsplendor</a>:</p>\n<blockquote>\n<p><a href=\"http://openmarginalis.tumblr.com/post/111406718923/the-ghistelles-calendar-by-unknown-flanders-c\" class=\"tumblr_blog\">openmarginalis</a>:</p>\n<blockquote><p><i>The Ghistelles Calendar</i> by unknown, Flanders c. 1301 via <a href=\"http://art.thewalters.org/detail/21564/the-ghistelles-calendar/\">Walters Art Museum</a>, Creative Commons</p></blockquote>\n\n<p>medieval sportball<br></p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1424317110,
+            "note_count":283,
+            "source_url":"http://openmarginalis.tumblr.com/post/111406718923/the-ghistelles-calendar-by-unknown-flanders-c",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"regular",
+                        "title_color":"#222222",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#222222",
+                        "header_image_focused":"https://secure.static.tumblr.com/ce7ef86ab9c1888a31d21102f158354d/jpsdvrl/PVrnvmhyl/tumblr_static_1gs3e8xy1qjo8s80kk0w0g840_2048_v2.jpg",
+                        "show_description":false,
+                        "show_header_image":false,
+                        "header_stretch":false,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.static.tumblr.com/ce7ef86ab9c1888a31d21102f158354d/jpsdvrl/PVrnvmhyl/tumblr_static_1gs3e8xy1qjo8s80kk0w0g840_2048_v2.jpg",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FFFFFF",
+                        "header_image":"https://secure.static.tumblr.com/ce7ef86ab9c1888a31d21102f158354d/jpsdvrl/PVrnvmhyl/tumblr_static_1gs3e8xy1qjo8s80kk0w0g840.jpg"
+                     },
+                     "name":"openmarginalis"
+                  },
+                  "content":"<p><i>The Ghistelles Calendar</i> by unknown, Flanders c. 1301 via <a href=\"http://art.thewalters.org/detail/21564/the-ghistelles-calendar/\">Walters Art Museum</a>, Creative Commons</p>",
+                  "post":{
+                     "id":"111406718923"
+                  },
+                  "content_raw":"<p><i>The Ghistelles Calendar</i> by unknown, Flanders c. 1301 via <a href=\"http://art.thewalters.org/detail/21564/the-ghistelles-calendar/\">Walters Art Museum</a>, Creative Commons</p>",
+                  "is_root_item":true
+               },
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"1785 GLC Baskerville",
+                        "link_color":"#F6F6F6",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_09.png?_v=abe6f565397f54e880c2b76e6fc2022e",
+                        "show_description":true,
+                        "show_header_image":false,
+                        "header_stretch":false,
+                        "body_font":"Helvetica Neue",
+                        "show_title":false,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_09.png?_v=abe6f565397f54e880c2b76e6fc2022e",
+                        "avatar_shape":"circle",
+                        "show_avatar":false,
+                        "background_color":"#FFFFFF",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_09.png?_v=abe6f565397f54e880c2b76e6fc2022e"
+                     },
+                     "name":"lostsplendor"
+                  },
+                  "content":"<p>medieval sportball<br /></p>",
+                  "post":{
+                     "id":"111412096424"
+                  },
+                  "content_raw":"<p>medieval sportball<br></p>"
+               }
+            ],
+            "date":"2015-02-19 03:38:30 GMT",
+            "slug":"lostsplendor-openmarginalis-the-ghistelles",
+            "blog_name":"pitchersandpoets",
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://41.media.tumblr.com/58521e84fc1857c9bf0ef3fb40cda4ab/tumblr_njzm5nHFgI1u16yz0o1_1280.jpg",
+                     "width":1280,
+                     "height":942
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://41.media.tumblr.com/58521e84fc1857c9bf0ef3fb40cda4ab/tumblr_njzm5nHFgI1u16yz0o1_1280.jpg",
+                        "width":1280,
+                        "height":942
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/58521e84fc1857c9bf0ef3fb40cda4ab/tumblr_njzm5nHFgI1u16yz0o1_500.jpg",
+                        "width":500,
+                        "height":368
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/58521e84fc1857c9bf0ef3fb40cda4ab/tumblr_njzm5nHFgI1u16yz0o1_400.jpg",
+                        "width":400,
+                        "height":294
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/58521e84fc1857c9bf0ef3fb40cda4ab/tumblr_njzm5nHFgI1u16yz0o1_250.jpg",
+                        "width":250,
+                        "height":184
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/58521e84fc1857c9bf0ef3fb40cda4ab/tumblr_njzm5nHFgI1u16yz0o1_100.jpg",
+                        "width":100,
+                        "height":74
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/58521e84fc1857c9bf0ef3fb40cda4ab/tumblr_njzm5nHFgI1u16yz0o1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "link_url":"http://art.thewalters.org/detail/21564/the-ghistelles-calendar/",
+            "summary":"The Ghistelles Calendar by unknown, Flanders c. 1301 via Walters Art Museum, Creative Commons",
+            "caption":"<p><a href=\"http://lostsplendor.tumblr.com/post/111412096424\" class=\"tumblr_blog\">lostsplendor</a>:</p><blockquote><p><a href=\"http://openmarginalis.tumblr.com/post/111406718923/the-ghistelles-calendar-by-unknown-flanders-c\" class=\"tumblr_blog\">openmarginalis</a>:</p><blockquote><p><i>The Ghistelles Calendar</i> by unknown, Flanders c. 1301 via <a href=\"http://art.thewalters.org/detail/21564/the-ghistelles-calendar/\">Walters Art Museum</a>, Creative Commons</p></blockquote>\n\n<p>medieval sportball<br/></p></blockquote>"
+         },
+         {
+            "reblog_key":"4oDH3AOO",
+            "short_url":"http://tmblr.co/ZhSWUx1dkPQL1",
+            "excerpt":null,
+            "link_author":null,
+            "id":111373821249,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/111373821249/jason-giambi-and-how-far-a-bat-can-carry-you",
+            "title":"Jason Giambi and How Far a Bat Can Carry You | VICE Sports",
+            "tags":[
+
+            ],
+            "link_image":"https://31.media.tumblr.com/tumblr_njz0wbybAm1qk9es5_og.jpg",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"<p><blockquote class=\"link_og_blockquote\">With his retirement official, Jason Giambi has become an avatar for the Steroid Era, but there\u2019s more to his career than just that.<br></blockquote><p>the ballad of the giambino, from 90s 1B troubador PTB</p></p>",
+               "tree_html":""
+            },
+            "type":"link",
+            "recommended_color":null,
+            "description":"<blockquote class=\"link_og_blockquote\">With his retirement official, Jason Giambi has become an avatar for the Steroid Era, but there&rsquo;s more to his career than just that.<br/></blockquote><p>the ballad of the giambino, from 90s 1B troubador PTB</p>",
+            "format":"html",
+            "timestamp":1424268875,
+            "note_count":7,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://31.media.tumblr.com/tumblr_njz0wbybAm1qk9es5_og.jpg",
+                     "width":500,
+                     "height":500
+                  },
+                  "alt_sizes":[
+
+                  ]
+               }
+            ],
+            "date":"2015-02-18 14:14:35 GMT",
+            "slug":"jason-giambi-and-how-far-a-bat-can-carry-you",
+            "blog_name":"pitchersandpoets",
+            "publisher":"sports.vice.com",
+            "trail":[
+               {
+                  "content":"<p><blockquote><p>With his retirement official, Jason Giambi has become an avatar for the Steroid Era, but there\u2019s more to his career than just that.<br /></p></blockquote><p>the ballad of the giambino, from 90s 1B troubador PTB</p></p>",
+                  "content_raw":"<p><blockquote class=\"link_og_blockquote\">With his retirement official, Jason Giambi has become an avatar for the Steroid Era, but there\u2019s more to his career than just that.<br></blockquote><p>the ballad of the giambino, from 90s 1B troubador PTB</p></p>",
+                  "is_current_item":true,
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"pitchersandpoets"
+                  },
+                  "is_root_item":true,
+                  "post":{
+                     "id":"111373821249"
+                  }
+               }
+            ],
+            "url":"https://sports.vice.com/article/jason-giambi-and-how-far-a-bat-can-carry-you",
+            "link_image_dimensions":{
+               "width":500,
+               "height":500
+            },
+            "summary":"Jason Giambi and How Far a Bat Can Carry You | VICE Sports"
+         },
+         {
+            "reblog_key":"06605YHY",
+            "short_url":"http://tmblr.co/ZhSWUx1a8wzjc",
+            "excerpt":null,
+            "link_author":null,
+            "id":107523857254,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/107523857254/addict-priest-luchador-the-unbelievable-life-of",
+            "title":"Addict, Priest, Luchador: The Unbelievable Life of Fray Tormenta | VICE Sports",
+            "tags":[
+
+            ],
+            "link_image":"https://33.media.tumblr.com/tumblr_nhvhx7gIwq1qzqlon_og.jpg",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/107522312532/addict-priest-luchador-the-unbelievable-life-of\">ericnus</a>:</p><blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>Padre Fray Tormenta has inspired films and wrestled all over the world, but he never sought out fame; all he wanted was to support the orphans of his parish.</div>\n</blockquote>\n<p>I got to tell the story of Fray Tormenta, a real life lucha libre folk hero.\u00a0</p>\n</blockquote>"
+            },
+            "type":"link",
+            "recommended_color":null,
+            "description":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/107522312532/addict-priest-luchador-the-unbelievable-life-of\">ericnus</a>:</p>\n<blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>Padre Fray Tormenta has inspired films and wrestled all over the world, but he never sought out fame; all he wanted was to support the orphans of his parish.</div>\n</blockquote>\n<p>I got to tell the story of Fray Tormenta, a real life lucha libre folk hero.\u00a0</p>\n</blockquote>",
+            "format":"html",
+            "timestamp":1420746325,
+            "note_count":7,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://33.media.tumblr.com/tumblr_nhvhx7gIwq1qzqlon_og.jpg",
+                     "width":500,
+                     "height":500
+                  },
+                  "alt_sizes":[
+
+                  ]
+               }
+            ],
+            "date":"2015-01-08 19:45:25 GMT",
+            "slug":"addict-priest-luchador-the-unbelievable-life-of",
+            "blog_name":"pitchersandpoets",
+            "publisher":"sports.vice.com",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40"
+                     },
+                     "name":"ericnus"
+                  },
+                  "content":"<p><blockquote><p>\nPadre Fray Tormenta has inspired films and wrestled all over the world, but he never sought out fame; all he wanted was to support the orphans of his parish.\n</p></blockquote>\n<p>I got to tell the story of Fray Tormenta, a real life lucha libre folk hero.\u00a0</p></p>",
+                  "post":{
+                     "id":"107522312532"
+                  },
+                  "content_raw":"<p><blockquote class=\"link_og_blockquote\">\n<div>Padre Fray Tormenta has inspired films and wrestled all over the world, but he never sought out fame; all he wanted was to support the orphans of his parish.</div>\n</blockquote>\n<p>I got to tell the story of Fray Tormenta, a real life lucha libre folk hero.\u00a0</p></p>",
+                  "is_root_item":true
+               }
+            ],
+            "url":"https://sports.vice.com/article/fray-tormenta-nacho-libre-true-story",
+            "link_image_dimensions":{
+               "width":500,
+               "height":500
+            },
+            "summary":"Addict, Priest, Luchador: The Unbelievable Life of Fray Tormenta | VICE Sports"
+         },
+         {
+            "reblog_key":"4FPJwb6N",
+            "short_url":"http://tmblr.co/ZhSWUx1Zgx8Ek",
+            "id":107020583854,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/107020583854/vintagesportspictures-detroit-tigers-second",
+            "source_title":"vintagesportspictures",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/107020583854",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://vintagesportspictures.tumblr.com/post/107008712970/detroit-tigers-second-baseman-lou-whitaker-1989\">vintagesportspictures</a>:</p><blockquote>\n<p>Detroit Tigers second baseman Lou Whitaker (1989)</p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1420307246,
+            "note_count":206,
+            "source_url":"http://vintagesportspictures.tumblr.com/post/107008712970/detroit-tigers-second-baseman-lou-whitaker-1989",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_07.png?_v=c52eb3e7fd4be5c98b8970b4c330d172",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_07.png?_v=c52eb3e7fd4be5c98b8970b4c330d172",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_07.png?_v=c52eb3e7fd4be5c98b8970b4c330d172"
+                     },
+                     "name":"vintagesportspictures"
+                  },
+                  "content":"<p>Detroit Tigers second baseman Lou Whitaker (1989)</p>",
+                  "post":{
+                     "id":"107008712970"
+                  },
+                  "content_raw":"<p>Detroit Tigers second baseman Lou Whitaker (1989)</p>",
+                  "is_root_item":true
+               }
+            ],
+            "date":"2015-01-03 17:47:26 GMT",
+            "slug":"vintagesportspictures-detroit-tigers-second",
+            "blog_name":"pitchersandpoets",
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://41.media.tumblr.com/2660473c5160cd0f8063314a7bab54bb/tumblr_nhlw3hqI8v1ren1y6o1_1280.jpg",
+                     "width":665,
+                     "height":945
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://41.media.tumblr.com/2660473c5160cd0f8063314a7bab54bb/tumblr_nhlw3hqI8v1ren1y6o1_1280.jpg",
+                        "width":665,
+                        "height":945
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/2660473c5160cd0f8063314a7bab54bb/tumblr_nhlw3hqI8v1ren1y6o1_500.jpg",
+                        "width":500,
+                        "height":711
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/2660473c5160cd0f8063314a7bab54bb/tumblr_nhlw3hqI8v1ren1y6o1_400.jpg",
+                        "width":400,
+                        "height":568
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/2660473c5160cd0f8063314a7bab54bb/tumblr_nhlw3hqI8v1ren1y6o1_250.jpg",
+                        "width":250,
+                        "height":355
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/2660473c5160cd0f8063314a7bab54bb/tumblr_nhlw3hqI8v1ren1y6o1_100.jpg",
+                        "width":100,
+                        "height":142
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/2660473c5160cd0f8063314a7bab54bb/tumblr_nhlw3hqI8v1ren1y6o1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "summary":"Detroit Tigers second baseman Lou Whitaker (1989)",
+            "caption":"<p><a class=\"tumblr_blog\" href=\"http://vintagesportspictures.tumblr.com/post/107008712970/detroit-tigers-second-baseman-lou-whitaker-1989\">vintagesportspictures</a>:</p>\n<blockquote>\n<p>Detroit Tigers second baseman Lou Whitaker (1989)</p>\n</blockquote>"
+         },
+         {
+            "reblog_key":"DUdo1iK7",
+            "short_url":"http://tmblr.co/ZhSWUx1T4hKhi",
+            "excerpt":null,
+            "link_author":null,
+            "id":99936455404,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/99936455404/the-immigrant-sport-what-ping-pong-means-in",
+            "title":"The Immigrant Sport: What Ping-Pong Means In America",
+            "tags":[
+
+            ],
+            "link_image":"https://33.media.tumblr.com/tumblr_nd8yiloroF1qzqlon_og.jpg",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"<p>Ping-pong & Poets</p>",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/99671749997/the-immigrant-sport-what-ping-pong-means-in-america\">ericnus</a>:</p><blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>I am standing in a gaggle of table tennis players in a dark bar in Grand Rapids, Mich., on the Fourth of July. Before us, another table tennis player named Donald Hayes is playing Millipede. Donald and the others are all competing in the U.S. Open, the biggest ping-pong tournament in America, but right now that is of little importance. Donald has held the world record for high score in Millipede, Pac-Man, Centipede, and a handful of other games.</div>\n</blockquote>\n<p>I wrote this before I started at VICE. I hope you take some time to read it.\u00a0</p>\n</blockquote>"
+            },
+            "type":"link",
+            "recommended_color":null,
+            "description":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/99671749997/the-immigrant-sport-what-ping-pong-means-in-america\">ericnus</a>:</p>\n<blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>I am standing in a gaggle of table tennis players in a dark bar in Grand Rapids, Mich., on the Fourth of July. Before us, another table tennis player named Donald Hayes is playing Millipede. Donald and the others are all competing in the U.S. Open, the biggest ping-pong tournament in America, but right now that is of little importance. Donald has held the world record for high score in Millipede, Pac-Man, Centipede, and a handful of other games.</div>\n</blockquote>\n<p>I wrote this before I started at VICE. I hope you take some time to read it.\u00a0</p>\n</blockquote>\n<p>Ping-pong &amp; Poets</p>",
+            "format":"html",
+            "timestamp":1413234491,
+            "note_count":16,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://33.media.tumblr.com/tumblr_nd8yiloroF1qzqlon_og.jpg",
+                     "width":358,
+                     "height":358
+                  },
+                  "alt_sizes":[
+
+                  ]
+               }
+            ],
+            "date":"2014-10-13 21:08:11 GMT",
+            "slug":"the-immigrant-sport-what-ping-pong-means-in",
+            "blog_name":"pitchersandpoets",
+            "publisher":"deadspin.com",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40"
+                     },
+                     "name":"ericnus"
+                  },
+                  "content":"<p><blockquote><p>\nI am standing in a gaggle of table tennis players in a dark bar in Grand Rapids, Mich., on the Fourth of July. Before us, another table tennis player named Donald Hayes is playing Millipede. Donald and the others are all competing in the U.S. Open, the biggest ping-pong tournament in America, but right now that is of little importance. Donald has held the world record for high score in Millipede, Pac-Man, Centipede, and a handful of other games.\n</p></blockquote>\n<p>I wrote this before I started at VICE. I hope you take some time to read it.\u00a0</p></p>",
+                  "post":{
+                     "id":"99671749997"
+                  },
+                  "content_raw":"<p><blockquote class=\"link_og_blockquote\">\n<div>I am standing in a gaggle of table tennis players in a dark bar in Grand Rapids, Mich., on the Fourth of July. Before us, another table tennis player named Donald Hayes is playing Millipede. Donald and the others are all competing in the U.S. Open, the biggest ping-pong tournament in America, but right now that is of little importance. Donald has held the world record for high score in Millipede, Pac-Man, Centipede, and a handful of other games.</div>\n</blockquote>\n<p>I wrote this before I started at VICE. I hope you take some time to read it.\u00a0</p></p>",
+                  "is_root_item":true
+               },
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"pitchersandpoets"
+                  },
+                  "content":"<p>Ping-pong &amp; Poets</p>",
+                  "post":{
+                     "id":"99936455404"
+                  },
+                  "content_raw":"<p>Ping-pong & Poets</p>",
+                  "is_current_item":true
+               }
+            ],
+            "url":"http://deadspin.com/the-immigrant-sport-what-ping-pong-means-in-america-1641189714",
+            "link_image_dimensions":{
+               "width":358,
+               "height":358
+            },
+            "summary":"The Immigrant Sport: What Ping-Pong Means In America"
+         },
+         {
+            "reblog_key":"tqShFcX2",
+            "short_url":"http://tmblr.co/ZhSWUx1Re-_R-",
+            "id":98398365439,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/98398365439/flipflopflyball-naptime",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/98398365439",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://flipflopflyball.tumblr.com/post/98397736269/naptime\">flipflopflyball</a>:</p><blockquote>\n<p>Naptime</p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1411664862,
+            "note_count":124,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://40.media.tumblr.com/d7558739d57be463e454be2567507f51/tumblr_ncgv3zeWT01qb0ctno1_1280.jpg",
+                     "width":640,
+                     "height":960
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://40.media.tumblr.com/d7558739d57be463e454be2567507f51/tumblr_ncgv3zeWT01qb0ctno1_1280.jpg",
+                        "width":640,
+                        "height":960
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/d7558739d57be463e454be2567507f51/tumblr_ncgv3zeWT01qb0ctno1_500.jpg",
+                        "width":500,
+                        "height":750
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/d7558739d57be463e454be2567507f51/tumblr_ncgv3zeWT01qb0ctno1_400.jpg",
+                        "width":400,
+                        "height":600
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/d7558739d57be463e454be2567507f51/tumblr_ncgv3zeWT01qb0ctno1_250.jpg",
+                        "width":250,
+                        "height":375
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/d7558739d57be463e454be2567507f51/tumblr_ncgv3zeWT01qb0ctno1_100.jpg",
+                        "width":100,
+                        "height":150
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/d7558739d57be463e454be2567507f51/tumblr_ncgv3zeWT01qb0ctno1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "date":"2014-09-25 17:07:42 GMT",
+            "slug":"flipflopflyball-naptime",
+            "blog_name":"pitchersandpoets",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "header_full_height":768,
+                        "title_color":"#444444",
+                        "header_bounds":"96,1024,672,0",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.static.tumblr.com/1ad99eda36eca07124f43e43e2b35307/kukheqc/zDqnlwc96/tumblr_static_tumblr_static_dj31d49fai8sw4sogks0440sw_focused_v3.jpg",
+                        "show_description":true,
+                        "header_full_width":1024,
+                        "header_focus_width":1024,
+                        "header_stretch":true,
+                        "show_header_image":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.static.tumblr.com/1ad99eda36eca07124f43e43e2b35307/kukheqc/1SWnlwc94/tumblr_static_dj31d49fai8sw4sogks0440sw_2048_v2.jpg",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "header_focus_height":576,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.static.tumblr.com/1ad99eda36eca07124f43e43e2b35307/kukheqc/1SWnlwc94/tumblr_static_dj31d49fai8sw4sogks0440sw.jpg"
+                     },
+                     "name":"flipflopflyball"
+                  },
+                  "content":"<p>Naptime</p>",
+                  "post":{
+                     "id":"98397736269"
+                  },
+                  "content_raw":"<p>Naptime</p>",
+                  "is_root_item":true
+               }
+            ],
+            "summary":"Naptime",
+            "caption":"<p><a class=\"tumblr_blog\" href=\"http://flipflopflyball.tumblr.com/post/98397736269/naptime\">flipflopflyball</a>:</p>\n<blockquote>\n<p>Naptime</p>\n</blockquote>"
+         },
+         {
+            "reblog_key":"nZ2gLXcc",
+            "short_url":"http://tmblr.co/ZhSWUx1PBZnhB",
+            "id":95756950219,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/95756950219/leeleeleelee-fuckyeahbiglebowski-the-dude",
+            "source_title":"yodiscrepo",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/95756950219",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://leeleeleelee.tumblr.com/post/95736964105/fuckyeahbiglebowski-the-dude-abides-i-dont\">leeleeleelee</a>:</p><blockquote>\n<p><a class=\"tumblr_blog\" href=\"http://fuckyeahbiglebowski.tumblr.com/post/95736685813/the-dude-abides-i-dont-know-about-you-but-i\">fuckyeahbiglebowski</a>:</p>\n<blockquote>\n<p><em><span>\u201cThe Dude abides. I don\u2019t know about you but I take comfort in that. It\u2019s good knowin\u2019 he\u2019s out there. The Dude. Takin\u2019 \u2018er easy for all us sinners. Shoosh. I sure hope he makes the finals.\u201d</span></em></p>\n</blockquote>\n<p>I don\u2019t know about the rules about reblogging your side blogs, but I am having a very Dude morning right now and this gif/quote sums it up nicely.</p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1408996842,
+            "note_count":552,
+            "source_url":"http://yodiscrepo.tumblr.com/post/95725594067/beisbol-al-estilo-de-el-gran-lebowski",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"fuckyeahbiglebowski"
+                  },
+                  "content":"<p><em>\u201cThe Dude abides. I don\u2019t know about you but I take comfort in that. It\u2019s good knowin\u2019 he\u2019s out there. The Dude. Takin\u2019 \u2018er easy for all us sinners. Shoosh. I sure hope he makes the finals.\u201d</em></p>",
+                  "post":{
+                     "id":"95736685813"
+                  },
+                  "content_raw":"<p><em><span>\u201cThe Dude abides. I don\u2019t know about you but I take comfort in that. It\u2019s good knowin\u2019 he\u2019s out there. The Dude. Takin\u2019 \u2018er easy for all us sinners. Shoosh. I sure hope he makes the finals.\u201d</span></em></p>"
+               },
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "header_full_height":1950,
+                        "title_color":"#444444",
+                        "header_bounds":"366,2381,1581,219",
+                        "title_font":"Gibson",
+                        "link_color":"#000000",
+                        "header_image_focused":"https://secure.static.tumblr.com/c7e857770f2d4bdc6b75bf964a23b659/5oohlfl/AgNnro2a2/tumblr_static_tumblr_static__focused_v3.jpg",
+                        "show_description":true,
+                        "header_full_width":2600,
+                        "header_focus_width":2048,
+                        "header_stretch":true,
+                        "show_header_image":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.static.tumblr.com/c7e857770f2d4bdc6b75bf964a23b659/5oohlfl/a1Lnro29u/tumblr_static__2048_v2.jpg",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "header_focus_height":1150,
+                        "background_color":"#7FDEFF",
+                        "header_image":"https://secure.static.tumblr.com/c7e857770f2d4bdc6b75bf964a23b659/5oohlfl/a1Lnro29u/tumblr_static_.jpg"
+                     },
+                     "name":"leeleeleelee"
+                  },
+                  "content":"<p>I don\u2019t know about the rules about reblogging your side blogs, but I am having a very Dude morning right now and this gif/quote sums it up nicely.</p>",
+                  "post":{
+                     "id":"95736964105"
+                  },
+                  "content_raw":"<p>I don\u2019t know about the rules about reblogging your side blogs, but I am having a very Dude morning right now and this gif/quote sums it up nicely.</p>"
+               }
+            ],
+            "date":"2014-08-25 20:00:42 GMT",
+            "slug":"leeleeleelee-fuckyeahbiglebowski-the-dude",
+            "blog_name":"pitchersandpoets",
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://49.media.tumblr.com/f3543ecd3f7cfec37c413694e4992df4/tumblr_naqdyj1jfC1rq7z94o1_400.gif",
+                     "width":335,
+                     "height":173
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://49.media.tumblr.com/f3543ecd3f7cfec37c413694e4992df4/tumblr_naqdyj1jfC1rq7z94o1_400.gif",
+                        "width":335,
+                        "height":173
+                     },
+                     {
+                        "url":"https://49.media.tumblr.com/f3543ecd3f7cfec37c413694e4992df4/tumblr_naqdyj1jfC1rq7z94o1_250.gif",
+                        "width":250,
+                        "height":129
+                     },
+                     {
+                        "url":"https://49.media.tumblr.com/f3543ecd3f7cfec37c413694e4992df4/tumblr_naqdyj1jfC1rq7z94o1_100.gif",
+                        "width":100,
+                        "height":52
+                     },
+                     {
+                        "url":"https://45.media.tumblr.com/f3543ecd3f7cfec37c413694e4992df4/tumblr_naqdyj1jfC1rq7z94o1_75sq.gif",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "summary":"\"The Dude abides. I don\u2019t know about you but I take comfort in that. It\u2019s good knowin\u2019 he\u2019s out there. The Dude. Takin\u2019 \u2018er easy...",
+            "caption":"<p><a class=\"tumblr_blog\" href=\"http://leeleeleelee.tumblr.com/post/95736964105/fuckyeahbiglebowski-the-dude-abides-i-dont\">leeleeleelee</a>:</p>\n<blockquote>\n<p><a class=\"tumblr_blog\" href=\"http://fuckyeahbiglebowski.tumblr.com/post/95736685813/the-dude-abides-i-dont-know-about-you-but-i\">fuckyeahbiglebowski</a>:</p>\n<blockquote>\n<p><em><span>&ldquo;The Dude abides. I don\u2019t know about you but I take comfort in that. It\u2019s good knowin\u2019 he\u2019s out there. The Dude. Takin\u2019 \u2018er easy for all us sinners. Shoosh. I sure hope he makes the finals.&rdquo;</span></em></p>\n</blockquote>\n<p>I don\u2019t know about the rules about reblogging your side blogs, but I am having a very Dude morning right now and this gif/quote sums it up nicely.</p>\n</blockquote>"
+         },
+         {
+            "reblog_key":"LljhPOCR",
+            "short_url":"http://tmblr.co/ZhSWUx1NXcLgW",
+            "excerpt":null,
+            "link_author":null,
+            "id":93979237024,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/93979237024/of-anaheim-why-the-angels-will-always-be-an",
+            "title":"Of Anaheim: Why the Angels Will Always be an Afterthought | VICE Sports",
+            "tags":[
+
+            ],
+            "link_image":"https://31.media.tumblr.com/tumblr_n9w7rn5R0L1qzqlon_og.jpg",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"<p>P&amp;P in the wild.\u00a0</p>",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/93978547327/of-anaheim-why-the-angels-will-always-be-an\">ericnus</a>:</p><blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>The Angels have always been in the Dodgers\u2019 shadow, even when they have a better team.</div>\n</blockquote>\n<p>I wrote about the Angels and Dodgers, their respective roles in the greater metropolis, the history of baseball in LA, and places with names that start with Rancho and Laguna .</p>\n</blockquote>"
+            },
+            "type":"link",
+            "recommended_color":null,
+            "description":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/93978547327/of-anaheim-why-the-angels-will-always-be-an\">ericnus</a>:</p>\n<blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>The Angels have always been in the Dodgers\u2019 shadow, even when they have a better team.</div>\n</blockquote>\n<p>I wrote about the Angels and Dodgers, their respective roles in the greater metropolis, the history of baseball in LA, and places with names that start with Rancho and Laguna .</p>\n</blockquote>\n<p>P&amp;P in the wild.\u00a0</p>",
+            "format":"html",
+            "timestamp":1407342252,
+            "note_count":17,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://31.media.tumblr.com/tumblr_n9w7rn5R0L1qzqlon_og.jpg",
+                     "width":500,
+                     "height":500
+                  },
+                  "alt_sizes":[
+
+                  ]
+               }
+            ],
+            "date":"2014-08-06 16:24:12 GMT",
+            "slug":"of-anaheim-why-the-angels-will-always-be-an",
+            "blog_name":"pitchersandpoets",
+            "publisher":"sports.vice.com",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40"
+                     },
+                     "name":"ericnus"
+                  },
+                  "content":"<p><blockquote><p>\nThe Angels have always been in the Dodgers\u2019 shadow, even when they have a better team.\n</p></blockquote>\n<p>I wrote about the Angels and Dodgers, their respective roles in the greater metropolis, the history of baseball in LA, and places with names that start with Rancho and Laguna .</p></p>",
+                  "post":{
+                     "id":"93978547327"
+                  },
+                  "content_raw":"<p><blockquote class=\"link_og_blockquote\">\n<div>The Angels have always been in the Dodgers\u2019 shadow, even when they have a better team.</div>\n</blockquote>\n<p>I wrote about the Angels and Dodgers, their respective roles in the greater metropolis, the history of baseball in LA, and places with names that start with Rancho and Laguna .</p></p>",
+                  "is_root_item":true
+               },
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"pitchersandpoets"
+                  },
+                  "content":"<p>P&amp;P in the wild.\u00a0</p>",
+                  "post":{
+                     "id":"93979237024"
+                  },
+                  "content_raw":"<p>P&amp;P in the wild.\u00a0</p>",
+                  "is_current_item":true
+               }
+            ],
+            "url":"https://sports.vice.com/article/of-anaheim-why-the-angels-will-always-be-an-afterthought",
+            "link_image_dimensions":{
+               "width":500,
+               "height":500
+            },
+            "summary":"Of Anaheim: Why the Angels Will Always be an Afterthought | VICE Sports"
+         },
+         {
+            "reblog_key":"Kwh88Aso",
+            "short_url":"http://tmblr.co/ZhSWUx1MvbL7p",
+            "id":93307884019,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/93307884019/mightyflynn-puig-june-2014-dodger-stadium",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/93307884019",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://mightyflynn.tumblr.com/post/93267257861/puig-june-2014-dodger-stadium-los-angeles\">mightyflynn</a>:</p><blockquote>\n<p>Puig</p>\n<p>June 2014</p>\n<p>Dodger Stadium</p>\n<p>Los Angeles, California</p>\n<p>Kodak disposable-camera photo by <a href=\"http://www.garrettleight.com/stories/journal/dodger-game/\">Garrett Leight</a></p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1406728497,
+            "note_count":47,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://40.media.tumblr.com/8aaea6c4289a6fd93b33fe06ba500079/tumblr_n9ftg3Ayre1qzniimo1_1280.jpg",
+                     "width":1088,
+                     "height":718
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://40.media.tumblr.com/8aaea6c4289a6fd93b33fe06ba500079/tumblr_n9ftg3Ayre1qzniimo1_1280.jpg",
+                        "width":1088,
+                        "height":718
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/8aaea6c4289a6fd93b33fe06ba500079/tumblr_n9ftg3Ayre1qzniimo1_500.jpg",
+                        "width":500,
+                        "height":330
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/8aaea6c4289a6fd93b33fe06ba500079/tumblr_n9ftg3Ayre1qzniimo1_400.jpg",
+                        "width":400,
+                        "height":264
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/8aaea6c4289a6fd93b33fe06ba500079/tumblr_n9ftg3Ayre1qzniimo1_250.jpg",
+                        "width":250,
+                        "height":165
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/8aaea6c4289a6fd93b33fe06ba500079/tumblr_n9ftg3Ayre1qzniimo1_100.jpg",
+                        "width":100,
+                        "height":66
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/8aaea6c4289a6fd93b33fe06ba500079/tumblr_n9ftg3Ayre1qzniimo1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "date":"2014-07-30 13:54:57 GMT",
+            "slug":"mightyflynn-puig-june-2014-dodger-stadium",
+            "blog_name":"pitchersandpoets",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"regular",
+                        "header_full_height":758,
+                        "title_color":"#CCCCCC",
+                        "header_bounds":"73,527,359,17",
+                        "title_font":"Futura",
+                        "link_color":"#000000",
+                        "header_image_focused":"https://secure.static.tumblr.com/021d8fb8cb395436b756bf5a0613e53e/g0wsoan/6sWnubr85/tumblr_static_tumblr_static__focused_v3.jpg",
+                        "show_description":true,
+                        "header_full_width":613,
+                        "header_focus_width":510,
+                        "header_stretch":true,
+                        "show_header_image":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.static.tumblr.com/021d8fb8cb395436b756bf5a0613e53e/g0wsoan/S0Knubr84/tumblr_static__2048_v2.jpg",
+                        "avatar_shape":"circle",
+                        "show_avatar":true,
+                        "header_focus_height":286,
+                        "background_color":"#000000",
+                        "header_image":"https://secure.static.tumblr.com/021d8fb8cb395436b756bf5a0613e53e/g0wsoan/S0Knubr84/tumblr_static_.jpg"
+                     },
+                     "name":"mightyflynn"
+                  },
+                  "content":"<p>Puig</p>\n<p>June 2014</p>\n<p>Dodger Stadium</p>\n<p>Los Angeles, California</p>\n<p>Kodak disposable-camera photo by <a href=\"http://www.garrettleight.com/stories/journal/dodger-game/\">Garrett Leight</a></p>",
+                  "post":{
+                     "id":"93267257861"
+                  },
+                  "content_raw":"<p>Puig</p>\n<p>June 2014</p>\n<p>Dodger Stadium</p>\n<p>Los Angeles, California</p>\n<p>Kodak disposable-camera photo by <a href=\"http://www.garrettleight.com/stories/journal/dodger-game/\">Garrett Leight</a></p>",
+                  "is_root_item":true
+               }
+            ],
+            "summary":"Puig\r\n June 2014\r\n Dodger Stadium\r\n Los Angeles, California\r\n Kodak disposable-camera photo by Garrett Leight",
+            "caption":"<p><a class=\"tumblr_blog\" href=\"http://mightyflynn.tumblr.com/post/93267257861/puig-june-2014-dodger-stadium-los-angeles\">mightyflynn</a>:</p>\n<blockquote>\n<p>Puig</p>\n<p>June 2014</p>\n<p>Dodger Stadium</p>\n<p>Los Angeles, California</p>\n<p>Kodak disposable-camera photo by <a href=\"http://www.garrettleight.com/stories/journal/dodger-game/\">Garrett Leight</a></p>\n</blockquote>"
+         },
+         {
+            "reblog_key":"bGajWiIf",
+            "short_url":"http://tmblr.co/ZhSWUx1LYrAdM",
+            "id":91852417494,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/91852417494/syn-tax",
+            "source_title":"thepittsburghhistoryjournal",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/91852417494",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://syn-tax.tumblr.com/post/91840540341\">syn-tax</a>:</p><blockquote>\n<p><a class=\"tumblr_blog\" href=\"http://thepittsburghhistoryjournal.com/post/58918266050/forbes-field-and-the-cathedral-of-learning-1970\">\u00a0</a></p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1405437176,
+            "note_count":831,
+            "source_url":"http://thepittsburghhistoryjournal.tumblr.com/post/58918266050/forbes-field-and-the-cathedral-of-learning-1970",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "header_full_height":1171,
+                        "title_color":"#444444",
+                        "header_bounds":"135,1600,1035,0",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.static.tumblr.com/f40cc9d70f4e0a1e5f9ca9d50d16790c/vqg9dqq/GKTn9xtoc/tumblr_static_tumblr_static_9i3o69t9s7c4koow0s40s00kc_focused_v3.jpg",
+                        "show_description":true,
+                        "header_full_width":1600,
+                        "header_focus_width":1600,
+                        "header_stretch":true,
+                        "show_header_image":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.static.tumblr.com/f40cc9d70f4e0a1e5f9ca9d50d16790c/vqg9dqq/NMxn9xto9/tumblr_static_9i3o69t9s7c4koow0s40s00kc_2048_v2.jpg",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "header_focus_height":900,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.static.tumblr.com/f40cc9d70f4e0a1e5f9ca9d50d16790c/vqg9dqq/NMxn9xto9/tumblr_static_9i3o69t9s7c4koow0s40s00kc.jpg"
+                     },
+                     "name":"syn-tax"
+                  },
+                  "content":"<p><a class=\"tumblr_blog\" href=\"http://thepittsburghhistoryjournal.com/post/58918266050/forbes-field-and-the-cathedral-of-learning-1970\">\u00a0</a></p>",
+                  "post":{
+                     "id":"91840540341"
+                  },
+                  "content_raw":"<p><a class=\"tumblr_blog\" href=\"http://thepittsburghhistoryjournal.com/post/58918266050/forbes-field-and-the-cathedral-of-learning-1970\">\u00a0</a></p>"
+               }
+            ],
+            "date":"2014-07-15 15:12:56 GMT",
+            "slug":"syn-tax",
+            "blog_name":"pitchersandpoets",
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://40.media.tumblr.com/3ec3dc1c2178389a97b75c5285c307f6/tumblr_mrvytxTcyk1qakblyo1_1280.jpg",
+                     "width":600,
+                     "height":1099
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://40.media.tumblr.com/3ec3dc1c2178389a97b75c5285c307f6/tumblr_mrvytxTcyk1qakblyo1_1280.jpg",
+                        "width":600,
+                        "height":1099
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/3ec3dc1c2178389a97b75c5285c307f6/tumblr_mrvytxTcyk1qakblyo1_500.jpg",
+                        "width":409,
+                        "height":750
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/3ec3dc1c2178389a97b75c5285c307f6/tumblr_mrvytxTcyk1qakblyo1_400.jpg",
+                        "width":327,
+                        "height":600
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/3ec3dc1c2178389a97b75c5285c307f6/tumblr_mrvytxTcyk1qakblyo1_250.jpg",
+                        "width":218,
+                        "height":400
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/3ec3dc1c2178389a97b75c5285c307f6/tumblr_mrvytxTcyk1qakblyo1_100.jpg",
+                        "width":100,
+                        "height":183
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/3ec3dc1c2178389a97b75c5285c307f6/tumblr_mrvytxTcyk1qakblyo1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "summary":"\u00a0",
+            "caption":"<p><a class=\"tumblr_blog\" href=\"http://syn-tax.tumblr.com/post/91840540341\">syn-tax</a>:</p>\n<blockquote>\n<p><a class=\"tumblr_blog\" href=\"http://thepittsburghhistoryjournal.com/post/58918266050/forbes-field-and-the-cathedral-of-learning-1970\">\u00a0</a></p>\n</blockquote>"
+         },
+         {
+            "reblog_key":"LDkMadCK",
+            "short_url":"http://tmblr.co/ZhSWUx1LYqv2q",
+            "id":91852345524,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/91852345524/philamuseum-american-league-or-national-league",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/91852345524",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://philamuseum.tumblr.com/post/91846406308/american-league-or-national-league-who-are-you\">philamuseum</a>:</p><blockquote>\n<p><span>American League or National League? Who are you pulling for in the MLB All-Star Game tonight? Did any of your favorite players get nominated to play?</span><br><br><span>\u201d<a href=\"http://ow.ly/zb1OY\">Dodger Players</a>,\u201d 1952, by Justin McCarthy</span></p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1405437115,
+            "note_count":127,
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_04.png?_v=7c4e5e82cf797042596e2e64af1c383f",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_04.png?_v=7c4e5e82cf797042596e2e64af1c383f",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_04.png?_v=7c4e5e82cf797042596e2e64af1c383f"
+                     },
+                     "name":"philamuseum"
+                  },
+                  "content":"<p>American League or National League? Who are you pulling for in the MLB All-Star Game tonight? Did any of your favorite players get nominated to play?<br /><br />\u201d<a href=\"http://ow.ly/zb1OY\">Dodger Players</a>,\u201d 1952, by Justin McCarthy</p>",
+                  "post":{
+                     "id":"91846406308"
+                  },
+                  "content_raw":"<p><span>American League or National League? Who are you pulling for in the MLB All-Star Game tonight? Did any of your favorite players get nominated to play?</span><br><br><span>\u201d<a href=\"http://ow.ly/zb1OY\">Dodger Players</a>,\u201d 1952, by Justin McCarthy</span></p>",
+                  "is_root_item":true
+               }
+            ],
+            "date":"2014-07-15 15:11:55 GMT",
+            "slug":"philamuseum-american-league-or-national-league",
+            "blog_name":"pitchersandpoets",
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://41.media.tumblr.com/fafdd8fe8a8e4bdd2f24187ed411992b/tumblr_n8r9mfI3oA1qb1i2wo1_1280.jpg",
+                     "width":1254,
+                     "height":1044
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://41.media.tumblr.com/fafdd8fe8a8e4bdd2f24187ed411992b/tumblr_n8r9mfI3oA1qb1i2wo1_1280.jpg",
+                        "width":1254,
+                        "height":1044
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/fafdd8fe8a8e4bdd2f24187ed411992b/tumblr_n8r9mfI3oA1qb1i2wo1_500.jpg",
+                        "width":500,
+                        "height":416
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/fafdd8fe8a8e4bdd2f24187ed411992b/tumblr_n8r9mfI3oA1qb1i2wo1_400.jpg",
+                        "width":400,
+                        "height":333
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/fafdd8fe8a8e4bdd2f24187ed411992b/tumblr_n8r9mfI3oA1qb1i2wo1_250.jpg",
+                        "width":250,
+                        "height":208
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/fafdd8fe8a8e4bdd2f24187ed411992b/tumblr_n8r9mfI3oA1qb1i2wo1_100.jpg",
+                        "width":100,
+                        "height":83
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/fafdd8fe8a8e4bdd2f24187ed411992b/tumblr_n8r9mfI3oA1qb1i2wo1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "link_url":"http://ow.ly/zb1OY",
+            "summary":"American League or National League? Who are you pulling for in the MLB All-Star Game tonight? Did any of your favorite players...",
+            "caption":"<p><a class=\"tumblr_blog\" href=\"http://philamuseum.tumblr.com/post/91846406308/american-league-or-national-league-who-are-you\">philamuseum</a>:</p>\n<blockquote>\n<p><span>American League or National League? Who are you pulling for in the MLB All-Star Game tonight? Did any of your favorite players get nominated to play?</span><br/><br/><span>\u201d<a href=\"http://ow.ly/zb1OY\">Dodger Players</a>,\u201d 1952, by Justin McCarthy</span></p>\n</blockquote>"
+         },
+         {
+            "reblog_key":"XS95FfMb",
+            "reblog":{
+               "comment":"<p>This would be amazing.</p>",
+               "tree_html":""
+            },
+            "id":91262131809,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/91262131809/absurd-joke-theory-billy-beane-is",
+            "tags":[
+
+            ],
+            "question":"Absurd (joke) theory: Billy Beane is double-bluffing us all. Why would the genius spoil his secrets and his view of the future? He's trying to wrong-foot the kind of baseball thinkers who take his words as gospel, then sweep in and fleece em.",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "short_url":"http://tmblr.co/ZhSWUx1K-fPvX",
+            "answer":"<p>This would be amazing.</p>",
+            "type":"answer",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1404923333,
+            "note_count":7,
+            "trail":[
+               {
+                  "content":"<p>This would be amazing.</p>",
+                  "content_raw":"<p>This would be amazing.</p>",
+                  "is_current_item":true,
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"pitchersandpoets"
+                  },
+                  "is_root_item":true,
+                  "post":{
+                     "id":"91262131809"
+                  }
+               }
+            ],
+            "date":"2014-07-09 16:28:53 GMT",
+            "slug":"absurd-joke-theory-billy-beane-is",
+            "blog_name":"pitchersandpoets",
+            "asking_url":"http://maybenotboring.tumblr.com/",
+            "asking_name":"maybenotboring",
+            "summary":"Absurd (joke) theory: Billy Beane is double-bluffing us all. Why would the genius spoil his secrets and his view of the future?..."
+         },
+         {
+            "reblog_key":"ZpW3rS4U",
+            "short_url":"http://tmblr.co/ZhSWUx1K-UrN0",
+            "excerpt":null,
+            "link_author":null,
+            "id":91259360704,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/91259360704/billy-beane-is-not-human-vice-sports",
+            "title":"Billy Beane Is Not Human | VICE Sports",
+            "tags":[
+
+            ],
+            "link_image":"https://31.media.tumblr.com/tumblr_n8gbzcdtkW1qzqlon_og.jpg",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"<p>P&P alert.</p>",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/91259243557/billy-beane-is-not-human-vice-sports\">ericnus</a>:</p><blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>Billy Beane\u2019s op-ed about the future of sport unfortunately reveals a very narrow viewpoint.</div>\n</blockquote>\n<p>I wrote about Billy Beane and his soulless, technocratic vision for baseball\u2019s future.\u00a0</p>\n</blockquote>"
+            },
+            "type":"link",
+            "recommended_color":null,
+            "description":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/91259243557/billy-beane-is-not-human-vice-sports\">ericnus</a>:</p>\n<blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>Billy Beane\u2019s op-ed about the future of sport unfortunately reveals a very narrow viewpoint.</div>\n</blockquote>\n<p>I wrote about Billy Beane and his soulless, technocratic vision for baseball\u2019s future.\u00a0</p>\n</blockquote>\n<p>P&amp;P alert.</p>",
+            "format":"html",
+            "timestamp":1404921101,
+            "note_count":19,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://31.media.tumblr.com/tumblr_n8gbzcdtkW1qzqlon_og.jpg",
+                     "width":500,
+                     "height":500
+                  },
+                  "alt_sizes":[
+
+                  ]
+               }
+            ],
+            "date":"2014-07-09 15:51:41 GMT",
+            "slug":"billy-beane-is-not-human-vice-sports",
+            "blog_name":"pitchersandpoets",
+            "publisher":"sports.vice.com",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40"
+                     },
+                     "name":"ericnus"
+                  },
+                  "content":"<p><blockquote><p>\nBilly Beane\u2019s op-ed about the future of sport unfortunately reveals a very narrow viewpoint.\n</p></blockquote>\n<p>I wrote about Billy Beane and his soulless, technocratic vision for baseball\u2019s future.\u00a0</p></p>",
+                  "post":{
+                     "id":"91259243557"
+                  },
+                  "content_raw":"<p><blockquote class=\"link_og_blockquote\">\n<div>Billy Beane\u2019s op-ed about the future of sport unfortunately reveals a very narrow viewpoint.</div>\n</blockquote>\n<p>I wrote about Billy Beane and his soulless, technocratic vision for baseball\u2019s future.\u00a0</p></p>",
+                  "is_root_item":true
+               },
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"pitchersandpoets"
+                  },
+                  "content":"<p>P&amp;P alert.</p>",
+                  "post":{
+                     "id":"91259360704"
+                  },
+                  "content_raw":"<p>P&P alert.</p>",
+                  "is_current_item":true
+               }
+            ],
+            "url":"https://sports.vice.com/article/billy-beane-is-not-human",
+            "link_image_dimensions":{
+               "width":500,
+               "height":500
+            },
+            "summary":"Billy Beane Is Not Human | VICE Sports"
+         },
+         {
+            "reblog_key":"ewDeB98w",
+            "short_url":"http://tmblr.co/ZhSWUx1Kqt-Dk",
+            "id":91081405294,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/91081405294/laughingsquid-sunday-sketching-everyday",
+            "source_title":"Laughing Squid",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/91081405294",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://links.laughingsquid.com/post/91068227810/sunday-sketching-everyday-objects-inserted-into\">laughingsquid</a>:</p><blockquote>\n<p><a href=\"http://laughingsquid.com/sunday-sketching-everyday-objects-inserted-into-delightful-illustrations-by-christoph-niemann/\">\u2018Sunday Sketching\u2019, Everyday Objects Inserted Into Delightful Illustrations by Christoph Niemann</a></p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1404768062,
+            "note_count":307,
+            "source_url":"http://laughingsquid.com/sunday-sketching-everyday-objects-inserted-into-delightful-illustrations-by-christoph-niemann/",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "header_full_height":768,
+                        "title_color":"#FFFFFF",
+                        "header_bounds":"107,1002,660,21",
+                        "title_font":"Gibson",
+                        "link_color":"#FFFFFF",
+                        "header_image_focused":"https://secure.static.tumblr.com/92e2578dd7bad61bce77613cd6b965bb/3lasrza/7cpnn0u9s/tumblr_static_tumblr_static_f3ctl5wcie8kcwcooo08c0k0o_focused_v3.jpg",
+                        "show_description":true,
+                        "header_full_width":1024,
+                        "header_focus_width":981,
+                        "header_stretch":true,
+                        "show_header_image":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.static.tumblr.com/92e2578dd7bad61bce77613cd6b965bb/3lasrza/ZtMnn0u9q/tumblr_static_f3ctl5wcie8kcwcooo08c0k0o_2048_v2.jpg",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "header_focus_height":553,
+                        "background_color":"#56BC8A",
+                        "header_image":"https://secure.static.tumblr.com/92e2578dd7bad61bce77613cd6b965bb/3lasrza/ZtMnn0u9q/tumblr_static_f3ctl5wcie8kcwcooo08c0k0o.jpg"
+                     },
+                     "name":"laughingsquid"
+                  },
+                  "content":"<p><a href=\"http://laughingsquid.com/sunday-sketching-everyday-objects-inserted-into-delightful-illustrations-by-christoph-niemann/\">\u2018Sunday Sketching\u2019, Everyday Objects Inserted Into Delightful Illustrations by Christoph Niemann</a></p>",
+                  "post":{
+                     "id":"91068227810"
+                  },
+                  "content_raw":"<p><a href=\"http://laughingsquid.com/sunday-sketching-everyday-objects-inserted-into-delightful-illustrations-by-christoph-niemann/\">\u2018Sunday Sketching\u2019, Everyday Objects Inserted Into Delightful Illustrations by Christoph Niemann</a></p>",
+                  "is_root_item":true
+               }
+            ],
+            "date":"2014-07-07 21:21:02 GMT",
+            "slug":"laughingsquid-sunday-sketching-everyday",
+            "blog_name":"pitchersandpoets",
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://40.media.tumblr.com/79f68946643dee1507c2c15b190e0fd8/tumblr_n8cu7dlug61qz4cuyo1_1280.jpg",
+                     "width":640,
+                     "height":640
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://40.media.tumblr.com/79f68946643dee1507c2c15b190e0fd8/tumblr_n8cu7dlug61qz4cuyo1_1280.jpg",
+                        "width":640,
+                        "height":640
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/79f68946643dee1507c2c15b190e0fd8/tumblr_n8cu7dlug61qz4cuyo1_500.jpg",
+                        "width":500,
+                        "height":500
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/79f68946643dee1507c2c15b190e0fd8/tumblr_n8cu7dlug61qz4cuyo1_400.jpg",
+                        "width":400,
+                        "height":400
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/79f68946643dee1507c2c15b190e0fd8/tumblr_n8cu7dlug61qz4cuyo1_250.jpg",
+                        "width":250,
+                        "height":250
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/79f68946643dee1507c2c15b190e0fd8/tumblr_n8cu7dlug61qz4cuyo1_100.jpg",
+                        "width":100,
+                        "height":100
+                     },
+                     {
+                        "url":"https://36.media.tumblr.com/79f68946643dee1507c2c15b190e0fd8/tumblr_n8cu7dlug61qz4cuyo1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "link_url":"http://laughingsquid.com/sunday-sketching-everyday-objects-inserted-into-delightful-illustrations-by-christoph-niemann/",
+            "summary":"\u2018Sunday Sketching\u2019, Everyday Objects Inserted Into Delightful Illustrations by Christoph Niemann",
+            "caption":"<p><a class=\"tumblr_blog\" href=\"http://links.laughingsquid.com/post/91068227810/sunday-sketching-everyday-objects-inserted-into\">laughingsquid</a>:</p>\n<blockquote>\n<p><a href=\"http://laughingsquid.com/sunday-sketching-everyday-objects-inserted-into-delightful-illustrations-by-christoph-niemann/\">\u2018Sunday Sketching\u2019, Everyday Objects Inserted Into Delightful Illustrations by Christoph Niemann</a></p>\n</blockquote>"
+         },
+         {
+            "reblog_key":"Vj46xl9n",
+            "short_url":"http://tmblr.co/ZhSWUx1KoxiKN",
+            "id":91048822039,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/91048822039/fakefp-the-many-moods-of-anthony-rendon",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/91048822039",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://fakefp.tumblr.com/post/52707264058/the-many-moods-of-anthony-rendon\">fakefp</a>:</p><blockquote>\n<p>The many moods of Anthony Rendon</p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1404743947,
+            "note_count":72,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://40.media.tumblr.com/d25f5c1df734b4f45639e4bf80f122c3/tumblr_mo8erfp1qP1rmiy5lo1_1280.jpg",
+                     "width":600,
+                     "height":700
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://40.media.tumblr.com/d25f5c1df734b4f45639e4bf80f122c3/tumblr_mo8erfp1qP1rmiy5lo1_1280.jpg",
+                        "width":600,
+                        "height":700
+                     },
+                     {
+                        "url":"https://40.media.tumblr.com/d25f5c1df734b4f45639e4bf80f122c3/tumblr_mo8erfp1qP1rmiy5lo1_500.jpg",
+                        "width":500,
+                        "height":583
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/d25f5c1df734b4f45639e4bf80f122c3/tumblr_mo8erfp1qP1rmiy5lo1_400.jpg",
+                        "width":400,
+                        "height":467
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/d25f5c1df734b4f45639e4bf80f122c3/tumblr_mo8erfp1qP1rmiy5lo1_250.jpg",
+                        "width":250,
+                        "height":292
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/d25f5c1df734b4f45639e4bf80f122c3/tumblr_mo8erfp1qP1rmiy5lo1_100.jpg",
+                        "width":100,
+                        "height":117
+                     },
+                     {
+                        "url":"https://41.media.tumblr.com/d25f5c1df734b4f45639e4bf80f122c3/tumblr_mo8erfp1qP1rmiy5lo1_75sq.jpg",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "date":"2014-07-07 14:39:07 GMT",
+            "slug":"fakefp-the-many-moods-of-anthony-rendon",
+            "blog_name":"pitchersandpoets",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_05_focused_v3.png?_v=671444c5f47705cce40d8aefd23df3b1",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_05_focused_v3.png?_v=671444c5f47705cce40d8aefd23df3b1",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_05.png?_v=671444c5f47705cce40d8aefd23df3b1"
+                     },
+                     "name":"fakefp"
+                  },
+                  "content":"<p>The many moods of Anthony Rendon</p>",
+                  "post":{
+                     "id":"52707264058"
+                  },
+                  "content_raw":"<p>The many moods of Anthony Rendon</p>",
+                  "is_root_item":true
+               }
+            ],
+            "summary":"The many moods of Anthony Rendon",
+            "caption":"<p><a class=\"tumblr_blog\" href=\"http://fakefp.tumblr.com/post/52707264058/the-many-moods-of-anthony-rendon\">fakefp</a>:</p>\n<blockquote>\n<p>The many moods of Anthony Rendon</p>\n</blockquote>"
+         },
+         {
+            "reblog_key":"HZMmYXHk",
+            "short_url":"http://tmblr.co/ZhSWUx1KoxQZG",
+            "id":91048749264,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/91048749264/allstar-washingtonnationals-glove-save-and-a",
+            "image_permalink":"http://pitchersandpoets.tumblr.com/image/91048749264",
+            "tags":[
+
+            ],
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"<p>#AllStar</p>",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://washingtonnationals.tumblr.com/post/87406741350/glove-save-and-a-beauty-what-a-slick-play-by\">washingtonnationals</a>:</p><blockquote>\n<p>Glove save and a beauty! What a slick play by Anthony Rendon.</p>\n</blockquote>"
+            },
+            "type":"photo",
+            "recommended_color":null,
+            "format":"html",
+            "timestamp":1404743877,
+            "note_count":1305,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://45.media.tumblr.com/d6d4e5737f2b828b4224d33afd671968/tumblr_n6g7ouM4ep1rs13mso1_400.gif",
+                     "width":400,
+                     "height":225
+                  },
+                  "alt_sizes":[
+                     {
+                        "url":"https://45.media.tumblr.com/d6d4e5737f2b828b4224d33afd671968/tumblr_n6g7ouM4ep1rs13mso1_400.gif",
+                        "width":400,
+                        "height":225
+                     },
+                     {
+                        "url":"https://49.media.tumblr.com/d6d4e5737f2b828b4224d33afd671968/tumblr_n6g7ouM4ep1rs13mso1_250.gif",
+                        "width":250,
+                        "height":141
+                     },
+                     {
+                        "url":"https://49.media.tumblr.com/d6d4e5737f2b828b4224d33afd671968/tumblr_n6g7ouM4ep1rs13mso1_100.gif",
+                        "width":100,
+                        "height":56
+                     },
+                     {
+                        "url":"https://45.media.tumblr.com/d6d4e5737f2b828b4224d33afd671968/tumblr_n6g7ouM4ep1rs13mso1_75sq.gif",
+                        "width":75,
+                        "height":75
+                     }
+                  ]
+               }
+            ],
+            "date":"2014-07-07 14:37:57 GMT",
+            "slug":"allstar-washingtonnationals-glove-save-and-a",
+            "blog_name":"pitchersandpoets",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_04_focused_v3.png?_v=7c4e5e82cf797042596e2e64af1c383f",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_04_focused_v3.png?_v=7c4e5e82cf797042596e2e64af1c383f",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_04.png?_v=7c4e5e82cf797042596e2e64af1c383f"
+                     },
+                     "name":"washingtonnationals"
+                  },
+                  "content":"<p>Glove save and a beauty! What a slick play by Anthony Rendon.</p>",
+                  "post":{
+                     "id":"87406741350"
+                  },
+                  "content_raw":"<p>Glove save and a beauty! What a slick play by Anthony Rendon.</p>",
+                  "is_root_item":true
+               },
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"pitchersandpoets"
+                  },
+                  "content":"<p>#AllStar</p>",
+                  "post":{
+                     "id":"91048749264"
+                  },
+                  "content_raw":"<p>#AllStar</p>",
+                  "is_current_item":true
+               }
+            ],
+            "summary":"Glove save and a beauty! What a slick play by Anthony Rendon.",
+            "caption":"<p>#AllStar</p>\n<p><a class=\"tumblr_blog\" href=\"http://washingtonnationals.tumblr.com/post/87406741350/glove-save-and-a-beauty-what-a-slick-play-by\">washingtonnationals</a>:</p>\n<blockquote>\n<p>Glove save and a beauty! What a slick play by Anthony Rendon.</p>\n</blockquote>"
+         },
+         {
+            "recommended_color":null,
+            "highlighted":[
+
+            ],
+            "reblog_key":"SNBiKCEl",
+            "format":"html",
+            "timestamp":1403193653,
+            "note_count":23,
+            "tags":[
+               "clayton kershaw",
+               "dodgers",
+               "Vin Scully"
+            ],
+            "body":"<p><span>It\u2019s amazing what a peaceful Wednesday evening can bring in baseball land.</span></p>\n<p><span>I fired up what I thought would be some meaningless West Coast baseball.\u00a0</span>What I found was a bit more&hellip;animated.</p>\n<p><span>Dodgers-Rockies. Charlie Steiner, the LA radio man, went on about Uncle Charlie, Clayton Kershaw\u2019s legendary curveball. \u201cWhen I say Uncle Charlie, I mean a curveball that can freeze you right up\u2026\u201d etc. Baseball 101.</span></p>\n<p><span>Twitter informed me that he was doing his superstitious best to avoid any mention of the feat unfolding before him. Steiner and his broadcasting partner instead praised the characteristics of public enemy number one, the curveball that launched a thousand strikeouts.\u00a0</span></p>\n<p><span>They dodged the words \u201cno\u201d and \u201chitter\u201d like they might summon a baseball demon; the fear of the baseball gods were in them.</span></p>\n<p><span>Dodgers.com was kind enough to make their streaming video available to those of us too cheap to pay for the privilege. I felt bad switching from radio to TV and abandoning Charlie &amp; Friends at the pivotal moment.</span></p>\n<p><span>Vin Scully quickly alleviated my guilt.</span></p>\n<p><span>\u201cIf you don\u2019t mind, I\u2019m just gonna sit back and watch with the rest of you,\u201d said Vin. A legend in the booth watching a hero on the field. Twitter buzzed with Vinsanity as much as Kershawesomeness.</span></p>\n<p><span>The ace struck out the last batter, he raised both arms. He really takes up some space, especially when unfolded. Michaelangelo would need half a mountain\u2019s worth of marble.</span></p>\n<p><span id=\"docs-internal-guid-b1941c43-b4d9-dd3a-ae3a-e02113441451\"><span>- Ted</span></span></p>",
+            "trail":[
+               {
+                  "content":"<p>It\u2019s amazing what a peaceful Wednesday evening can bring in baseball land.</p>\n<p>I fired up what I thought would be some meaningless West Coast baseball.\u00a0What I found was a bit more\u2026animated.</p>\n<p>Dodgers-Rockies. Charlie Steiner, the LA radio man, went on about Uncle Charlie, Clayton Kershaw\u2019s legendary curveball. \u201cWhen I say Uncle Charlie, I mean a curveball that can freeze you right up\u2026\u201d etc. Baseball 101.</p>\n<p>Twitter informed me that he was doing his superstitious best to avoid any mention of the feat unfolding before him. Steiner and his broadcasting partner instead praised the characteristics of public enemy number one, the curveball that launched a thousand strikeouts.\u00a0</p>\n<p>They dodged the words \u201cno\u201d and \u201chitter\u201d like they might summon a baseball demon; the fear of the baseball gods were in them.</p>\n<p>Dodgers.com was kind enough to make their streaming video available to those of us too cheap to pay for the privilege. I felt bad switching from radio to TV and abandoning Charlie &amp; Friends at the pivotal moment.</p>\n<p>Vin Scully quickly alleviated my guilt.</p>\n<p>\u201cIf you don\u2019t mind, I\u2019m just gonna sit back and watch with the rest of you,\u201d said Vin. A legend in the booth watching a hero on the field. Twitter buzzed with Vinsanity as much as Kershawesomeness.</p>\n<p>The ace struck out the last batter, he raised both arms. He really takes up some space, especially when unfolded. Michaelangelo would need half a mountain\u2019s worth of marble.</p>\n<p>- Ted</p>",
+                  "content_raw":"<p><span>It\u2019s amazing what a peaceful Wednesday evening can bring in baseball land.</span></p>\n<p><span>I fired up what I thought would be some meaningless West Coast baseball.\u00a0</span>What I found was a bit more\u2026animated.</p>\n<p><span>Dodgers-Rockies. Charlie Steiner, the LA radio man, went on about Uncle Charlie, Clayton Kershaw\u2019s legendary curveball. \u201cWhen I say Uncle Charlie, I mean a curveball that can freeze you right up\u2026\u201d etc. Baseball 101.</span></p>\n<p><span>Twitter informed me that he was doing his superstitious best to avoid any mention of the feat unfolding before him. Steiner and his broadcasting partner instead praised the characteristics of public enemy number one, the curveball that launched a thousand strikeouts.\u00a0</span></p>\n<p><span>They dodged the words \u201cno\u201d and \u201chitter\u201d like they might summon a baseball demon; the fear of the baseball gods were in them.</span></p>\n<p><span>Dodgers.com was kind enough to make their streaming video available to those of us too cheap to pay for the privilege. I felt bad switching from radio to TV and abandoning Charlie &amp; Friends at the pivotal moment.</span></p>\n<p><span>Vin Scully quickly alleviated my guilt.</span></p>\n<p><span>\u201cIf you don\u2019t mind, I\u2019m just gonna sit back and watch with the rest of you,\u201d said Vin. A legend in the booth watching a hero on the field. Twitter buzzed with Vinsanity as much as Kershawesomeness.</span></p>\n<p><span>The ace struck out the last batter, he raised both arms. He really takes up some space, especially when unfolded. Michaelangelo would need half a mountain\u2019s worth of marble.</span></p>\n<p><span id=\"docs-internal-guid-b1941c43-b4d9-dd3a-ae3a-e02113441451\"><span>- Ted</span></span></p>",
+                  "is_current_item":true,
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":"",
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7"
+                     },
+                     "name":"pitchersandpoets"
+                  },
+                  "is_root_item":true,
+                  "post":{
+                     "id":"89267951369"
+                  }
+               }
+            ],
+            "id":89267951369,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/89267951369/claytonia",
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"<p><span>It\u2019s amazing what a peaceful Wednesday evening can bring in baseball land.</span></p>\n<p><span>I fired up what I thought would be some meaningless West Coast baseball.\u00a0</span>What I found was a bit more\u2026animated.</p>\n<p><span>Dodgers-Rockies. Charlie Steiner, the LA radio man, went on about Uncle Charlie, Clayton Kershaw\u2019s legendary curveball. \u201cWhen I say Uncle Charlie, I mean a curveball that can freeze you right up\u2026\u201d etc. Baseball 101.</span></p>\n<p><span>Twitter informed me that he was doing his superstitious best to avoid any mention of the feat unfolding before him. Steiner and his broadcasting partner instead praised the characteristics of public enemy number one, the curveball that launched a thousand strikeouts.\u00a0</span></p>\n<p><span>They dodged the words \u201cno\u201d and \u201chitter\u201d like they might summon a baseball demon; the fear of the baseball gods were in them.</span></p>\n<p><span>Dodgers.com was kind enough to make their streaming video available to those of us too cheap to pay for the privilege. I felt bad switching from radio to TV and abandoning Charlie &amp; Friends at the pivotal moment.</span></p>\n<p><span>Vin Scully quickly alleviated my guilt.</span></p>\n<p><span>\u201cIf you don\u2019t mind, I\u2019m just gonna sit back and watch with the rest of you,\u201d said Vin. A legend in the booth watching a hero on the field. Twitter buzzed with Vinsanity as much as Kershawesomeness.</span></p>\n<p><span>The ace struck out the last batter, he raised both arms. He really takes up some space, especially when unfolded. Michaelangelo would need half a mountain\u2019s worth of marble.</span></p>\n<p><span id=\"docs-internal-guid-b1941c43-b4d9-dd3a-ae3a-e02113441451\"><span>- Ted</span></span></p>",
+               "tree_html":""
+            },
+            "short_url":"http://tmblr.co/ZhSWUx1J8oDS9",
+            "date":"2014-06-19 16:00:53 GMT",
+            "title":"Claytonia",
+            "summary":"Claytonia",
+            "type":"text",
+            "slug":"claytonia",
+            "blog_name":"pitchersandpoets"
+         },
+         {
+            "reblog_key":"z7TI0Amu",
+            "short_url":"http://tmblr.co/ZhSWUx1ItYcUR",
+            "excerpt":null,
+            "link_author":null,
+            "id":88978646939,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/88978646939/the-humility-of-tony-gwynn-vice-sports",
+            "title":"The Humility of Tony Gwynn | VICE Sports",
+            "tags":[
+
+            ],
+            "link_image":"https://33.media.tumblr.com/tumblr_n79wufdQhd1qzqlon_og.jpg",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/88974436012/the-humility-of-tony-gwynn-vice-sports\">ericnus</a>:</p><blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>Remembering Tony Gwynn for all that he was to San Diego and baseball.</div>\n</blockquote>\n<p>I wrote a little bit about the wonderful Tony Gwynn for Vice Sports.\u00a0</p>\n</blockquote>"
+            },
+            "type":"link",
+            "recommended_color":null,
+            "description":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/88974436012/the-humility-of-tony-gwynn-vice-sports\">ericnus</a>:</p>\n<blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>Remembering Tony Gwynn for all that he was to San Diego and baseball.</div>\n</blockquote>\n<p>I wrote a little bit about the wonderful Tony Gwynn for Vice Sports.\u00a0</p>\n</blockquote>",
+            "format":"html",
+            "timestamp":1402944879,
+            "note_count":30,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://33.media.tumblr.com/tumblr_n79wufdQhd1qzqlon_og.jpg",
+                     "width":400,
+                     "height":400
+                  },
+                  "alt_sizes":[
+
+                  ]
+               }
+            ],
+            "date":"2014-06-16 18:54:39 GMT",
+            "slug":"the-humility-of-tony-gwynn-vice-sports",
+            "blog_name":"pitchersandpoets",
+            "publisher":"sports.vice.com",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40"
+                     },
+                     "name":"ericnus"
+                  },
+                  "content":"<p><blockquote><p>\nRemembering Tony Gwynn for all that he was to San Diego and baseball.\n</p></blockquote>\n<p>I wrote a little bit about the wonderful Tony Gwynn for Vice Sports.\u00a0</p></p>",
+                  "post":{
+                     "id":"88974436012"
+                  },
+                  "content_raw":"<p><blockquote class=\"link_og_blockquote\">\n<div>Remembering Tony Gwynn for all that he was to San Diego and baseball.</div>\n</blockquote>\n<p>I wrote a little bit about the wonderful Tony Gwynn for Vice Sports.\u00a0</p></p>",
+                  "is_root_item":true
+               }
+            ],
+            "url":"https://sports.vice.com/article/the-humility-of-tony-gwynn",
+            "link_image_dimensions":{
+               "width":400,
+               "height":400
+            },
+            "summary":"The Humility of Tony Gwynn | VICE Sports"
+         },
+         {
+            "reblog_key":"z7TI0Amu",
+            "short_url":"http://tmblr.co/ZhSWUx1ItYcUR",
+            "excerpt":null,
+            "link_author":null,
+            "id":88978646939,
+            "post_url":"http://pitchersandpoets.tumblr.com/post/88978646939/the-humility-of-tony-gwynn-vice-sports",
+            "title":"The Humility of Tony Gwynn | VICE Sports",
+            "tags":[
+
+            ],
+            "link_image":"https://33.media.tumblr.com/tumblr_n79wufdQhd1qzqlon_og.jpg",
+            "highlighted":[
+
+            ],
+            "recommended_source":null,
+            "state":"published",
+            "reblog":{
+               "comment":"",
+               "tree_html":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/88974436012/the-humility-of-tony-gwynn-vice-sports\">ericnus</a>:</p><blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>Remembering Tony Gwynn for all that he was to San Diego and baseball.</div>\n</blockquote>\n<p>I wrote a little bit about the wonderful Tony Gwynn for Vice Sports.\u00a0</p>\n</blockquote>"
+            },
+            "type":"link",
+            "recommended_color":null,
+            "description":"<p><a class=\"tumblr_blog\" href=\"http://ericnus.com/post/88974436012/the-humility-of-tony-gwynn-vice-sports\">ericnus</a>:</p>\n<blockquote>\n<blockquote class=\"link_og_blockquote\">\n<div>Remembering Tony Gwynn for all that he was to San Diego and baseball.</div>\n</blockquote>\n<p>I wrote a little bit about the wonderful Tony Gwynn for Vice Sports.\u00a0</p>\n</blockquote>",
+            "format":"html",
+            "timestamp":1402944879,
+            "note_count":30,
+            "photos":[
+               {
+                  "caption":"",
+                  "original_size":{
+                     "url":"https://33.media.tumblr.com/tumblr_n79wufdQhd1qzqlon_og.jpg",
+                     "width":400,
+                     "height":400
+                  },
+                  "alt_sizes":[
+
+                  ]
+               }
+            ],
+            "date":"2014-06-16 18:54:39 GMT",
+            "slug":"the-humility-of-tony-gwynn-vice-sports",
+            "blog_name":"pitchersandpoets",
+            "publisher":"sports.vice.com",
+            "trail":[
+               {
+                  "blog":{
+                     "active":true,
+                     "theme":{
+                        "title_font_weight":"bold",
+                        "title_color":"#444444",
+                        "header_bounds":0,
+                        "title_font":"Gibson",
+                        "link_color":"#529ECC",
+                        "header_image_focused":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "show_description":true,
+                        "show_header_image":true,
+                        "header_stretch":true,
+                        "body_font":"Helvetica Neue",
+                        "show_title":true,
+                        "header_image_scaled":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40",
+                        "avatar_shape":"square",
+                        "show_avatar":true,
+                        "background_color":"#FAFAFA",
+                        "header_image":"https://secure.assets.tumblr.com/images/default_header/optica_pattern_03.png?_v=a0f20b51ed40eb5a930ab86effe42a40"
+                     },
+                     "name":"ericnus"
+                  },
+                  "content":"<p><blockquote><p>\nRemembering Tony Gwynn for all that he was to San Diego and baseball.\n</p></blockquote>\n<p>I wrote a little bit about the wonderful Tony Gwynn for Vice Sports.\u00a0</p></p>",
+                  "post":{
+                     "id":"88974436012"
+                  },
+                  "content_raw":"<p><blockquote class=\"link_og_blockquote\">\n<div>Remembering Tony Gwynn for all that he was to San Diego and baseball.</div>\n</blockquote>\n<p>I wrote a little bit about the wonderful Tony Gwynn for Vice Sports.\u00a0</p></p>",
+                  "is_root_item":true
+               }
+            ],
+            "url":"https://sports.vice.com/article/the-humility-of-tony-gwynn",
+            "link_image_dimensions":{
+               "width":400,
+               "height":400
+            },
+            "summary":"The Humility of Tony Gwynn | VICE Sports"
+         }
+      ]
+   }
+}

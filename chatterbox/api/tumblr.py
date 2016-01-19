@@ -61,4 +61,5 @@ class Tumblr(OAuth1Api):
         kwargs = kwargs or {}
         url = 'https://api.tumblr.com/v2/blog/pitchersandpoets.tumblr.com/posts?'
         kwargs['host_name'] = host_name
+        import pdb; pdb.set_trace()
         return self.get(url + urlencode(kwargs))

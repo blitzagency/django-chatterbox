@@ -16,8 +16,8 @@ class TublrTagForm(forms.Form):
     tag = forms.CharField(label='Tag Query', max_length=100)
 
 
-class TumblrTagSearch(Collector):
-    form = TublrTagForm
+class TumblrCollector(Collector):
+
     activity_from_dict = activity_from_dict
 
     def action(self, job):
@@ -36,6 +36,25 @@ class TumblrTagSearch(Collector):
                 # before, should we do nothing?  for now we are going to stop
                 # all iteration and be done
                 break
+
+    def fetch_results(self, tag, **kwargs):
+        raise NotImplementedError()
+
+    def post_save(self, job):
+        pass
+        # print("GOT HERE")
+
+    def post_delete(self, job):
+        pass
+        # print("GOT HERE")
+
+
+class TumblrTagSearch(TumblrCollector):
+
+    form = TublrTagForm
+
+    def fetch_results(self, tag, **kwargs):
+        return self.api.tags(tag, **kwargs)
 
     @property
     def statuses(self):
@@ -61,13 +80,34 @@ class TumblrTagSearch(Collector):
 
             posts = results.get('response')
 
+
+class TumblrPostFeed(TumblrCollector):
+    form = TumblrHostForm
+
     def fetch_results(self, tag, **kwargs):
-        return self.api.tags(tag, **kwargs)
+        return self.api.posts(tag, **kwargs)
 
-    def post_save(self, job):
-        pass
-        # print("GOT HERE")
+    @property
+    def statuses(self):
+        host_name = self.job.data["host_name"]
+        results = maybe(self.fetch_results)(host_name)
 
-    def post_delete(self, job):
-        pass
-        # print("GOT HERE")
+        if results is None:
+            raise StopIteration
+        posts = results.get('response').get('posts')
+        count = 1
+        while 1:
+            if len(posts) == 0:
+                raise StopIteration
+
+            for post in posts:
+                yield post
+
+            log.debug("Fetching next page")
+            count += 20
+            results = maybe(self.fetch_results)(host_name, offset=count)
+
+            if results is None:
+                raise StopIteration
+
+            posts = results.get('response').get('posts')

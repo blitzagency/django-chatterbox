@@ -116,15 +116,141 @@ def activity_dict_from_dict(blob):
         stream_object["object"]["content"] = blob.get("body")
         stream_object["object"]["tumblr:dialogue"] = blob.get("dialogue")
 
+    elif stream_type == "quote":
+        stream_object["object"]["@type"] = "Note"
+        stream_object["object"]["content"] = blob.get("text")
+        stream_object["object"]["tumblr:source"] = blob.get("source")
+
+    elif stream_type == "audio":
+        stream_object["object"]["@type"] = "Audio"
+        stream_object["object"]["url"] = [{
+            "href": blob.get("audio_url"),
+            "@type": "Link"
+        }]
+        stream_object["object"]["tumblr:audio_source_url"] = blob.get("audio_source_url")
+        stream_object["object"]["tumblr:audio_type"] = blob.get("audio_type")
+        stream_object["object"]["tumblr:embed"] = blob.get("embed")
+        stream_object["object"]["tumblr:player"] = blob.get("player")
+        stream_object["object"]["tumblr:plays"] = blob.get("plays")
+        stream_object["object"]["tumblr:source_title"] = blob.get("source_title")
+        stream_object["object"]["tumblr:source_url"] = blob.get("source_url")
+
     else:
         # GOTTA UPATE FEADER!
         log.error("tumlr: Update utils/tubmlr.py activity_dict_from_dict method")
         log.error(blob)
+        import pdb; pdb.set_trace()
 
     return stream_object
 
 
 """
+AUDIO
+
+{u'audio_source_url': u'https://www.tumblr.com/audio_file/pitchersandpoets/25448766013/tumblr_m5vo97tJ3L1qfnhhq',
+ u'audio_type': u'tumblr',
+ u'audio_url': u'https://www.tumblr.com/audio_file/pitchersandpoets/25448766013/tumblr_m5vo97tJ3L1qfnhhq',
+ u'blog_name': u'pitchersandpoets',
+ u'can_reply': False,
+ u'can_send_in_message': True,
+ u'caption': u'<p><a class="tumblr_blog" href="http://toddzwillich.tumblr.com/post/25447401556/sen-harry-reid-d-nev-channels-nationals">toddzwillich</a>:</p>\n<blockquote>\n<p>Sen. Harry Reid (D-Nev.) channels Nationals outfielder Bryce Harper in a press availability with reporters.</p>\n</blockquote>\n<p>Mitch McConnell would never do this. </p>',
+ u'date': u'2012-06-19 19:11:05 GMT',
+ u'embed': u'<iframe class="tumblr_audio_player tumblr_audio_player_25448766013" src="http://pitchersandpoets.tumblr.com/post/25448766013/audio_player_iframe/pitchersandpoets/tumblr_m5vo97tJ3L1qfnhhq?audio_file=https%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Fpitchersandpoets%2F25448766013%2Ftumblr_m5vo97tJ3L1qfnhhq" frameborder="0" allowtransparency="true" scrolling="no" width="540" height="85"></iframe>',
+ u'followed': False,
+ u'format': u'html',
+ u'highlighted': [],
+ u'id': 25448766013,
+ u'liked': False,
+ u'note_count': 63,
+ u'player': u'<embed type="application/x-shockwave-flash" src="https://secure.assets.tumblr.com/swf/audio_player.swf?audio_file=https%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Fpitchersandpoets%2F25448766013%2Ftumblr_m5vo97tJ3L1qfnhhq&color=FFFFFF" height="27" width="207" quality="best" wmode="opaque"></embed>',
+ u'plays': 10389,
+ u'post_url': u'http://pitchersandpoets.tumblr.com/post/25448766013/toddzwillich-sen-harry-reid-d-nev-channels',
+ u'reblog': {u'comment': u'<p>Mitch McConnell would never do this. </p>',
+             u'tree_html': u'<p><a class="tumblr_blog" href="http://toddzwillich.tumblr.com/post/25447401556/sen-harry-reid-d-nev-channels-nationals">toddzwillich</a>:</p><blockquote>\n<p>Sen. Harry Reid (D-Nev.) channels Nationals outfielder Bryce Harper in a press availability with reporters.</p>\n</blockquote>'},
+ u'reblog_key': u'UEJl4zYV',
+ u'recommended_color': None,
+ u'recommended_source': None,
+ u'short_url': u'http://tmblr.co/ZhSWUxNitLez',
+ u'slug': u'toddzwillich-sen-harry-reid-d-nev-channels',
+ u'source_title': u'toddzwillich',
+ u'source_url': u'http://toddzwillich.tumblr.com/post/25447401556/sen-harry-reid-d-nev-channels-nationals',
+ u'state': u'published',
+ u'summary': u'Sen. Harry Reid (D-Nev.) channels Nationals outfielder Bryce Harper in a press availability with reporters.',
+ u'tags': [],
+ u'timestamp': 1340133065,
+ u'trail': [{u'blog': {u'active': True,
+                       u'name': u'toddzwillich',
+                       u'theme': {u'avatar_shape': u'square',
+                                  u'background_color': u'#FAFAFA',
+                                  u'body_font': u'Helvetica Neue',
+                                  u'header_bounds': u'',
+                                  u'header_image': u'https://secure.assets.tumblr.com/images/default_header/optica_pattern_10.png?_v=eafbfb1726b334d86841955ae7b9221c',
+                                  u'header_image_focused': u'https://secure.assets.tumblr.com/images/default_header/optica_pattern_10_focused_v3.png?_v=eafbfb1726b334d86841955ae7b9221c',
+                                  u'header_image_scaled': u'https://secure.assets.tumblr.com/images/default_header/optica_pattern_10_focused_v3.png?_v=eafbfb1726b334d86841955ae7b9221c',
+                                  u'header_stretch': True,
+                                  u'link_color': u'#529ECC',
+                                  u'show_avatar': True,
+                                  u'show_description': True,
+                                  u'show_header_image': True,
+                                  u'show_title': True,
+                                  u'title_color': u'#444444',
+                                  u'title_font': u'Gibson',
+                                  u'title_font_weight': u'bold'}},
+             u'content': u'<p>Sen. Harry Reid (D-Nev.) channels Nationals outfielder Bryce Harper in a press availability with reporters.</p>',
+             u'content_raw': u'<p>Sen. Harry Reid (D-Nev.) channels Nationals outfielder Bryce Harper in a press availability with reporters.</p>',
+             u'is_root_item': True,
+             u'post': {u'id': u'25447401556'}},
+            {u'blog': {u'active': True,
+                       u'name': u'pitchersandpoets',
+                       u'theme': {u'avatar_shape': u'square',
+                                  u'background_color': u'#FAFAFA',
+                                  u'body_font': u'Helvetica Neue',
+                                  u'header_bounds': u'',
+                                  u'header_image': u'https://secure.assets.tumblr.com/images/default_header/optica_pattern_02.png?_v=b976ee00195b1b7806c94ae285ca46a7',
+                                  u'header_image_focused': u'https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7',
+                                  u'header_image_scaled': u'https://secure.assets.tumblr.com/images/default_header/optica_pattern_02_focused_v3.png?_v=b976ee00195b1b7806c94ae285ca46a7',
+                                  u'header_stretch': True,
+                                  u'link_color': u'#529ECC',
+                                  u'show_avatar': True,
+                                  u'show_description': True,
+                                  u'show_header_image': True,
+                                  u'show_title': True,
+                                  u'title_color': u'#444444',
+                                  u'title_font': u'Gibson',
+                                  u'title_font_weight': u'bold'}},
+             u'content': u'<p>Mitch McConnell would never do this. </p>',
+             u'content_raw': u'<p>Mitch McConnell would never do this. </p>',
+             u'is_current_item': True,
+             u'post': {u'id': u'25448766013'}}],
+ u'type': u'audio'}
+
+
+QUOTE
+ {u'blog_name': u'pitchersandpoets',
+ u'can_reply': False,
+ u'can_send_in_message': True,
+ u'date': u'2014-04-07 17:19:57 GMT',
+ u'followed': False,
+ u'format': u'html',
+ u'highlighted': [],
+ u'id': 82004716592,
+ u'liked': False,
+ u'note_count': 7,
+ u'post_url': u'http://pitchersandpoets.tumblr.com/post/82004716592/to-the-17-full-fledged-members-of-the-giib-the',
+ u'reblog': {u'comment': u'<p>I wrote about the budding sabermetrics movement in Cuba<a href="http://sportsillustrated.cnn.com/vault/article/magazine/MAG1210053/index.htm"> for Sports Illustrated</a>.\xa0 (via <a class="tumblr_blog" href="http://ericnus.com/">ericnus</a>)</p>',
+             u'tree_html': u''},
+ u'reblog_key': u'GLDJmljD',
+ u'recommended_color': None,
+ u'recommended_source': None,
+ u'short_url': u'http://tmblr.co/ZhSWUx1CNtAmm',
+ u'slug': u'to-the-17-full-fledged-members-of-the-giib-the',
+ u'source': u'I wrote about the budding sabermetrics movement in Cuba<a href="http://sportsillustrated.cnn.com/vault/article/magazine/MAG1210053/index.htm"> for Sports Illustrated</a>.\xa0 (via <a class="tumblr_blog" href="http://ericnus.com/">ericnus</a>)',
+ u'state': u'published',
+ u'summary': u'To the 17 full-fledged members of the GIIB, the feeling and understanding of baseball are inseparable from one another. They\u2019re...',
+ u'tags': [],
+ u'text': u'To the 17 full-fledged members of the GIIB, the feeling and understanding of baseball are inseparable from one another. They\u2019re intellectuals, empiricists, the kind of guys who believe that the best way to express your love of something is to spend years studying and arguing about it. They talk about sabermetrics in the context of classic economists: \u201cMarx\u2019s economic theories are basically sabermetrics,\u201d says Aldama. \u201cIt\u2019s the elimination of subjectivity.\u201d',
+ u'timestamp': 1396891197,
+ u'type': u'quote'}
 
 CHAT:
 {u'blog_name': u'raspberryninjas',

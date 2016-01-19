@@ -18,6 +18,11 @@ def populate_collectors(apps):
                     driver='chatterbox.collectors.tumblr.TumblrTagSearch')
     col.save()
 
+    col = Collector(label='Tublr Post Feed',
+                    service=tmblr,
+                    driver='chatterbox.collectors.tumblr.TumblrPostFeed')
+    col.save()
+
 
 def populate(apps, schema_editor):
     populate_collectors(apps)
