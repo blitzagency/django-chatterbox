@@ -36,7 +36,7 @@ Add `'chatterbox'` to your `INSTALLED_APPS` setting.
 .. code-block:: python
 
     INSTALLED_APPS = (
-        ...
+
         'chatterbox',
     )
 
@@ -46,9 +46,7 @@ Append urls to urls.py
 .. code-block:: python
 
     urlpatterns = patterns(
-        ...
-        `(r'^chatterbox/', include('chatterbox.urls', namespace="chatterbox")),`
-        ...
+        (r'^chatterbox/', include('chatterbox.urls', namespace="chatterbox")),
     )
 
 
@@ -75,7 +73,7 @@ or:
 - Select Instagram, Instagram tag search, highlight your key, and add a search term
 - You now have everything you need to run a job.  Lets execute it!
 
-.. code-block:: python
+.. code-block
 
     ./manage.py shell
     from chatterbox.models import Job
